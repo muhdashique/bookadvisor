@@ -1,0 +1,126 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .BlurBg{
+            backdrop-filter: blur(10px);
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <section class="w-full">
+            <div class="w-full">
+                 <!-- Header -->
+                 <div class=" relative backdrop-blur-sm flex justify-center items-center">
+                    <nav class="flex justify-between items-center w-full py-5 px-6">
+                        <!-- Logo -->
+                        <div class="w-[150px] h-auto">
+                            <img src="{% static 'image/BOOKADVISOR.in.png' %}" class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]" alt="">
+                        </div>
+                        <div class="flex justify-center items-center gap-10">
+                            <ul class="flex justify-center items-center gap-5 font-semibold text-black">
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}" class="active">About</a></li>
+                                <li><a href="{% url 'properties' %}">Properties</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                            <div>
+                                <button type="submit" id="loginBtn"><a href="{% url 'contact' %}">Login</a></button>
+                            </div>
+                        </div>
+                    </nav>
+                  </div>
+                  
+    
+            </div>
+        </section>
+        <section>
+            <div class="w-full h-[90vh]">
+                <video class=" h-full w-full left-0 right-0 object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
+                </video>
+             </div>
+        </section>
+
+        <section class="w-full h-auto">
+            <div class="flex justify-center items-center gap-10 w-full px-6 mb-10 max-w-[1200px] mx-auto">
+                <div class="md:w-[55%]">
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates autem necessitatibus, assumenda quaerat unde aliquam rerum sit magnam perspiciatis dolores dolorum modi atque nemo iste. Inventore eaque tempore exercitationem accusamus?
+                        Deleniti adipisci quas esse illo cum velit facilis illum officiis asperiores, laboriosam exercitationem, numquam neque ut odio aperiam at. Cum illum quis accusamus provident cumque ea facere iste ad quasi?
+                        Deserunt facilis quia, sequi nulla quidem exercitationem. Nihil perferendis debitis commodi animi alias. Voluptatem ipsa totam dolorem fugit explicabo quasi incidunt perferendis similique quas laboriosam cumque distinctio, odio aperiam officiis!
+                        Facere tempore, atque asperiores odit quaerat aliquam quisquam, aliquid ad qui porro, ipsum itaque molestiae nulla! Similique, natus minima. Nesciunt illo est atque. Cum, fugiat tenetur officiis nihil dignissimos modi?
+                    </div>
+                </div>
+
+                <div class="md:w-[45%] flex justify-center items-center">
+                    <div class="relative flex justify-center items-center w-[50%] h-[450px]">
+                        <div class=" absolute h-[250px] w-[250px] rounded-3xl z-20 bottom-0 overflow-hidden border border-[10px]">
+                            <img src="https://www.pnthotels.com/img/gallery/gal-9.webp" class="w-full h-full object-cover" alt="">
+                        </div>
+                        <div class=" absolute h-[400px] w-[300px] rounded-3xl z-10 left-28 border border-[10px]">
+                            <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJlc29ydHxlbnwwfHwwfHx8MA%3D%3D    " class=" h-full w-full object-cover rounded-3xl" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="w-full h-auto py-10 bg-[#47ad95] flex justify-evenly items-center text-[#fff]">
+                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
+                    1000 +
+                    <span class="text-sm font-semibold">Happy Client</span>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-l border-r px-20">
+                    2000 +
+                    <span class="text-sm font-semibold">Rooms</span>
+                </div>
+                <div  class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-r pr-10">
+                    100 +
+                    <span class="text-sm font-semibold">Type of Services</span>
+                </div>
+                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
+                    10 +
+                    <span class="text-sm font-semibold">Type of Services</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="flex justify-center items-center gap-10">
+                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
+                    <img src="https://media.istockphoto.com/id/536048545/photo/tropical-resort.jpg?s=612x612&w=0&k=20&c=TR9a_ToayikLVagrZlq8ebvZFRZx_WH25q9_9m884Jk=" class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
+                    <img src="https://www.kumarakomlakeresort.in/assets/images/luxury-dining/ettukettu-the-speciality-restaurant/ettukettu-the-speciality-restaurant.jpg"class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
+                    <img src="https://assets.architecturaldigest.in/photos/633176d1ac6d3139777df901/master/w_1600%2Cc_limit/Niraamaya%2520Surya%2520Samudra%2520Wellness.jpg"class="h-full w-full object-cover" alt="">
+                </div>
+                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden"><img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/18181031/kerala.jpg"class="h-full w-full object-cover" alt=""></div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="relative h-[600px] w-full BlurBg backdrop-blur" >
+                <div class="h-full w-full" >
+                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- {% block content %} {% endblock %} -->
+    </div>
+</body>
+</html>
