@@ -7,5 +7,6 @@ urlpatterns = [
     path('properties/', views.property_list, name='properties'),
     path('contact/', views.contact, name='contact'),
     path('login/', views.login_view, name='login'),
-    
+    path('adminpannel/', views.AdminPannel, name='adminpannel'), 
+
 ]

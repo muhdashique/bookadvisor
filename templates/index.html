@@ -1,10 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BOOK ADVISOR</title>
+    <link rel="icon" class="favicon" href="{% static 'image/BOOKADVISOR icon.png' %}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         *{
@@ -12,45 +20,112 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .favicon {
+            width: 50px;
+            height: 50px;
+            }
+        li{
+            list-style: none;
+        }
         .BlurBg{
             backdrop-filter: blur(10px);
             background: #000;
         }
+        .reviewCard:nth-child(1){
+            height: 300px;
+            width: 470px;
+            background-color: #ffffff65;
+            backdrop-filter: blur(10px);
+        }
+        .reviewCard:nth-child(2){
+            height: 350px;
+            width: 500px;
+            background-color: #ffffff65;
+            backdrop-filter: blur(10px);
+        }
+        .reviewCard:nth-child(3){
+            height: 300px;
+            width: 470px;
+            background-color: #ffffff65;
+            backdrop-filter: blur(10px);
+        }
+
+        /* section */
+        .room-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.category-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.category-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 20px;
+}
+
+.category-info h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.category-info p {
+  margin: 5px 0;
+}
+/* banner text */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+
+  .headline {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .subheading {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+
     </style>
 </head>
 <body>
     <div>
-        <section class="w-full">
-            <div class="w-full">
-                 <!-- Header -->
-                 <div class=" relative backdrop-blur-sm flex justify-center items-center">
-                    <nav class="flex justify-between items-center w-full py-5 px-6">
-                        <!-- Logo -->
-                        <div class="w-[150px] h-auto">
-                            <img src="{% static 'image/BOOKADVISOR.in.png' %}" class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]" alt="">
-                        </div>
-                        <div class="flex justify-center items-center gap-10">
-                            <ul class="flex justify-center items-center gap-5 font-semibold text-black">
-                                <li><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="{% url 'about' %}" class="active">About</a></li>
-                                <li><a href="{% url 'properties' %}">Properties</a></li>
-                                <li><a href="{% url 'contact' %}">Contact</a></li>
-                            </ul>
-                            <div>
-                                <button type="submit" id="loginBtn"><a href="{% url 'contact' %}">Login</a></button>
-                            </div>
-                        </div>
-                    </nav>
-                  </div>
-                  
-    
-            </div>
-        </section>
+        
         <section>
-            <div class="w-full h-[90vh]">
-                <video class=" h-full w-full left-0 right-0 object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
+            <div class="w-full h-[90vh] relative">
+                <video class="h-full w-full object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
                 </video>
-             </div>
+              
+                <!-- Text Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center text-white">
+                    <div class="banner-text">
+                        <h1 class="headline">EXPLORE THE WORLD</h1>
+                        <p class="subheading">LET'S TRAVEL THE WORLD WITH US</p>
+                      </div>
+                </div>
+            </div>
+              
         </section>
 
         <section class="w-full h-auto">
@@ -98,29 +173,258 @@
             </div>
         </section>
 
+        <section class="room-categories">
+            <div class="category-card">
+              <img src="https://media.architecturaldigest.com/photos/6032b3c9a0b9bd2edd5510d1/1:1/w_2880,h_2880,c_limit/Hero_Soneva%20Jani%20Chapter%20Two%20by%20Aksham%20Abdul%20Ghadir.jpg" alt="Maldives Tour">
+              <div class="category-info">
+                <h3>Maldives Tour</h3>
+                <p>$2,500 per persons</p>
+              </div>
+            </div>
+            <div class="category-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3WRlZdU2AgCg24lUY-3LfkwRB6F03vGgzUg&s" alt="Roma">
+              <div class="category-info">
+                <h3>Roma</h3>
+                <p>$1,300 per persons</p>
+              </div>
+            </div>
+            <div class="category-card">
+              <img src="https://deih43ym53wif.cloudfront.net/medium_shutterstock_2252117189_561ec56fbd.jpg" alt="France">
+              <div class="category-info">
+                <h3>France</h3>
+                <p>$400 per persons</p>
+              </div>
+            </div>
+            <div class="category-card">
+              <img src="https://thesheratonholidaysinternational.com/wp-content/uploads/2024/05/Greece.webp" alt="Greece Tour">
+              <div class="category-info">
+                <h3>Greece Tour</h3>
+                <p>$500 per persons</p>
+              
+              </div>
+            </div>
+            <div class="category-card">
+              <img src="https://static1.evcdn.net/cdn-cgi/image/width=3840,height=2880,quality=70,fit=crop/offer/raw/2022/06/16/d0d4b535-7e05-4aa8-851a-a01a78dc35a0.jpg" alt="Canada">
+              <div class="category-info">
+                <h3>Canada</h3>
+                <p>$800 per persons</p>
+              </div>
+            </div>
+            <div class="category-card">
+              <img src="https://content.presspage.com/uploads/2431/1920_dubaiconnect.jpg?10000" alt="Dubai">
+              <div class="category-info">
+                <h3>Dubai</h3>
+                <p>$1,100 per persons</p>
+              </div>
+            </div>
+          </section>
+
         <section class="mb-10">
-            <div class="flex justify-center items-center gap-10">
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://media.istockphoto.com/id/536048545/photo/tropical-resort.jpg?s=612x612&w=0&k=20&c=TR9a_ToayikLVagrZlq8ebvZFRZx_WH25q9_9m884Jk=" class="h-full w-full object-cover" alt="">
+            <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
+                <div class="h-full w-full absolute" >
+                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
                 </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://www.kumarakomlakeresort.in/assets/images/luxury-dining/ettukettu-the-speciality-restaurant/ettukettu-the-speciality-restaurant.jpg"class="h-full w-full object-cover" alt="">
+                <!-- Slider -->
+                <div class=" flex justify-center items-center">
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_143" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_49" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://imgcdn.stablediffusionweb.com/2024/4/16/88f40006-f2ef-4978-8e32-f0d781b77aea.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
                 </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://assets.architecturaldigest.in/photos/633176d1ac6d3139777df901/master/w_1600%2Cc_limit/Niraamaya%2520Surya%2520Samudra%2520Wellness.jpg"class="h-full w-full object-cover" alt="">
-                </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden"><img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/18181031/kerala.jpg"class="h-full w-full object-cover" alt=""></div>
             </div>
         </section>
 
-        <section class="mb-10">
-            <div class="relative h-[600px] w-full BlurBg backdrop-blur" >
-                <div class="h-full w-full" >
-                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
+
+        <!-- <footer class="flex justify-center items-center w-full">
+            <div class="grid grid-cols-3 place-items-center max-w-[1200px]">
+            
+                <div>
+                    
+                    <div class="flex">
+                        <div><i class="fa-solid fa-location-dot"></i></div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates itaque eius iure reprehenderit</div>
+                    </div>
+                    
+                    <div>
+                        <div><i class="fa-solid fa-phone"></i></div>
+                        <div>+9178687798</div>
+                    </div>
+                    
+                    <div>
+                        <div><i class="fa-solid fa-envelope"></i></div>
+                        <div>bookadvisor@gmail.com</div>
+                    </div>
+                </div>
+             
+                <div>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Properties</li>
+                    <li>Contact Us</li>
+                </div>
+               
+                <div>
+                    <li><i class="fa-brands fa-facebook"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-whatsapp"></i></li>
                 </div>
             </div>
-        </section>
-        <!-- {% block content %} {% endblock %} -->
+        </footer> -->
+        
     </div>
+
+    <script>
+        // Define the room category data
+const roomCategories = [
+  {
+    image: "maldives.jpg",
+    title: "Maldives Tour",
+    price: "$2,500 per persons"
+  },
+  {
+    image: "rome.jpg",
+    title: "Roma",
+    price: "$1,300 per persons"
+  },
+  {
+    image: "france.jpg",
+    title: "France",
+    price: "$400 per persons"
+  },
+  {
+    image: "greece.jpg",
+    title: "Greece Tour",
+    price: "$500 per persons",
+    description: "Travel non lorem ac erat susce bibendum nulla facilisi. Sedeuler nunc voluat miss conseventa amet vestibulum.",
+    duration: "10 Days",
+    location: "Greece"
+  },
+  {
+    image: "canada.jpg",
+    title: "Canada",
+    price: "$800 per persons"
+  },
+  {
+    image: "dubai.jpg",
+    title: "Dubai",
+    price: "$1,100 per persons"
+  }
+];
+
+// Function to create a single room category card
+function createCategoryCard(category) {
+  const card = document.createElement("div");
+  card.classList.add("category-card");
+
+  const img = document.createElement("img");
+  img.src = category.image;
+  img.alt = category.title;
+
+  const info = document.createElement("div");
+  info.classList.add("category-info");
+
+  const title = document.createElement("h3");
+  title.textContent = category.title;
+
+  const price = document.createElement("p");
+  price.textContent = category.price;
+
+  info.appendChild(title);
+  info.appendChild(price);
+
+  if (category.description) {
+    const description = document.createElement("p");
+    description.textContent = category.description;
+    info.appendChild(description);
+  }
+
+  if (category.duration) {
+    const duration = document.createElement("p");
+    duration.textContent = category.duration;
+    info.appendChild(duration);
+  }
+
+  if (category.location) {
+    const location = document.createElement("p");
+    location.textContent = category.location;
+    info.appendChild(location);
+  }
+
+  card.appendChild(img);
+  card.appendChild(info);
+
+  return card;
+}
+
+// Create and append the room category cards
+const roomCategoriesContainer = document.getElementById("room-categories");
+roomCategories.forEach(category => {
+  const card = createCategoryCard(category);
+  roomCategoriesContainer.appendChild(card);
+});
+    </script>
 </body>
 </html>
+{% endblock %}

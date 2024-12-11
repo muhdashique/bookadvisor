@@ -1,115 +1,92 @@
-
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Properties</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        /* Property List Styles */
-        .property-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px;
-        }
-
-        .property {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            width: 30%;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .property:hover {
-            transform: scale(1.05);
-        }
-
-        .property-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .property-details {
-            padding: 20px;
-        }
-
-        .property-details h2 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .property-details p {
-            color: #555;
-        }
-
-        .property-details strong {
-            color: #000;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <h1>Our Properties</h1>
+    <header class="pt-10 mb-10">
+        <h1 class="text-center text-3xl font-bold">Our Properties</h1>
     </header>
-
-    <section class="property-list">
-        <div class="property">
-            <img src="images/property1.jpg" alt="Property 1" class="property-image">
-            <div class="property-details">
-                <h2>Luxury Resort in the Hills</h2>
-                <p>This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
-                <p><strong>Price:</strong> $500 per night</p>
+<!-- Categories -->
+    <section class="flex justify-start items-center gap-5 px-6 mb-10 overflow-hidden">
+        <div class="overflow-x-auto flex justify-start items-center flex-shrink">
+            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
+                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
+                    <img src="{% static 'image/black.jpg' %}" alt="">
+                </div>
+                <div class="h-[200px] w-[400px] absolute z-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
+                </div>
+                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
+                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
+                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
+                    <p><strong>Price:</strong> $500 per night</p>
+                </div>
             </div>
-        </div>
-
-        <div class="property">
-            <img src="images/property2.jpg" alt="Property 2" class="property-image">
-            <div class="property-details">
-                <h2>Beachfront Villa</h2>
-                <p>Experience a beautiful beach view with top-tier amenities, perfect for family vacations.</p>
-                <p><strong>Price:</strong> $350 per night</p>
+    
+            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
+                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
+                    <img src="{% static 'image/black.jpg' %}" alt="">
+                </div>
+                <div class="h-[200px] w-[400px] absolute z-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
+                </div>
+                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
+                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
+                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
+                    <p><strong>Price:</strong> $500 per night</p>
+                </div>
             </div>
-        </div>
-
-        <div class="property">
-            <img src="images/property3.jpg" alt="Property 3" class="property-image">
-            <div class="property-details">
-                <h2>Modern City Apartment</h2>
-                <p>Live in luxury with this fully-furnished apartment in the heart of the city, surrounded by shopping and entertainment.</p>
-                <p><strong>Price:</strong> $250 per night</p>
+    
+            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
+                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
+                    <img src="{% static 'image/black.jpg' %}" alt="">
+                </div>
+                <div class="h-[200px] w-[400px] absolute z-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
+                </div>
+                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
+                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
+                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
+                    <p><strong>Price:</strong> $500 per night</p>
+                </div>
+            </div>
+            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
+                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
+                    <img src="{% static 'image/black.jpg' %}" alt="">
+                </div>
+                <div class="h-[200px] w-[400px] absolute z-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
+                </div>
+                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
+                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
+                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
+                    <p><strong>Price:</strong> $500 per night</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Items Display -->
+     <section class="px-6 w-full">
+        <div class="max-w-[1200px] flex justify-center items-center mx-auto flex-wrap gap-5">
+            <!-- Cards -->
+             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
+             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
+             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
+             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
+        </div>
+     </section>
+
+     
 </body>
 </html>
+{% endblock %}

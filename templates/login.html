@@ -1,119 +1,196 @@
-
 {% load static %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* CSS */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
         }
 
         .login-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
-            max-width: 400px;
-            margin: 100px auto;
+            max-width: 1000px;
             background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
+        .login-image {
+            width: 50%;
+            height: 500px;
+            background-image: url(https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?cs=srgb&dl=pexels-thorsten-technoman-109353-338504.jpg&fm=jpg);
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-right: 30px;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 400px;
+            padding: 0 20px;
         }
 
         .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: bold;
+            position: relative;
+            margin-bottom: 20px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 8px;
+            padding: 12px 40px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
-        .action-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
         }
 
         .action-group button {
             width: 100%;
-            padding: 10px;
-            background-color: #28a745;
+            padding: 12px;
+            background-color: var(--primary-color);
             color: white;
-            font-size: 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 25px;
+            font-size: 16px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .action-group button:hover {
-            background-color: #218838;
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .action-group a {
+        .error-messages {
+            color: #dc3545;
+            margin-bottom: 15px;
             font-size: 14px;
-            color: #007bff;
-            text-decoration: none;
         }
 
-        .action-group a:hover {
-            text-decoration: underline;
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .login-error {
+            animation: shake 0.5s;
         }
     </style>
 </head>
 <body>
-
     <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm" action="{% url 'login' %}" method="POST">
-            {% csrf_token %}
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="action-group">
-                <button type="submit" id="loginBtn">Login</button>
-                {% comment %} <a href="{% url 'password_reset' %}">Forgot Password?</a> {% endcomment %}
-            </div>
-        </form>
+        <div class="login-image"></div>
+        
+        <div class="login-form">
+            <form method="post" id="loginForm">
+                {% csrf_token %}
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    {{ form.username }}
+                </div>
+        
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    {{ form.password }}
+                </div>
+        
+                {% if form.errors %}
+                    <div class="error-messages login-error">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+        
+                <div class="action-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
-
+    
     <script>
-        // JavaScript for form validation
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const usernameInput = document.querySelector('input[name="username"]');
+            const passwordInput = document.querySelector('input[name="password"]');
 
-            if (!username || !password) {
-                alert("Please fill in both fields!");
-                event.preventDefault();  // Prevent form submission
-            }
+            // Add placeholders
+            usernameInput.placeholder = 'Enter your username';
+            passwordInput.placeholder = 'Enter your password';
+
+            loginForm.addEventListener('submit', function(event) {
+                // Remove any existing error classes
+                loginForm.classList.remove('login-error');
+
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                if (!username || !password) {
+                    event.preventDefault();
+                    loginForm.classList.add('login-error');
+                    
+                    // Highlight empty fields
+                    if (!username) usernameInput.style.borderColor = '#dc3545';
+                    if (!password) passwordInput.style.borderColor = '#dc3545';
+
+                    // Optional: Show a toast or alert
+                    alert('Please fill in both username and password.');
+                }
+            });
+
+            // Reset field border color when typing
+            [usernameInput, passwordInput].forEach(input => {
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '#e0e0e0';
+                });
+            });
         });
     </script>
 </body>
 </html>
-{% endblock %}

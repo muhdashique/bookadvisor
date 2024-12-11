@@ -1,126 +1,107 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}BookAdvisor{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .BlurBg{
-            backdrop-filter: blur(10px);
-            background: #000;
-        }
-    </style>
 </head>
-<body>
-    <div>
-        <section class="w-full">
+<body class="bg-white">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navbar -->
+        <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-sm shadow-md">
             <div class="w-full">
-                 <!-- Header -->
-                 <div class=" relative backdrop-blur-sm flex justify-center items-center">
-                    <nav class="flex justify-between items-center w-full py-5 px-6">
-                        <!-- Logo -->
-                        <div class="w-[150px] h-auto">
-                            <img src="{% static 'image/BOOKADVISOR.in.png' %}" class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]" alt="">
+                <div class="flex justify-center items-center py-4 max-w-7xl mx-auto px-4">
+                    <div class="w-[150px] h-auto">
+                        <img src="{% static 'image/BOOKADVISOR.in.png' %}" class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]" alt="BookAdvisor Logo">
+                    </div>
+                    
+                    <div class="flex justify-center items-center gap-10 ml-auto mr-10">
+                        <a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
+                        <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
+                        <a href="{% url 'properties' %}" class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
+                        <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
+                    </div>
+        
+                    <div>
+                        <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#47ad95] text-white relative">
+            <div class="re h-[600px] w-full BlurBg backdrop-blur flex flex-col justify-center items-center">
+                <div class="background-image absolute -z-10 top-0 bottom-0 left-0 right-0">
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/1*HRcVRb4AmLrt5E0gANvWcA.jpeg" class="w-full h-full object-cover" alt="">
+                </div>
+                
+                <div class="w-full max-w-[1200px] px-4 lg:px-0">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 place-items-start mb-10" style="margin-top: 10%;">
+                        <!-- Logo Section -->
+                        <div class="text-center md:text-left col-span-1">
+                            <img src="{% static 'image/BOOKADVISOR.in.png' %}" alt="BookAdvisor Logo" class="h-16 mx-auto md:mx-0 mb-4">
                         </div>
-                        <div class="flex justify-center items-center gap-10">
-                            <ul class="flex justify-center items-center gap-5 font-semibold text-black">
-                                <li><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="{% url 'about' %}" class="active">About</a></li>
-                                <li><a href="{% url 'properties' %}">Properties</a></li>
-                                <li><a href="{% url 'contact' %}">Contact</a></li>
+        
+                        <!-- Navigation Column 1 -->
+                        <div class="text-center md:text-left">
+                            <h4 class="font-bold mb-4">Quick Links</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li><a href="{% url 'index' %}" class="hover:text-gray-300">Home</a></li>
+                                <li><a href="{% url 'about' %}" class="hover:text-gray-300">About</a></li>
+                                <li><a href="{% url 'properties' %}" class="hover:text-gray-300">Properties</a></li>
+                                <li><a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a></li>
                             </ul>
-                            <div>
-                                <button type="submit" id="loginBtn"><a href="{% url 'contact' %}">Login</a></button>
+                        </div>
+        
+                        <!-- Additional Links Column -->
+                        <div class="text-center md:text-left">
+                            <h4 class="font-bold mb-4">Additional Links</h4>
+                            <ul class="flex flex-col gap-2">
+                                <li><a href="#" class="hover:text-gray-300">Privacy Policy</a></li>
+                                <li><a href="#" class="hover:text-gray-300">Terms of Service</a></li>
+                                <li><a href="#" class="hover:text-gray-300">FAQ</a></li>
+                                <li><a href="#" class="hover:text-gray-300">Support</a></li>
+                            </ul>
+                        </div>
+        
+                        <!-- Social Media Column -->
+                        <div class="text-center md:text-left">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex gap-4 justify-center md:justify-start">
+                                <a href="https://www.facebook.com/yourusername" target="_blank" class="hover:text-blue-300">
+                                    <i class="fa-brands fa-facebook"></i>  </a><br><br>
+                                  
+                                <a href="https://www.instagram.com/yourusername" target="_blank" class="hover:text-blue-300">
+                                    <i class="fa-brands fa-instagram"></i> </a><br><br>
+                                  
+                                <a href="https://twitter.com/yourusername" target="_blank" class="hover:text-blue-300">
+                                    <i class="fab fa-twitter"></i> </a><br><br>
+                                  
+                                <a href="https://wa.me/11234567890" target="_blank" class="hover:text-green-300">
+                                    <i class="fa-brands fa-whatsapp"></i> </a>
+                                  
                             </div>
                         </div>
-                    </nav>
-                  </div>
-                  
-    
-            </div>
-        </section>
-        <section>
-            <div class="w-full h-[90vh]">
-                <video class=" h-full w-full left-0 right-0 object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
-                </video>
-             </div>
-        </section>
-
-        <section class="w-full h-auto">
-            <div class="flex justify-center items-center gap-10 w-full px-6 mb-10 max-w-[1200px] mx-auto">
-                <div class="md:w-[55%]">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates autem necessitatibus, assumenda quaerat unde aliquam rerum sit magnam perspiciatis dolores dolorum modi atque nemo iste. Inventore eaque tempore exercitationem accusamus?
-                        Deleniti adipisci quas esse illo cum velit facilis illum officiis asperiores, laboriosam exercitationem, numquam neque ut odio aperiam at. Cum illum quis accusamus provident cumque ea facere iste ad quasi?
-                        Deserunt facilis quia, sequi nulla quidem exercitationem. Nihil perferendis debitis commodi animi alias. Voluptatem ipsa totam dolorem fugit explicabo quasi incidunt perferendis similique quas laboriosam cumque distinctio, odio aperiam officiis!
-                        Facere tempore, atque asperiores odit quaerat aliquam quisquam, aliquid ad qui porro, ipsum itaque molestiae nulla! Similique, natus minima. Nesciunt illo est atque. Cum, fugiat tenetur officiis nihil dignissimos modi?
                     </div>
                 </div>
-
-                <div class="md:w-[45%] flex justify-center items-center">
-                    <div class="relative flex justify-center items-center w-[50%] h-[450px]">
-                        <div class=" absolute h-[250px] w-[250px] rounded-3xl z-20 bottom-0 overflow-hidden border border-[10px]">
-                            <img src="https://www.pnthotels.com/img/gallery/gal-9.webp" class="w-full h-full object-cover" alt="">
-                        </div>
-                        <div class=" absolute h-[400px] w-[300px] rounded-3xl z-10 left-28 border border-[10px]">
-                            <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJlc29ydHxlbnwwfHwwfHx8MA%3D%3D    " class=" h-full w-full object-cover rounded-3xl" alt="">
-                        </div>
-                    </div>
+                
+                <div class="mt-6 text-sm text-gray-200 text-center w-full">
+                    © 2024 BookAdvisor. All Rights Reserved.
                 </div>
             </div>
-        </section>
-
-        <section class="mb-10">
-            <div class="w-full h-auto py-10 bg-[#47ad95] flex justify-evenly items-center text-[#fff]">
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
-                    1000 +
-                    <span class="text-sm font-semibold">Happy Client</span>
-                </div>
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-l border-r px-20">
-                    2000 +
-                    <span class="text-sm font-semibold">Rooms</span>
-                </div>
-                <div  class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-r pr-10">
-                    100 +
-                    <span class="text-sm font-semibold">Type of Services</span>
-                </div>
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
-                    10 +
-                    <span class="text-sm font-semibold">Type of Services</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-10">
-            <div class="flex justify-center items-center gap-10">
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://media.istockphoto.com/id/536048545/photo/tropical-resort.jpg?s=612x612&w=0&k=20&c=TR9a_ToayikLVagrZlq8ebvZFRZx_WH25q9_9m884Jk=" class="h-full w-full object-cover" alt="">
-                </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://www.kumarakomlakeresort.in/assets/images/luxury-dining/ettukettu-the-speciality-restaurant/ettukettu-the-speciality-restaurant.jpg"class="h-full w-full object-cover" alt="">
-                </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden">
-                    <img src="https://assets.architecturaldigest.in/photos/633176d1ac6d3139777df901/master/w_1600%2Cc_limit/Niraamaya%2520Surya%2520Samudra%2520Wellness.jpg"class="h-full w-full object-cover" alt="">
-                </div>
-                <div class="h-[250px] w-[350px] rounded-3xl border-[10px] border overflow-hidden"><img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2021/03/18181031/kerala.jpg"class="h-full w-full object-cover" alt=""></div>
-            </div>
-        </section>
-
-        <section class="mb-10">
-            <div class="relative h-[600px] w-full BlurBg backdrop-blur" >
-                <div class="h-full w-full" >
-                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
-                </div>
-            </div>
-        </section>
-        <!-- {% block content %} {% endblock %} -->
+        </footer>
+          
     </div>
+
+    {% block extra_scripts %}{% endblock %}
 </body>
 </html>

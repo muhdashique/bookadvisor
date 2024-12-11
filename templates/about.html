@@ -1,11 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travol - Explore the World</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background-image: url('https://media-cdn.tripadvisor.com/media/photo-s/1b/f4/56/f1/aerial-view.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .search-form {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .search-form .form-group {
+      margin-right: 20px;
+    }
+
+    .search-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .search-form select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn {
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .about-content {
+      flex: 1;
+      margin-right: 50px;
+    }
+
+    .about-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .features {
+      display: flex;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .feature img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 500px;
+    }
+  </style>
 </head>
 <body>
-    
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>EXPLORE THE WORLD WITH TRAVOL</h1>
+        <p>Let's travel the world with us</p>
+        <form class="search-form">
+          <div class="form-group">
+            <label for="tour-type">Tour Type</label>
+            <select id="tour-type" name="tour-type">
+              <option value="">Select Tour Type</option>
+              <option value="adventure">Adventure</option>
+              <option value="cultural">Cultural</option>
+              <option value="relaxation">Relaxation</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Find Now</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-content">
+        <h1>ABOUT TRAVOL</h1>
+        <p>Travol is the best travel agency that helps you discover the world with our expert guide. With over 20 years of experience and 150+ tour destinations, we are dedicated to providing you with unforgettable travel experiences.</p>
+        <div class="features">
+          <div class="feature">
+            <img src="https://maldives-magazine.com/pictures/ozen-reserve-bolifushi-water-villa-with-slide.jpg" alt="Experience">
+            <h3>20 Years of Experience</h3>
+          </div>
+          <div class="feature">
+            <img src="https://img.veenaworld.com/wp-content/uploads/2022/01/Maldives-villas.jpg" alt="Destinations">
+            <h3>150+ Tour Destinations</h3>
+          </div>
+        </div>
+        <button class="btn">Learn More</button>
+      </div>
+      <div class="about-image">
+        <img src="https://static.vecteezy.com/system/resources/previews/028/802/576/large_2x/beautiful-sunset-in-maldives-with-palm-trees-and-water-bungalows-sunset-picturesque-summer-sunset-in-maldives-luxury-resort-villas-seascape-with-soft-led-lights-under-colorful-sky-ai-generated-free-photo.jpg" alt="About Image">
+      </div>
+    </section>
+  </main>
+  <script>
+    document.querySelector('.search-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      console.log('Search form submitted');
+    });
+
+    document.querySelector('.btn').addEventListener('click', () => {
+      console.log('Learn More button clicked');
+    });
+  </script>
 </body>
 </html>
+
+{% endblock %}

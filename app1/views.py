@@ -2,6 +2,14 @@ from django.shortcuts import render # type: ignore
 from django.contrib.auth import authenticate, login# type: ignore
 from django.shortcuts import render, redirect# type: ignore
 from django.contrib.auth.forms import AuthenticationForm# type: ignore
+from django.shortcuts import render, redirect# type: ignore
+from django.http import HttpResponse# type: ignore
+from django.shortcuts import render, redirect # type: ignore
+from .forms import RoomCategoryForm
+from django.contrib import messages # type: ignore
+from django.shortcuts import render, redirect# type: ignore
+from django.contrib.auth.decorators import login_required# type: ignore
+from django.contrib import messages# type: ignore
 
 # Create your views here.
 
@@ -34,10 +42,40 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirect to homepage or another view
+                return redirect('adminpannel')  # Corrected to match the URL pattern
             else:
-                form.add_error(None, "Invalid credentials")
+                messages.error(request, "Invalid username or password")
     else:
         form = AuthenticationForm()
 
     return render(request, 'login.html', {'form': form})
+
+
+# adminpannel page view
+def AdminPannel(request):
+    return render(request, 'adminPannel.html')
+
+
+def AdminPannel(request):
+    if request.method == "POST":
+        form = RoomCategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Room Category added successfully!")
+            return redirect('adminpannel')  # Redirect to reload the page
+    else:
+        form = RoomCategoryForm()
+
+    return render(request, 'adminpannel.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
