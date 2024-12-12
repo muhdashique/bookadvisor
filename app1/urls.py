@@ -8,5 +8,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('login/', views.login_view, name='login'),
     path('adminpannel/', views.AdminPannel, name='adminpannel'), 
+    path('propertyView/',views.PropertyView,name='propertyView'),
+    
 
 ]

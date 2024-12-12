@@ -55,7 +55,7 @@ def login_view(request):
 def AdminPannel(request):
     return render(request, 'adminPannel.html')
 
-
+# admin pannel view
 def AdminPannel(request):
     if request.method == "POST":
         form = RoomCategoryForm(request.POST)
@@ -69,7 +69,9 @@ def AdminPannel(request):
     return render(request, 'adminpannel.html', {'form': form})
 
 
-
+# propertyview page view
+def PropertyView(request):
+    return render(request,'propertyView.html') 
 
 
 

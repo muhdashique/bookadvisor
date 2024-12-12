@@ -1,92 +1,239 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Category Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
 
-    
+        .category-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+        }
+
+        .category-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        }
+
+        .category-info h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .category-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .category-info span {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .bookmark {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            color: red;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <header class="pt-10 mb-10">
+    <header class="pt-32 mb-10">
         <h1 class="text-center text-3xl font-bold">Our Properties</h1>
     </header>
-<!-- Categories -->
-    <section class="flex justify-start items-center gap-5 px-6 mb-10 overflow-hidden">
-        <div class="overflow-x-auto flex justify-start items-center flex-shrink">
-            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
-                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
-                    <img src="{% static 'image/black.jpg' %}" alt="">
+    <div class="category-section gap-4">
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThrbATAFm04XVYMiA5x3t6ZIyedBYRYj9syA&s" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
                 </div>
-                <div class="h-[200px] w-[400px] absolute z-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
-                </div>
-                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
-                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
-                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
-                    <p><strong>Price:</strong> $500 per night</p>
-                </div>
-            </div>
-    
-            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
-                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
-                    <img src="{% static 'image/black.jpg' %}" alt="">
-                </div>
-                <div class="h-[200px] w-[400px] absolute z-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
-                </div>
-                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
-                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
-                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
-                    <p><strong>Price:</strong> $500 per night</p>
-                </div>
-            </div>
-    
-            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
-                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
-                    <img src="{% static 'image/black.jpg' %}" alt="">
-                </div>
-                <div class="h-[200px] w-[400px] absolute z-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
-                </div>
-                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
-                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
-                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
-                    <p><strong>Price:</strong> $500 per night</p>
-                </div>
-            </div>
-            <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
-                <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
-                    <img src="{% static 'image/black.jpg' %}" alt="">
-                </div>
-                <div class="h-[200px] w-[400px] absolute z-0">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOSgpSpgvveGnnVID-Ky9dMYSB-1x3l4OKpg&s" alt="Property 1" class="h-full w-full object-cover">
-                </div>
-                <div class="property-details absolute bottom-2 z-20 text-white flex flex-col justify-start px-2">
-                    <h2 class="text-2xl">Luxury Resort in the Hills</h2>
-                    <p class="text-sm">This stunning resort offers breathtaking views and premium services, perfect for a relaxing getaway.</p>
-                    <p><strong>Price:</strong> $500 per night</p>
-                </div>
-            </div>
+            </a>
+            
         </div>
-    </section>
+        
 
-    <!-- Items Display -->
-     <section class="px-6 w-full">
-        <div class="max-w-[1200px] flex justify-center items-center mx-auto flex-wrap gap-5">
-            <!-- Cards -->
-             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
-             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
-             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
-             <div class="h-[300px] w-[350px] rounded-3xl bg-[#F72C5B]"></div>
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://www.dellaresorts.com/new-images/1new-camp-bnr5.webp" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+            
         </div>
-     </section>
+        
 
-     
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/b0/2c/84/della-resorts-villas.jpg?w=600&h=-1&s=1" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+            
+        </div>
+        
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://www.sunhotelandresort.com/wp-content/uploads/2024/06/Abu-Resort.jpg" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSlWK4dNJI3zYexPvubIzdbPVihJ_7E-nFJg&s" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/97/92/24/kumarakom-lake-resort.jpg?w=700&h=-1&s=1" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/32/16/d6/caption.jpg?w=700&h=-1&s=1" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://www.theindia.co.in/blog/wp-content/uploads/2024/07/praveg-ghoghla-beach-resort-diu-1200x676.jpg" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://www.kumarakomlakeresort.in/assets/images/luxury-dining/ettukettu-the-speciality-restaurant/ettukettu-the-speciality-restaurant.jpg" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="category-card">
+            <a href="{% url 'propertyView' %}" class="block">
+                <div class="category-card">
+                    <img src="https://r1imghtlak.mmtcdn.com/86f374bac7a411e89fe20207f3775c6e.jpg?&output-quality=75&downsize=328:180&crop=328:180;0,19&output-format=jpg" alt="North Africa">
+                    <div class="category-info">
+                        <h3>A trip to the mighty desert</h3>
+                        <p>North Africa</p>
+                        <span>5 days | from $356</span>
+                    </div>
+                    <div class="bookmark">&#9733;</div>
+                </div>
+            </a>
+        </div>
+        
+    </div>
 </body>
 </html>
+
 {% endblock %}
