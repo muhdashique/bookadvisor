@@ -16,7 +16,7 @@
         <h1 class="text-center text-3xl font-bold">Our Properties</h1>
     </header>
 <!-- Categories -->
-    <section class="flex justify-start items-center gap-5 px-6 mb-10 overflow-hidden">
+    <!-- <section class="flex justify-start items-center gap-5 px-6 mb-10 overflow-hidden">
         <div class="overflow-x-auto flex justify-start items-center flex-shrink">
             <div class="h-[200px] w-[400px] rounded-3xl overflow-hidden bg-[#347928] border-[5px] border relative">
                 <div class="h-[200px] w-[400px] absolute z-10 opacity-60">
@@ -73,8 +73,18 @@
                 </div>
             </div>
         </div>
+    </section> -->
+    <section>
+        <div class="property-details">
+            <h1>{{ category.title }}</h1>
+            <img src="{{ category.image_url }}" alt="{{ category.title }}">
+            <p>{{ category.description }}</p>
+            <p>Location: {{ category.location }}</p>
+            <p>Duration: {{ category.duration }}</p>
+            <p>Price: ${{ category.price }}</p>
+        </div>
+        
     </section>
-
     <!-- Items Display -->
      <section class="px-6 w-full">
         <div class="max-w-[1200px] flex justify-center items-center mx-auto flex-wrap gap-5">

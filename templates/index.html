@@ -174,7 +174,7 @@
             </div>
         </section>
 
-        <section class="room-categories">
+        <!-- <section class="room-categories">
             <div class="category-card">
               <img src="https://media.architecturaldigest.com/photos/6032b3c9a0b9bd2edd5510d1/1:1/w_2880,h_2880,c_limit/Hero_Soneva%20Jani%20Chapter%20Two%20by%20Aksham%20Abdul%20Ghadir.jpg" alt="Maldives Tour">
               <div class="category-info">
@@ -218,6 +218,26 @@
                 <p>$1,100 per persons</p>
               </div>
             </div>
+          </section> -->
+          <section>
+            <div class="category-section gap-4">
+              {% for category in categories %}
+              <div class="category-card">
+                  <a href="{% url 'propertyView' category.id %}" class="block">
+                      <div class="category-card">
+                          <img src="{{ category.image_url }}" alt="{{ category.location }}">
+                          <div class="category-info">
+                              <h3>{{ category.title }}</h3>
+                              <p>{{ category.location }}</p>
+                              <span>{{ category.duration }} | from ${{ category.price }}</span>
+                          </div>
+                          <div class="bookmark">&#9733;</div>
+                      </div>
+                  </a>
+              </div>
+              {% endfor %}
+          </div>
+          
           </section>
 
         <section class="mb-10">

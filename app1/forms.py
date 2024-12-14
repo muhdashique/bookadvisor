@@ -1,8 +1,7 @@
+from django import forms
+from .models import Property
 
-from django import forms # type: ignore
-from .models import RoomCategory
-
-class RoomCategoryForm(forms.ModelForm):
+class PropertyForm(forms.ModelForm):
     class Meta:
-        model = RoomCategory
-        fields = ['name', 'description']
+        model = Property
+        fields = ['name', 'category', 'description', 'image', 'price']

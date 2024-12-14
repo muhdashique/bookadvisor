@@ -85,155 +85,26 @@
     <header class="pt-32 mb-10">
         <h1 class="text-center text-3xl font-bold">Our Properties</h1>
     </header>
+    
     <div class="category-section gap-4">
+        {% for category in categories %}
         <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
+            <a href="{% url 'propertyView' id=property.id %}" class="block">
                 <div class="category-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThrbATAFm04XVYMiA5x3t6ZIyedBYRYj9syA&s" alt="North Africa">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThrbATAFm04XVYMiA5x3t6ZIyedBYRYj9syA&s" alt="{{ category.title }}">
                     <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-            
-        </div>
-        
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://www.dellaresorts.com/new-images/1new-camp-bnr5.webp" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-            
-        </div>
-        
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/b0/2c/84/della-resorts-villas.jpg?w=600&h=-1&s=1" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-            
-        </div>
-        
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://www.sunhotelandresort.com/wp-content/uploads/2024/06/Abu-Resort.jpg" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
+                        <h3>{{ category.title }}</h3>
+                        <p>{{ category.location }}</p>
+                        <span>{{ category.duration }} | from ${{ category.price }}</span>
                     </div>
                     <div class="bookmark">&#9733;</div>
                 </div>
             </a>
         </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSlWK4dNJI3zYexPvubIzdbPVihJ_7E-nFJg&s" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/97/92/24/kumarakom-lake-resort.jpg?w=700&h=-1&s=1" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/32/16/d6/caption.jpg?w=700&h=-1&s=1" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://www.theindia.co.in/blog/wp-content/uploads/2024/07/praveg-ghoghla-beach-resort-diu-1200x676.jpg" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://www.kumarakomlakeresort.in/assets/images/luxury-dining/ettukettu-the-speciality-restaurant/ettukettu-the-speciality-restaurant.jpg" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="category-card">
-            <a href="{% url 'propertyView' %}" class="block">
-                <div class="category-card">
-                    <img src="https://r1imghtlak.mmtcdn.com/86f374bac7a411e89fe20207f3775c6e.jpg?&output-quality=75&downsize=328:180&crop=328:180;0,19&output-format=jpg" alt="North Africa">
-                    <div class="category-info">
-                        <h3>A trip to the mighty desert</h3>
-                        <p>North Africa</p>
-                        <span>5 days | from $356</span>
-                    </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-        
+        {% endfor %}
     </div>
-</body>
+    
+    
 </html>
 
 {% endblock %}

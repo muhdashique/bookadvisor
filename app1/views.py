@@ -1,38 +1,27 @@
-from django.shortcuts import render # type: ignore
-from django.contrib.auth import authenticate, login# type: ignore
-from django.shortcuts import render, redirect# type: ignore
-from django.contrib.auth.forms import AuthenticationForm# type: ignore
-from django.shortcuts import render, redirect# type: ignore
-from django.http import HttpResponse# type: ignore
-from django.shortcuts import render, redirect # type: ignore
-from .forms import RoomCategoryForm
-from django.contrib import messages # type: ignore
-from django.shortcuts import render, redirect# type: ignore
-from django.contrib.auth.decorators import login_required# type: ignore
-from django.contrib import messages# type: ignore
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import PropertyForm
 
-# Create your views here.
+# Index view
+def index(request):
+    return render(request, 'index.html')
 
-# home page views
-def Index(request):
-    return render(request,"index.html")
-
-
-# about page views
+# About view
 def About(request):
-    return render(request,"about.html")
+    return render(request, "about.html")
 
-
-# property page views
+# Property list view
 def property_list(request):
     return render(request, 'property.html')
 
-# contact page views
+# Contact view
 def contact(request):
     return render(request, 'contact.html')
 
-
-# login page views
+# Login view
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -42,7 +31,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('adminpannel')  # Corrected to match the URL pattern
+                return redirect('adminpannel')
             else:
                 messages.error(request, "Invalid username or password")
     else:
@@ -50,34 +39,20 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
-
-# adminpannel page view
-def AdminPannel(request):
-    return render(request, 'adminPannel.html')
-
-# admin pannel view
-def AdminPannel(request):
-    if request.method == "POST":
-        form = RoomCategoryForm(request.POST)
+# Admin panel view with property form
+@login_required
+def admin_pannel(request):
+    if request.method == 'POST':
+        form = PropertyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, "Room Category added successfully!")
-            return redirect('adminpannel')  # Redirect to reload the page
+            messages.success(request, "Property added successfully!")
+            return redirect('adminpannel')
     else:
-        form = RoomCategoryForm()
+        form = PropertyForm()
 
-    return render(request, 'adminpannel.html', {'form': form})
+    return render(request, 'adminPannel.html', {'form': form})
 
-
-# propertyview page view
+# Property view
 def PropertyView(request):
-    return render(request,'propertyView.html') 
-
-
-
-
-
-
-
-
-
+    return render(request, 'propertyView.html')
