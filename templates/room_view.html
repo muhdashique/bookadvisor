@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .room-detail-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .room-image-detail {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .room-image-detail:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .room-detail-info p {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .room-price {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .room-availability .available {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .room-availability .unavailable {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        #booking-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #booking-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #booking-btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="room-detail-container">
+        <h1>{{ room.name }}</h1>
+        {% if room.image %}
+            <img src="{{ room.image.url }}" alt="{{ room.name }}" class="room-image-detail">
+        {% endif %}
+        <div class="room-detail-info">
+            <p class="room-description">{{ room.description }}</p>
+            <p class="room-price">Price: ${{ room.price }}</p>
+            <p class="room-category">Category: {{ room.category.name }}</p>
+            <p class="room-availability">
+                {% if room.status == 'not_available' %}
+                <p>Status: Not Available</p>
+            {% else %}
+                <p>Status: Available</p>
+            {% endif %}
+            </p>
+            
+        </div>
+        
+       
+    </div>
+
+    
+</body>
+</html>

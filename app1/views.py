@@ -3,11 +3,29 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import PropertyForm
+from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Room
+from .forms import RoomForm
+
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import RoomCategory, Room
+from .forms import RoomCategoryForm, RoomForm
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import RoomCategory
+from .forms import RoomCategoryForm
+from django.shortcuts import render, get_object_or_404
+from .models import RoomCategory, Room
+from django.shortcuts import render, get_object_or_404
+from .models import Room
+
+
 
 # Index view
 def index(request):
-    return render(request, 'index.html')
+    categories = RoomCategory.objects.all()  # Fetch all categories
+    return render(request, 'index.html', {'categories': categories})
 
 # About view
 def About(request):
@@ -15,7 +33,8 @@ def About(request):
 
 # Property list view
 def property_list(request):
-    return render(request, 'property.html')
+     categories = RoomCategory.objects.all()  # Fetch all categories
+     return render(request, 'property.html', {'categories': categories})
 
 # Contact view
 def contact(request):
@@ -40,19 +59,149 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 # Admin panel view with property form
-@login_required
-def admin_pannel(request):
+
+
+def admin_panel(request):
+    return render(request, 'adminPannel.html')
+
+
+
+
+
+
+
+# Room Category Views
+def room_category_list(request):
+    categories = RoomCategory.objects.all()
+    return render(request, 'room_category_list.html', {'categories': categories})
+
+
+
+def add_room_category(request):
     if request.method == 'POST':
-        form = PropertyForm(request.POST, request.FILES)
+        form = RoomCategoryForm(request.POST, request.FILES)  # Ensure you include request.FILES to handle image upload
+        if form.is_valid():
+            new_category = form.save()  # Save the new category to the database
+            return redirect('room_category_list', category_id=new_category.id)  # Redirect to a page to view the new category
+    else:
+        form = RoomCategoryForm()
+
+    return render(request, 'add_room_category.html', {'form': form})
+
+
+def room_category_detail(request, category_id):
+    category = RoomCategory.objects.get(id=category_id)  # Get the category by ID
+    return render(request, 'room_category_list.html', {'category': category})
+
+
+
+# Room Views
+def room_list(request, category_id=None):
+    if category_id:
+        category = get_object_or_404(RoomCategory, id=category_id)
+        rooms = Room.objects.filter(category=category)
+    else:
+        rooms = Room.objects.all()
+    return render(request, 'room_list.html', {'rooms': rooms})
+
+def add_room(request):
+    if request.method == 'POST':
+        form = RoomForm(request.POST, request.FILES)
+        files = request.FILES.getlist('images')
+        if form.is_valid():
+            room = form.save()
+            for file in files:
+                RoomImage.objects.create(room=room, image=file)
+            return redirect('room_list')
+    else:
+        form = RoomForm()
+    return render(request, 'add_room.html', {'form': form})
+
+
+
+# delete category
+from django.shortcuts import get_object_or_404, redirect
+from .models import RoomCategory
+
+def delete_room_category(request, category_id):
+    category = get_object_or_404(RoomCategory, id=category_id)
+    if request.method == 'POST':
+        category.delete()
+        return redirect('room_category_list')
+    return redirect('room_category_list')
+
+
+
+
+# edit category
+def edit_room_category(request, category_id):
+    category = get_object_or_404(RoomCategory, id=category_id)
+    if request.method == 'POST':
+        form = RoomCategoryForm(request.POST, request.FILES, instance=category)
         if form.is_valid():
             form.save()
-            messages.success(request, "Property added successfully!")
-            return redirect('adminpannel')
+            return redirect('room_category_list')
     else:
-        form = PropertyForm()
+        form = RoomCategoryForm(instance=category)
+    return render(request, 'edit_room_category.html', {'form': form})
 
-    return render(request, 'adminPannel.html', {'form': form})
+# property view page
+def property_view(request, category_id):
+    category = get_object_or_404(RoomCategory, id=category_id)  # Get the category
+    rooms = Room.objects.filter(category=category)  # Fetch rooms for the category
+    return render(request, 'propertyView.html', {'rooms': rooms, 'category': category})
 
-# Property view
-def PropertyView(request):
-    return render(request, 'propertyView.html')
+
+
+
+# roomlist view
+def room_list(request):
+    rooms = Room.objects.all()
+    return render(request, 'room_list.html', {'rooms': rooms})
+
+# edit room details
+def edit_room(request, room_id):
+   
+    room = get_object_or_404(Room, id=room_id)
+    
+    if request.method == 'POST':
+       
+        form = RoomForm(request.POST, request.FILES, instance=room)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Room "{room.name}" updated successfully.')
+            return redirect('room_list')
+    else:
+        # Display form for editing
+        form = RoomForm(instance=room)
+    
+    return render(request, 'edit_room.html', {
+        'form': form,
+        'room': room
+    })
+# delete room details 
+def delete_room(request, room_id):
+    # Retrieve the room or show 404 if not found
+    room = get_object_or_404(Room, id=room_id)
+    
+    
+    
+    # Delete the room
+    room.delete()
+    messages.success(request, f'Room "{room.name}" has been deleted.')
+    return redirect('room_list')
+
+
+
+def room_view(request, id):
+    room = get_object_or_404(Room, id=id)
+    return render(request, 'room_view.html', {'room': room})
+
+
+
+from django.shortcuts import render
+from .models import Room
+
+def room_details(request, room_id):
+    room = Room.objects.get(id=room_id)
+    return render(request, 'room_view.html', {'room': room})

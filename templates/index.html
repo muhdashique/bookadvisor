@@ -107,6 +107,57 @@
     letter-spacing: 1px;
     margin-top: 10px;
   }
+  /* category */
+  .category-container {
+    display: flex; /* Enables Flexbox */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 40px; /* Spacing between boxes */
+    justify-content: center; /* Centers boxes horizontally */
+}
+
+.category-link {
+    text-decoration: none; /* Removes link underline */
+    color: inherit;
+}
+
+.category-box {
+    position: relative;
+    width: 80vh; /* Two boxes per line with spacing */
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.category-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    color: #fff;
+    padding: 10px;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, sans-serif;
+}
+
+.category-details h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category-details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
 
     </style>
 </head>
@@ -174,71 +225,35 @@
             </div>
         </section>
 
-        <!-- <section class="room-categories">
-            <div class="category-card">
-              <img src="https://media.architecturaldigest.com/photos/6032b3c9a0b9bd2edd5510d1/1:1/w_2880,h_2880,c_limit/Hero_Soneva%20Jani%20Chapter%20Two%20by%20Aksham%20Abdul%20Ghadir.jpg" alt="Maldives Tour">
-              <div class="category-info">
-                <h3>Maldives Tour</h3>
-                <p>$2,500 per persons</p>
-              </div>
-            </div>
-            <div class="category-card">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3WRlZdU2AgCg24lUY-3LfkwRB6F03vGgzUg&s" alt="Roma">
-              <div class="category-info">
-                <h3>Roma</h3>
-                <p>$1,300 per persons</p>
-              </div>
-            </div>
-            <div class="category-card">
-              <img src="https://deih43ym53wif.cloudfront.net/medium_shutterstock_2252117189_561ec56fbd.jpg" alt="France">
-              <div class="category-info">
-                <h3>France</h3>
-                <p>$400 per persons</p>
-              </div>
-            </div>
-            <div class="category-card">
-              <img src="https://thesheratonholidaysinternational.com/wp-content/uploads/2024/05/Greece.webp" alt="Greece Tour">
-              <div class="category-info">
-                <h3>Greece Tour</h3>
-                <p>$500 per persons</p>
-              
-              </div>
-            </div>
-            <div class="category-card">
-              <img src="https://static1.evcdn.net/cdn-cgi/image/width=3840,height=2880,quality=70,fit=crop/offer/raw/2022/06/16/d0d4b535-7e05-4aa8-851a-a01a78dc35a0.jpg" alt="Canada">
-              <div class="category-info">
-                <h3>Canada</h3>
-                <p>$800 per persons</p>
-              </div>
-            </div>
-            <div class="category-card">
-              <img src="https://content.presspage.com/uploads/2431/1920_dubaiconnect.jpg?10000" alt="Dubai">
-              <div class="category-info">
-                <h3>Dubai</h3>
-                <p>$1,100 per persons</p>
-              </div>
-            </div>
-          </section> -->
-          <section>
-            <div class="category-section gap-4">
+        <header class="pt-32 mb-10">
+          <h1 class="text-center text-3xl font-bold">Our Properties</h1>
+      </header>
+    
+        <div class="category-container">
+          {% if categories %}
               {% for category in categories %}
-              <div class="category-card">
-                  <a href="{% url 'propertyView' category.id %}" class="block">
-                      <div class="category-card">
-                          <img src="{{ category.image_url }}" alt="{{ category.location }}">
-                          <div class="category-info">
-                              <h3>{{ category.title }}</h3>
-                              <p>{{ category.location }}</p>
-                              <span>{{ category.duration }} | from ${{ category.price }}</span>
+                  <a href="{% url 'property_view' category.id %}" class="category-link">
+                      <div class="category-box" style="background-image: url('{{ category.image.url }}');">
+                          <div class="category-details">
+                              <h3>{{ category.name }}</h3>
+                              <p>5 days | from $356</p>
                           </div>
-                          <div class="bookmark">&#9733;</div>
                       </div>
                   </a>
-              </div>
               {% endfor %}
-          </div>
+          {% else %}
+              <p>No categories available.</p>
+          {% endif %}
+      </div>
+
           
           </section>
+          <br>
+          <br>
+          <br>
+
+
+
 
         <section class="mb-10">
             <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
@@ -316,102 +331,9 @@
                 </div>
             </div>
         </section>
+      </div>
 
-
-       
-        
-    </div>
-
-    <script>
-        // Define the room category data
-const roomCategories = [
-  {
-    image: "maldives.jpg",
-    title: "Maldives Tour",
-    price: "$2,500 per persons"
-  },
-  {
-    image: "rome.jpg",
-    title: "Roma",
-    price: "$1,300 per persons"
-  },
-  {
-    image: "france.jpg",
-    title: "France",
-    price: "$400 per persons"
-  },
-  {
-    image: "greece.jpg",
-    title: "Greece Tour",
-    price: "$500 per persons",
-    description: "Travel non lorem ac erat susce bibendum nulla facilisi. Sedeuler nunc voluat miss conseventa amet vestibulum.",
-    duration: "10 Days",
-    location: "Greece"
-  },
-  {
-    image: "canada.jpg",
-    title: "Canada",
-    price: "$800 per persons"
-  },
-  {
-    image: "dubai.jpg",
-    title: "Dubai",
-    price: "$1,100 per persons"
-  }
-];
-
-// Function to create a single room category card
-function createCategoryCard(category) {
-  const card = document.createElement("div");
-  card.classList.add("category-card");
-
-  const img = document.createElement("img");
-  img.src = category.image;
-  img.alt = category.title;
-
-  const info = document.createElement("div");
-  info.classList.add("category-info");
-
-  const title = document.createElement("h3");
-  title.textContent = category.title;
-
-  const price = document.createElement("p");
-  price.textContent = category.price;
-
-  info.appendChild(title);
-  info.appendChild(price);
-
-  if (category.description) {
-    const description = document.createElement("p");
-    description.textContent = category.description;
-    info.appendChild(description);
-  }
-
-  if (category.duration) {
-    const duration = document.createElement("p");
-    duration.textContent = category.duration;
-    info.appendChild(duration);
-  }
-
-  if (category.location) {
-    const location = document.createElement("p");
-    location.textContent = category.location;
-    info.appendChild(location);
-  }
-
-  card.appendChild(img);
-  card.appendChild(info);
-
-  return card;
-}
-
-// Create and append the room category cards
-const roomCategoriesContainer = document.getElementById("room-categories");
-roomCategories.forEach(category => {
-  const card = createCategoryCard(category);
-  roomCategoriesContainer.appendChild(card);
-});
-    </script>
+    
 </body>
 </html>
 {% endblock %}

@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Category Section</title>
     <style>
         body {
@@ -79,6 +80,64 @@
             border-radius: 50%;
             font-size: 18px;
         }
+
+       
+        
+
+/* new cat */
+.category-container {
+    display: flex; /* Enables Flexbox */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 40px; /* Spacing between boxes */
+    justify-content: center; /* Centers boxes horizontally */
+}
+
+.category-link {
+    text-decoration: none; /* Removes link underline */
+    color: inherit;
+}
+
+.category-box {
+    position: relative;
+    width: 80vh; /* Two boxes per line with spacing */
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+.category-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    color: #fff;
+    padding: 10px;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, sans-serif;
+}
+
+.category-details h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category-details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -86,23 +145,29 @@
         <h1 class="text-center text-3xl font-bold">Our Properties</h1>
     </header>
     
-    <div class="category-section gap-4">
-        {% for category in categories %}
-        <div class="category-card">
-            <a href="{% url 'propertyView' id=property.id %}" class="block">
-                <div class="category-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThrbATAFm04XVYMiA5x3t6ZIyedBYRYj9syA&s" alt="{{ category.title }}">
-                    <div class="category-info">
-                        <h3>{{ category.title }}</h3>
-                        <p>{{ category.location }}</p>
-                        <span>{{ category.duration }} | from ${{ category.price }}</span>
+    <div class="category-container">
+        {% if categories %}
+            {% for category in categories %}
+                <a href="{% url 'property_view' category.id %}" class="category-link">
+                    <div class="category-box" style="background-image: url('{{ category.image.url }}');">
+                        <div class="category-details">
+                            <h3>{{ category.name }}</h3>
+                            <p>5 days | from $356</p>
+                        </div>
                     </div>
-                    <div class="bookmark">&#9733;</div>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+                </a>
+            {% endfor %}
+        {% else %}
+            <p>No categories available.</p>
+        {% endif %}
     </div>
+    <br>
+    <br>
+    <br>
+
+    
+    
+    
     
     
 </html>

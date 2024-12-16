@@ -1,25 +1,158 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Room Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        nav {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .room-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .room-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .room-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .view-btn {
+            background-color: #2ecc71;
+        }
+
+        .view-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .add-btn {
+            background-color: #e74c3c;
+        }
+
+        .add-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            background-color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Admin Panel</h1>
-    <h2>Add Property</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Property</button>
-    </form>
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <h1>Room Management</h1>
+
+    <nav>
+        <div class="button-container">
+            <button class="room-btn view-btn" data-url="{% url 'room_category_list' %}">
+                View Room Categories
+            </button>
+            
+            <button class="room-btn add-btn" data-url="{% url 'add_room_category' %}">
+                Add New Room Category
+            </button>
+            <button class="room-btn view-btn" data-url="{% url 'room_list' %}">
+                View Rooms
+            </button>
+            <button class="room-btn add-btn" data-url="{% url 'add_room' %}">
+                Add New Room
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        // Attach event listeners to all buttons
+        document.querySelectorAll('.room-btn').forEach(button => {
+            button.addEventListener('click', function(event) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                // Position the ripple
+                const x = event.offsetX;
+                const y = event.offsetY;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                // Get the URL from data attribute
+                const url = this.getAttribute('data-url');
+
+                // Remove ripple and navigate
+                setTimeout(() => {
+                    ripple.remove();
+                    if (url) {
+                        window.location.href = url;
+                    }
+                }, 300);
+            });
+        });
+
+        // Optional: Background randomization function
+        function randomizeBackground() {
+            const colors = [
+                '#f1c40f', '#e67e22', '#3498db', 
+                '#2ecc71', '#e74c3c', '#9b59b6'
+            ];
+            document.body.style.backgroundColor = 
+                colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
 </body>
 </html>
