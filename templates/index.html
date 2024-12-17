@@ -23,7 +23,7 @@
         .favicon {
             width: 50px;
             height: 50px;
-            }
+        }
         li{
             list-style: none;
         }
@@ -31,173 +31,159 @@
             backdrop-filter: blur(10px);
             background: #000;
         }
-        .reviewCard:nth-child(1){
+        .reviewCard:nth-child(1),
+        .reviewCard:nth-child(3) {
             height: 300px;
             width: 470px;
             background-color: #ffffff65;
             backdrop-filter: blur(10px);
         }
-        .reviewCard:nth-child(2){
+        .reviewCard:nth-child(2) {
             height: 350px;
             width: 500px;
             background-color: #ffffff65;
             backdrop-filter: blur(10px);
         }
-        .reviewCard:nth-child(3){
-            height: 300px;
-            width: 470px;
-            background-color: #ffffff65;
-            backdrop-filter: blur(10px);
-        }
-
-
         /* section */
         .room-categories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
-.category-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.category-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.category-info {
-  padding: 20px;
-}
-
-.category-info h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-.category-info p {
-  margin: 5px 0;
-}
-/* banner text */
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-
-  .headline {
-    font-size: 60px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-  }
-
-  .subheading {
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-top: 10px;
-  }
-  /* category */
-  .category-container {
-    display: flex; /* Enables Flexbox */
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    gap: 40px; /* Spacing between boxes */
-    justify-content: center; /* Centers boxes horizontally */
-}
-
-.category-link {
-    text-decoration: none; /* Removes link underline */
-    color: inherit;
-}
-
-.category-box {
-    position: relative;
-    width: 80vh; /* Two boxes per line with spacing */
-    height: 40vh;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.category-box:hover {
-    transform: translateY(-5px); /* Hover effect */
-}
-
-.category-details {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-    color: #fff;
-    padding: 10px;
-    text-shadow: 1px 1px 2px black;
-    font-family: Arial, sans-serif;
-}
-
-.category-details h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.category-details p {
-    margin: 5px 0 0;
-    font-size: 14px;
-}
-
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+        .category-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .category-info {
+            padding: 20px;
+        }
+        .category-info h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .category-info p {
+            margin: 5px 0;
+        }
+        /* banner text */
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .headline {
+            font-size: 60px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+        .subheading {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        /* category */
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .category-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .category-box {
+            position: relative;
+            width: 80vh;
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .category-box:hover {
+            transform: translateY(-5px);
+        }
+        .category-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px;
+            text-shadow: 1px 1px 2px black;
+            font-family: Arial, sans-serif;
+        }
+        .category-details h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .category-details p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <div>
-        
         <section>
             <div class="w-full h-[100vh] relative">
                 <video class="h-full w-full object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
                 </video>
-              
-                <!-- Text Overlay -->
                 <div class="absolute inset-0 flex items-center justify-center text-white">
                     <div class="banner-text">
-                        <h1 class="headline">EXPLORE THE WORLD</h1>
-                        <p class="subheading">LET'S TRAVEL THE WORLD WITH US</p>
-                      </div>
+                        <h1 class="headline text-4xl md:text-6xl">EXPLORE THE WORLD</h1>
+                        <p class="subheading text-lg md:text-2xl">LET'S TRAVEL THE WORLD WITH US</p>
+                    </div>
                 </div>
             </div>
-              
         </section>
 
         <section class="w-full h-auto">
-            <div class="flex justify-center items-center gap-10 w-full px-6 mb-10 max-w-[1200px] mx-auto">
+            <div class="flex justify-center items-center gap-10 w-full px-6 mb-10 max-w-[1200px] mx-auto flex-col md:flex-row">
                 <div class="md:w-[55%]">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates autem necessitatibus, assumenda quaerat unde aliquam rerum sit magnam perspiciatis dolores dolorum modi atque nemo iste. Inventore eaque tempore exercitationem accusamus?
-                        Deleniti adipisci quas esse illo cum velit facilis illum officiis asperiores, laboriosam exercitationem, numquam neque ut odio aperiam at. Cum illum quis accusamus provident cumque ea facere iste ad quasi?
-                        Deserunt facilis quia, sequi nulla quidem exercitationem. Nihil perferendis debitis commodi animi alias. Voluptatem ipsa totam dolorem fugit explicabo quasi incidunt perferendis similique quas laboriosam cumque distinctio, odio aperiam officiis!
-                        Facere tempore, atque asperiores odit quaerat aliquam quisquam, aliquid ad qui porro, ipsum itaque molestiae nulla! Similique, natus minima. Nesciunt illo est atque. Cum, fugiat tenetur officiis nihil dignissimos modi?
+                    <div class="text-lg md:text-xl">
+                      <div>
+                        <h1 style="
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+">
+  The Book Advisor Difference
+</h1>
+                      </div>
+                      At BookAdvisor, we are passionate about making your travel dreams come true. Founded with the vision of transforming how travelers discover and book accommodations, experiences, and services, we strive to provide a platform that offers convenience, personalization, and exceptional customer service.
+
+                      Our mission is simple: to be your trusted travel companion, helping you explore the world with ease. We understand that travel is not just about booking a room or an experience, but about creating lasting memories. That’s why we offer more than just reservations — we offer tailored travel solutions that cater to your individual needs, preferences, and aspirations.
                     </div>
                 </div>
-
                 <div class="md:w-[45%] flex justify-center items-center">
                     <div class="relative flex justify-center items-center w-[50%] h-[450px]">
-                        <div class=" absolute h-[250px] w-[250px] rounded-3xl z-20 bottom-0 overflow-hidden border border-[10px]">
+                        <div class="absolute h-[250px] w-[250px] rounded-3xl z-20 bottom-0 overflow-hidden border border-[10px]">
                             <img src="https://www.pnthotels.com/img/gallery/gal-9.webp" class="w-full h-full object-cover" alt="">
                         </div>
-                        <div class=" absolute h-[400px] w-[300px] rounded-3xl z-10 left-28 border border-[10px]">
-                            <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJlc29ydHxlbnwwfHwwfHx8MA%3D%3D    " class=" h-full w-full object-cover rounded-3xl" alt="">
+                        <div class="absolute h-[400px] w-[300px] rounded-3xl z-10 left-28 border border-[10px]">
+                            <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJlc29ydHxlbnwwfHwwfHx8MA%3D%3D" class="h-full w-full object-cover rounded-3xl" alt="">
                         </div>
                     </div>
                 </div>
@@ -205,7 +191,7 @@
         </section>
 
         <section class="mb-10">
-            <div class="w-full h-auto py-10 bg-[#47ad95] flex justify-evenly items-center text-[#fff]">
+            <div class="w-full h-auto py-10 bg-[#47ad95] flex justify-evenly items-center text-[#fff] flex-col md:flex-row">
                 <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
                     1000 +
                     <span class="text-sm font-semibold">Happy Client</span>
@@ -214,126 +200,38 @@
                     2000 +
                     <span class="text-sm font-semibold">Rooms</span>
                 </div>
-                <div  class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-r pr-10">
+                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-r pr-10">
                     100 +
                     <span class="text-sm font-semibold">Type of Services</span>
                 </div>
                 <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
                     10 +
-                    <span class="text-sm font-semibold">Type of Services</span>
+                    <span class="text-sm font-semibold">Type of Categories</span>
                 </div>
             </div>
         </section>
-
-        <header class="pt-32 mb-10">
-          <h1 class="text-center text-3xl font-bold">Our Properties</h1>
-      </header>
-    
-        <div class="category-container">
-          {% if categories %}
-              {% for category in categories %}
-                  <a href="{% url 'property_view' category.id %}" class="category-link">
-                      <div class="category-box" style="background-image: url('{{ category.image.url }}');">
-                          <div class="category-details">
-                              <h3>{{ category.name }}</h3>
-                              <p>5 days | from $356</p>
-                          </div>
-                      </div>
-                  </a>
-              {% endfor %}
-          {% else %}
-              <p>No categories available.</p>
-          {% endif %}
-      </div>
-
-          
-          </section>
-          <br>
-          <br>
-          <br>
-
-
-
-
-        <section class="mb-10">
-            <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
-                <div class="h-full w-full absolute" >
-                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
-                </div>
-                <!-- Slider -->
-                <div class=" flex justify-center items-center">
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_143" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </div>
+        <section>
+          <div class="category-container">
+            {% if categories %}
+                {% for category in categories %}
+                    <a href="{% url 'property_view' category.id %}" class="category-link">
+                        <div class="category-box" style="background-image: url('{{ category.image.url }}');">
+                            <div class="category-details">
+                                <h3>{{ category.name }}</h3>
+                                
                             </div>
                         </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-                    </div>
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_49" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-                    </div>
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://imgcdn.stablediffusionweb.com/2024/4/16/88f40006-f2ef-4978-8e32-f0d781b77aea.jpg" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-                    </div>
-                </div>
-            </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No categories available.</p>
+            {% endif %}
+          </div>
         </section>
-      </div>
+        <br>
+        <br>
 
-    
+    </div>
 </body>
 </html>
 {% endblock %}

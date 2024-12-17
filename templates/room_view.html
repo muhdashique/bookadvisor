@@ -108,7 +108,7 @@
         {% endif %}
         <div class="room-detail-info">
             <p class="room-description">{{ room.description }}</p>
-            <p class="room-price">Price: ${{ room.price }}</p>
+            <p class="room-price">Price: &#8377;{{ room.price }}</p>
             <p class="room-category">Category: {{ room.category.name }}</p>
             <p class="room-availability">
                 {% if room.status == 'not_available' %}

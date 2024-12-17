@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,6 +108,42 @@
       width: 100%;
       max-width: 500px;
     }
+
+    /* cound */
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://assets.mixkit.co/videos/5363/5363-thumb-360-0.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.statistic {
+    text-align: center;
+}
+
+.circle {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.circle img {
+    width: 40px;
+    height: 40px;
+}
   </style>
 </head>
 <body>
@@ -151,6 +188,32 @@
       </div>
     </section>
   </main>
+
+ <section>
+  <div class="container">
+    <div class="statistic">
+        <div class="circle"><img src="{% static 'image\airplane_1350120.png' %}" alt="Flight Booking"></div>
+        <h2>600</h2>
+        <p>Flight Booking</p>
+    </div>
+    <div class="statistic">
+        <div class="circle"><img src="{% static 'image\travel_826070.png' %}" alt="Amazing Tour"></div>
+        <h2>250</h2>
+        <p>Amazing Tour</p>
+    </div>
+    <div class="statistic">
+      <div class="circle"><img src="{% static 'image\shipping_753633.png' %}" alt="Hotel Booking"></div>
+        <h2>100</h2>
+        <p>Cruises Booking</p>
+    </div>
+    <div class="statistic">
+        <div class="circle"><img src="{% static 'image\airplane_1350120.png' %}" alt="Hotel Booking"></div>
+        <h2>100</h2>
+        <p>Hotel Booking</p>
+    </div>
+</div>
+ </section>
+      
   <section class="mb-10">
     <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
         <div class="h-full w-full absolute" >
@@ -236,6 +299,19 @@
     document.querySelector('.btn').addEventListener('click', () => {
       console.log('Learn More button clicked');
     });
+
+
+    // count
+    // Example script to add interactivity (optional)
+document.querySelectorAll('.statistic').forEach(stat => {
+    stat.addEventListener('mouseover', () => {
+        stat.style.transform = 'scale(1.1)';
+    });
+
+    stat.addEventListener('mouseout', () => {
+        stat.style.transform = 'scale(1)';
+    });
+});
   </script>
 </body>
 </html>

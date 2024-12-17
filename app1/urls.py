@@ -25,5 +25,7 @@ urlpatterns = [
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
       path('room/<int:id>/', views.room_view, name='room_view'),
-    
+      path('add-images-to-room/<int:room_id>/', views.add_images_to_room, name='add_images_to_room'),
+      
 ]
+     

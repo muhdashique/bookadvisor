@@ -3,22 +3,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .models import Room
-from .forms import RoomForm
+from .models import Room, RoomCategory
+from .forms import RoomForm, RoomCategoryForm
 
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import RoomCategory, Room
-from .forms import RoomCategoryForm, RoomForm
-from django.shortcuts import get_object_or_404, render, redirect
-from .models import RoomCategory
-from .forms import RoomCategoryForm
-from django.shortcuts import render, get_object_or_404
-from .models import RoomCategory, Room
-from django.shortcuts import render, get_object_or_404
-from .models import Room
 
 
 
@@ -58,15 +46,11 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
+
+
 # Admin panel view with property form
-
-
 def admin_panel(request):
     return render(request, 'adminPannel.html')
-
-
-
-
 
 
 
@@ -79,10 +63,10 @@ def room_category_list(request):
 
 def add_room_category(request):
     if request.method == 'POST':
-        form = RoomCategoryForm(request.POST, request.FILES)  # Ensure you include request.FILES to handle image upload
+        form = RoomCategoryForm(request.POST, request.FILES)  
         if form.is_valid():
-            new_category = form.save()  # Save the new category to the database
-            return redirect('room_category_list', category_id=new_category.id)  # Redirect to a page to view the new category
+            new_category = form.save()  
+            return redirect('room_category_list', category_id=new_category.id)  
     else:
         form = RoomCategoryForm()
 
@@ -90,7 +74,7 @@ def add_room_category(request):
 
 
 def room_category_detail(request, category_id):
-    category = RoomCategory.objects.get(id=category_id)  # Get the category by ID
+    category = RoomCategory.objects.get(id=category_id)  
     return render(request, 'room_category_list.html', {'category': category})
 
 
@@ -107,16 +91,12 @@ def room_list(request, category_id=None):
 def add_room(request):
     if request.method == 'POST':
         form = RoomForm(request.POST, request.FILES)
-        files = request.FILES.getlist('images')
         if form.is_valid():
             room = form.save()
-            for file in files:
-                RoomImage.objects.create(room=room, image=file)
             return redirect('room_list')
     else:
         form = RoomForm()
     return render(request, 'add_room.html', {'form': form})
-
 
 
 # delete category
@@ -198,10 +178,12 @@ def room_view(request, id):
     return render(request, 'room_view.html', {'room': room})
 
 
+def add_images_to_room(request, room_id):
+    room = get_object_or_404(Room, id=room_id)
+    # Your logic for adding images to the room
+    return render(request, 'add_images_to_room.html', {'room': room})
 
-from django.shortcuts import render
-from .models import Room
 
-def room_details(request, room_id):
-    room = Room.objects.get(id=room_id)
-    return render(request, 'room_view.html', {'room': room})
+
+
+

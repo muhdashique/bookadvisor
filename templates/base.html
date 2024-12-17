@@ -4,8 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}BookAdvisor{% endblock %}</title>
+    <head>
+        <title>{% block title %}BookAdvisor{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{% static 'favicon-96x96.png' %}" sizes="96x96" />
+    </head>
+    
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+       .contact-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  /* background-color: #6151ec; */
+  backdrop-filter: blur(10px);
+  border: .1px solid rgb(68, 54, 108);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.contact-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.contact-item p {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+.white-icon {
+        filter: brightness(0) invert(1);
+    }
+    </style>
 </head>
 <body class="bg-white">
     <div class="min-h-screen flex flex-col">
@@ -43,52 +90,80 @@
                 <div class="background-image absolute -z-10 top-0 bottom-0 left-0 right-0">
                     <img src="https://miro.medium.com/v2/resize:fit:1400/1*HRcVRb4AmLrt5E0gANvWcA.jpeg" class="w-full h-full object-cover" alt="">
                 </div>
+                   
+                
+                    <div class="contact-section">
+                        <div class="contact-item">
+                            <img src="{% static 'image\phone-call.png' %}" alt="Call us" class="white-icon" >
+                            <div>
+                                <h3>Call us</h3>
+                                <p>+91 9098979695</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="{% static 'image\email.png' %}" alt="Write to us"  class="white-icon">
+                            <div>
+                                <h3>Write to us</h3>
+                                <p>bookadvisor@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="{% static 'image\navigation.png' %}" alt="Address"  class="white-icon">
+                            <div>
+                                <h3>Address</h3>
+                                <p>Kerala, India</p>
+                            </div>
+                        </div>
+                    </div>
                 
                 <div class="w-full max-w-[1200px] px-4 lg:px-0">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 place-items-start mb-10" style="margin-top: 10%;">
                         <!-- Logo Section -->
                         <div class="text-center md:text-left col-span-1">
                             <img src="{% static 'image/BOOKADVISOR.in.png' %}" alt="BookAdvisor Logo" class="h-16 mx-auto md:mx-0 mb-4">
+                            <div>
+                                BookAdvisor: Your ultimate platform for hassle-free hotel booking, offering the best deals, seamless reservations, and unforgettable stays tailored to your needs. 🌟
+                            </div>
                         </div>
         
                         <!-- Navigation Column 1 -->
                         <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Quick Links</h4>
+                            <h4 class="font-bold mb-4">Quick Links<br><br></h4>
                             <ul class="flex flex-col gap-2">
-                                <li><a href="{% url 'index' %}" class="hover:text-gray-300">Home</a></li>
-                                <li><a href="{% url 'about' %}" class="hover:text-gray-300">About</a></li>
-                                <li><a href="{% url 'properties' %}" class="hover:text-gray-300">Properties</a></li>
+                                <li><a href="{% url 'index' %}" class="hover:text-gray-300">Home</a><br><br></li>
+                                <li><a href="{% url 'about' %}" class="hover:text-gray-300">About</a><br><br></li>
+                                <li><a href="{% url 'properties' %}" class="hover:text-gray-300">Properties</a><br><br></li>
                                 <li><a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a></li>
                             </ul>
                         </div>
         
                         <!-- Additional Links Column -->
                         <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Additional Links</h4>
+                            <h4 class="font-bold mb-4">Additional Links<br><br></h4>
                             <ul class="flex flex-col gap-2">
-                                <li><a href="#" class="hover:text-gray-300">Privacy Policy</a></li>
-                                <li><a href="#" class="hover:text-gray-300">Terms of Service</a></li>
-                                <li><a href="#" class="hover:text-gray-300">FAQ</a></li>
-                                <li><a href="#" class="hover:text-gray-300">Support</a></li>
+                                <li><a href="#" class="hover:text-blue-300">Privacy Policy</a><br><br></li>
+                                <li><a href="#" class="hover:text-blue-300">Terms of Service</a><br><br></li>
+                                <li><a href="#" class="hover:text-blue-300">FAQ</a><br><br></li>
+                                <li><a href="#" class="hover:text-blue-300">Support</a></li>
                             </ul>
                         </div>
         
                         <!-- Social Media Column -->
                         <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <h4 class="font-bold mb-4">Follow Us<br><br></h4>
                             <div class="flex gap-4 justify-center md:justify-start">
                                <ul>
                                 <li><a href="https://www.facebook.com/yourusername" target="_blank" class="hover:text-blue-300">
-                                    <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp; FACEBOOK  </a><br><br></li>
+                                    <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp; facebook  </a><br><br></li>
                                   
                                     <li><a href="https://www.instagram.com/yourusername" target="_blank" class="hover:text-blue-300">
-                                    <i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;INSTAGRAM</a><br><br></li>
+                                    <i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;instagram</a><br><br></li>
                                   
                                     <li> <a href="https://twitter.com/yourusername" target="_blank" class="hover:text-blue-300">
-                                    <i class="fab fa-twitter"></i>&nbsp;&nbsp;TWITTER </a><br><br></li>
+                                    <i class="fab fa-twitter"></i>&nbsp;&nbsp;twitter </a><br><br></li>
                                   
                                     <li><a href="https://wa.me/11234567890" target="_blank" class="hover:text-green-300">
-                                    <i class="fa-brands fa-whatsapp"></i>&nbsp;&nbsp;WHATSAPP </a></li>
+                                    <i class="fa-brands fa-whatsapp"></i>&nbsp;&nbsp;whatsapp </a></li>
                                </ul>
                                   
                             </div>
@@ -103,6 +178,19 @@
         </footer>
           
     </div>
+
+    <script>
+        // Example script to add interactivity (optional)
+document.querySelectorAll('.statistic').forEach(stat => {
+    stat.addEventListener('mouseover', () => {
+        stat.style.transform = 'scale(1.1)';
+    });
+
+    stat.addEventListener('mouseout', () => {
+        stat.style.transform = 'scale(1)';
+    });
+});
+    </script>
 
     {% block extra_scripts %}{% endblock %}
 </body>
