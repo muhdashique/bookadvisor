@@ -152,7 +152,12 @@
                     <div class="category-box" style="background-image: url('{{ category.image.url }}');">
                         <div class="category-details">
                             <h3>{{ category.name }}</h3>
-                           
+                            <!-- Display category description (if available) -->
+                            {% if category.description %}
+                                <p>{{ category.description }}</p>
+                            {% else %}
+                                <p>No description available.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </a>
@@ -161,6 +166,7 @@
             <p>No categories available.</p>
         {% endif %}
     </div>
+    
     <br>
     <br>
     <br>

@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Room, RoomCategory
 from .forms import RoomForm, RoomCategoryForm
@@ -43,7 +42,6 @@ def login_view(request):
                 messages.error(request, "Invalid username or password")
     else:
         form = AuthenticationForm()
-
     return render(request, 'login.html', {'form': form})
 
 
@@ -61,21 +59,21 @@ def room_category_list(request):
 
 
 
+from django.shortcuts import render, redirect
+from .forms import RoomCategoryForm
+
 def add_room_category(request):
     if request.method == 'POST':
-        form = RoomCategoryForm(request.POST, request.FILES)  
+        form = RoomCategoryForm(request.POST, request.FILES)
         if form.is_valid():
-            new_category = form.save()  
-            return redirect('room_category_list', category_id=new_category.id)  
+            form.save()
+            return redirect('room_category_list')  # Redirect to the category list view
     else:
         form = RoomCategoryForm()
 
     return render(request, 'add_room_category.html', {'form': form})
 
 
-def room_category_detail(request, category_id):
-    category = RoomCategory.objects.get(id=category_id)  
-    return render(request, 'room_category_list.html', {'category': category})
 
 
 
@@ -172,10 +170,20 @@ def delete_room(request, room_id):
     return redirect('room_list')
 
 
-
 def room_view(request, id):
+    # Get the current room
     room = get_object_or_404(Room, id=id)
-    return render(request, 'room_view.html', {'room': room})
+    
+    # Fetch next and previous rooms based on the current room ID
+    next_room = Room.objects.filter(id__gt=room.id).order_by('id').first()
+    previous_room = Room.objects.filter(id__lt=room.id).order_by('-id').first()
+
+    return render(request, 'room_view.html', {
+        'room': room,
+        'next_room': next_room,
+        'previous_room': previous_room,
+    })
+
 
 
 def add_images_to_room(request, room_id):
@@ -184,6 +192,12 @@ def add_images_to_room(request, room_id):
     return render(request, 'add_images_to_room.html', {'room': room})
 
 
+
+
+
+def room_category_detail(request, category_id):
+    category = RoomCategory.objects.get(id=category_id)
+    return render(request, 'room_category_list.html', {'category': category})
 
 
 

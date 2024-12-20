@@ -5,12 +5,14 @@ from .models import RoomCategory, Room
 class RoomCategoryForm(forms.ModelForm):
     class Meta:
         model = RoomCategory
-        fields = ['name', 'description', 'image']
+        fields = ['name', 'image', 'description']  # Add description field to the form
 
 class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
-        fields = ['category', 'name', 'description', 'price', 'image', 'is_available']
+        fields = ['category', 'image']  # Only category and image fields
+
+
 
 
 

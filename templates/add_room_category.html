@@ -168,31 +168,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Add Room Category</h1>
-        <form method="post" id="categoryForm" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn">Add Category</button>
-        </form>        
-        <!-- <a href="{% url 'room_category_list' %}" class="btn btn-secondary">Back to Categories</a> -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="id_name">{{ form.name.label }}</label>
+        {{ form.name }}
+        
+       
+        <label for="id_description">{{ form.description.label }}</label>
+        {{ form.description }}
+
+        <label for="id_image">{{ form.image.label }}</label>
+        {{ form.image }}
+        
+
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+    
     </div>
-<!-- 
-    <h1>Room Categories</h1>
-    <ul class="category-list">
-        {% for category in categories %}
-            <li class="category-item">
-                <div>
-                    <strong>{{ category.name }}</strong>
-                    <p>{{ category.description }}</p>
-                </div>
-                <div class="category-actions">
-                    <a href="#" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                </div>
-            </li>
-        {% endfor %}
-    </ul> -->
 
     <script>
         // Form validation

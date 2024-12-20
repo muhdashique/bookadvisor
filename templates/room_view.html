@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Room Details</title>
     <style>
         :root {
-            --primary-color: #3498db;
+            --primary-color: #01090f;
             --secondary-color: #2ecc71;
             --text-color: #333;
             --background-color: #f4f4f4;
@@ -98,31 +99,108 @@
             background-color: #bdc3c7;
             cursor: not-allowed;
         }
+
+        /* naxt prev */
+        .room-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .back-btn:hover {
+            background-color: #444;
+        }
+        /* back */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            border-radius: 8px;
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .back-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
     </style>
 </head>
 <body>
-    <div class="room-detail-container">
+    <a href="{% url 'property_view' category_id=room.category.id %}" class="back-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back 
+    </a>
+        <!-- Back button -->
+       
+
         <h1>{{ room.name }}</h1>
         {% if room.image %}
             <img src="{{ room.image.url }}" alt="{{ room.name }}" class="room-image-detail">
         {% endif %}
         <div class="room-detail-info">
-            <p class="room-description">{{ room.description }}</p>
-            <p class="room-price">Price: &#8377;{{ room.price }}</p>
-            <p class="room-category">Category: {{ room.category.name }}</p>
-            <p class="room-availability">
-                {% if room.status == 'not_available' %}
-                <p>Status: Not Available</p>
-            {% else %}
-                <p>Status: Available</p>
-            {% endif %}
-            </p>
-            
+            <p>{{ room.description }}</p>
         </div>
         
-       
+        <div class="room-navigation">
+            {% if previous_room %}
+                <a href="{% url 'room_detail' previous_room.id %}" class="btn"><i class="fa-solid fa-arrow-left"></i> </a>
+            {% endif %}
+            
+            {% if next_room %}
+                <a href="{% url 'room_detail' next_room.id %}" class="btn"><i class="fa-solid fa-arrow-right"></i></a>
+            {% endif %}
+        </div>
     </div>
-
-    
 </body>
 </html>

@@ -138,6 +138,32 @@
             margin: 5px 0 0;
             font-size: 14px;
         }
+        .scroll-smooth {
+    scroll-behavior: smooth; /* Enables smooth sliding */
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden; /* Hides content outside the container */
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Optional: Hide scrollbars for a clean design */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; /* For Internet Explorer */
+    scrollbar-width: none; /* For Firefox */
+}
+
     </style>
 </head>
 <body>
@@ -210,26 +236,141 @@
                 </div>
             </div>
         </section>
-        <section>
-          <div class="category-container">
-            {% if categories %}
-                {% for category in categories %}
-                    <a href="{% url 'property_view' category.id %}" class="category-link">
-                        <div class="category-box" style="background-image: url('{{ category.image.url }}');">
-                            <div class="category-details">
-                                <h3>{{ category.name }}</h3>
-                                
+        <section class="mb-20">
+            <div class="category-container">
+                {% if categories %}
+                    {% for category in categories %}
+                        <a href="{% url 'property_view' category.id %}" class="category-link">
+                            <div class="category-box" style="background-image: url('{{ category.image.url }}');">
+                                <div class="category-details">
+                                    <h3>{{ category.name }}</h3>
+                                    <!-- Display category description (if available) -->
+                                    {% if category.description %}
+                                        <p>{{ category.description }}</p>
+                                    {% else %}
+                                        <p>No description available.</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <p>No categories available.</p>
+                {% endif %}
+            </div>
+            
+        </section>
+
+
+
+        <section class="max-w-[1200px] w-full mx-auto">
+            <div class="flex flex-col gap-10 overflow-hidden">
+                <div class="flex flex-col gap-5">
+                    <div class="text-[50px] font-bold">MOST POPULAR</div>
+                    <div class="max-w-[900px]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus modi ea eius, ratione nihil vel eos ducimus obcaecati consequuntur natus doloribus ipsam, sed inventore reprehenderit quaerat saepe itaque tenetur harum.</div>
+                </div>
+                <div class="relative">
+                    <!-- Buttons for sliding -->
+                    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
+                        &#10094;
+                    </button>
+                    <div class="flex gap-10 overflow-x-hidden flex-shrink-0 w-full scroll-smooth">
+                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                        </div>
+                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://www.keralatourism.org/assets/img/pack-up-for-kerala/ebrochure.webp" alt="">
+                        </div>
+                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://kuruvaislandresort.com/admin/uploads/blog/062022/aff30e781c7228caf2746d331d03fb3f.jpg" alt="">
+                        </div>
+                    </div>
+                    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
+                        &#10095;
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        
+        <br>
+        <br>
+        <section class="mb-10">
+            <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
+                <div class="h-full w-full absolute" >
+                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
+                </div>
+                <!-- Slider -->
+                <div class=" flex justify-center items-center">
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_143" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                {% endfor %}
-            {% else %}
-                <p>No categories available.</p>
-            {% endif %}
-          </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_49" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
+                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
+                        <div class="flex justify-center items-center">
+                            <div class=" absolute flex items-end">
+                                <!-- Image -->
+                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                    <img src="https://imgcdn.stablediffusionweb.com/2024/4/16/88f40006-f2ef-4978-8e32-f0d781b77aea.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <!-- Rating -->
+                                <div class="flex justify-center items-center text-[#FCCD2A]">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Heading -->
+                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
+                        <!-- Paragraph -->
+                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <br>
-        <br>
 
     </div>
 </body>

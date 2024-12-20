@@ -82,10 +82,15 @@ WSGI_APPLICATION = 'bookadvisorpro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bookadviser',  # Replace with your database name
+        'USER': 'postgres',  # Replace with your database username
+        'PASSWORD': '1234',  # Replace with your database password
+        'HOST': 'localhost',  # For local development, use 'localhost' or '127.0.0.1'
+        'PORT': '5432',  # Default PostgreSQL port is 5432
     }
 }
+
 
 
 # Password validation
