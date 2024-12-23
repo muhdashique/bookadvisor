@@ -179,12 +179,8 @@
     </style>
 </head>
 <body>
-   
+
     
-        <button class="logout-btn" id="logoutBtn">
-            <i class="fas fa-sign-out-alt"></i>
-            Logout
-        </button>
     </div>
 
     <div class="container">
@@ -226,6 +222,17 @@
                 </button>
             </div>
         </div>
+    </div>
+    <h1>Submit Testimonial</h1>
+
+    <!-- Form to submit new testimonial -->
+    <div class="testimonial-form">
+        <h2>Submit Your Testimonial</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
     </div>
 
     <script>

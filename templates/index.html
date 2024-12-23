@@ -14,6 +14,9 @@
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
     <style>
         *{
             margin: 0;
@@ -174,8 +177,12 @@ button:hover {
                 </video>
                 <div class="absolute inset-0 flex items-center justify-center text-white">
                     <div class="banner-text">
-                        <h1 class="headline text-4xl md:text-6xl">EXPLORE THE WORLD</h1>
-                        <p class="subheading text-lg md:text-2xl">LET'S TRAVEL THE WORLD WITH US</p>
+                        <h1 class=" text-2xl md:text-[45px] lg:text-[100px] leading-tight font-bold">EXPLORE THE WORLD</h1>
+                        <p class="text-lg md:text-2xl lg:text-[20px] font-semibold mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vero aliquid similique odio excepturi minima illo distinctio at recusandae, esse commodi velit eaque enim illum alias veritatis error doloremque non!</p>
+                        <div class="flex gap-10 w-full justify-center items-center">
+                            <button class="px-10 py-3 rounded-3xl bg-[#ffff] text-[#000]">Discover More</button>
+                            <button class="rounded-3xl border border-[#ffff] px-10 py-3">Know More</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -267,27 +274,35 @@ button:hover {
             <div class="flex flex-col gap-10 overflow-hidden">
                 <div class="flex flex-col gap-5">
                     <div class="text-[50px] font-bold">MOST POPULAR</div>
-                    <div class="max-w-[900px]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus modi ea eius, ratione nihil vel eos ducimus obcaecati consequuntur natus doloribus ipsam, sed inventore reprehenderit quaerat saepe itaque tenetur harum.</div>
+                    <div class="max-w-[900px]">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus modi ea eius, ratione nihil vel eos ducimus obcaecati consequuntur natus doloribus ipsam, sed inventore reprehenderit quaerat saepe itaque tenetur harum.
+                    </div>
                 </div>
                 <div class="relative">
-                    <!-- Buttons for sliding -->
-                    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
-                        &#10094;
-                    </button>
-                    <div class="flex gap-10 overflow-x-hidden flex-shrink-0 w-full scroll-smooth">
-                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                    <!-- Swiper container -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- Swiper slides -->
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://www.keralatourism.org/assets/img/pack-up-for-kerala/ebrochure.webp" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://kuruvaislandresort.com/admin/uploads/blog/062022/aff30e781c7228caf2746d331d03fb3f.jpg" alt="">
+                            </div>
                         </div>
-                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://www.keralatourism.org/assets/img/pack-up-for-kerala/ebrochure.webp" alt="">
-                        </div>
-                        <div class="w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                            <img class="w-full h-full object-cover" src="https://kuruvaislandresort.com/admin/uploads/blog/062022/aff30e781c7228caf2746d331d03fb3f.jpg" alt="">
-                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
-                        &#10095;
-                    </button>
                 </div>
             </div>
         </section>
@@ -296,83 +311,96 @@ button:hover {
         <br>
         <br>
         <section class="mb-10">
-            <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
-                <div class="h-full w-full absolute" >
-                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
+            <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center">
+                <div class="h-full w-full absolute">
+                    <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" 
+                        class="w-full h-full object-cover" alt="">
                 </div>
-                <!-- Slider -->
-                <div class=" flex justify-center items-center">
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_143" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-                    </div>
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_49" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
+                <!-- Swiper Container -->
+                <div class="swiper-container2 testimonial-container w-full max-w-[1200px]">
+                    <div class="swiper-wrapper">
+                        {% for testimonial in testimonials %}
+                        <div class="swiper-slide flex justify-center">
+                            <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative p-5 rounded-lg">
+                                <div class="flex flex-col items-center gap-5">
+                                    <!-- Image -->
+                                    <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
+                                        <img src="{{ testimonial.image.url }}" class="w-full h-full object-cover" alt="Testimonial Image">
+                                    </div>
+                                    <!-- Rating -->
+                                    <div class="flex">
+                                        {% for star in testimonial.stars %}
+                                        <span class="text-yellow-500 text-xl">★</span>
+                                        {% endfor %}
+                                    </div>
+                                    <!-- Name -->
+                                    <div class="text-center text-2xl font-bold">{{ testimonial.name }}</div>
+                                    <!-- Review -->
+                                    <div class="text-center px-5 font-medium text-white">{{ testimonial.review }}</div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
+                        {% endfor %}
                     </div>
-                    <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                        <div class="flex justify-center items-center">
-                            <div class=" absolute flex items-end">
-                                <!-- Image -->
-                                <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                    <img src="https://imgcdn.stablediffusionweb.com/2024/4/16/88f40006-f2ef-4978-8e32-f0d781b77aea.jpg" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <!-- Rating -->
-                                <div class="flex justify-center items-center text-[#FCCD2A]">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Heading -->
-                        <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                        <!-- Paragraph -->
-                        <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-                    </div>
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next text-white"></div>
+                    <div class="swiper-button-prev text-white"></div>
                 </div>
             </div>
         </section>
+        
 
     </div>
+
+    
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3, // Number of slides visible at once
+            spaceBetween: 20, // Space between slides
+            loop: true, // Enable infinite loop
+            autoplay: {
+                delay: 3000, // Auto-slide delay in milliseconds
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            navigation: {
+                nextEl: '.swiper-button-next', // Next button
+                prevEl: '.swiper-button-prev', // Previous button
+            },
+        });
+    </script>
+
+<script>
+    const swiper1 = new Swiper('.swiper-container2', {
+        slidesPerView: 1, // Number of slides visible at once
+        spaceBetween: 20, // Space between slides
+        loop: true, // Infinite loop
+        autoplay: {
+            delay: 5000, // Auto-slide every 5 seconds
+            disableOnInteraction: false, // Continue autoplay after user interaction
+        },
+        navigation: {
+            nextEl: '.swiper-button-next', // Next button
+            prevEl: '.swiper-button-prev', // Previous button
+        },
+        breakpoints: {
+            // Responsive breakpoints
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+        },
+    });
+</script>
+
+    
 </body>
 </html>
 {% endblock %}

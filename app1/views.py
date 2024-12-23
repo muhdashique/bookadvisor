@@ -5,14 +5,35 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Room, RoomCategory
 from .forms import RoomForm, RoomCategoryForm
-
+from django.shortcuts import render
+from .forms import TestimonialForm
+from .models import Testimonial, RoomCategory
 
 
 
 # Index view
 def index(request):
-    categories = RoomCategory.objects.all()  # Fetch all categories
-    return render(request, 'index.html', {'categories': categories})
+    # Fetch all categories
+    categories = RoomCategory.objects.all()
+    
+    # Fetch all testimonials
+    testimonials = Testimonial.objects.all()
+    
+    # Add stars attribute to testimonials
+    for testimonial in testimonials:
+        testimonial.stars = ['★'] * testimonial.rating + ['☆'] * (5 - testimonial.rating)
+
+    # Create a testimonial form
+    form = TestimonialForm()
+
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirect to the same page after saving
+
+    return render(request, 'index.html', {'form': form, 'testimonials': testimonials, 'categories': categories})
+
 
 # About view
 def About(request):
@@ -37,7 +58,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('adminpannel')
+                return redirect('admin_pannel')
             else:
                 messages.error(request, "Invalid username or password")
     else:
@@ -47,8 +68,20 @@ def login_view(request):
 
 
 # Admin panel view with property form
-def admin_panel(request):
-    return render(request, 'adminPannel.html')
+
+def admin_pannel(request):
+    categories = RoomCategory.objects.all()  # Fetch all categories
+    testimonials = Testimonial.objects.all()  # Fetch all testimonials
+    form = TestimonialForm()
+
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_pannel')  # This should match the URL pattern name
+
+    return render(request, 'adminpannel.html', {'form': form, 'testimonials': testimonials, 'categories': categories})
+
 
 
 
@@ -59,8 +92,7 @@ def room_category_list(request):
 
 
 
-from django.shortcuts import render, redirect
-from .forms import RoomCategoryForm
+
 
 def add_room_category(request):
     if request.method == 'POST':
@@ -98,8 +130,6 @@ def add_room(request):
 
 
 # delete category
-from django.shortcuts import get_object_or_404, redirect
-from .models import RoomCategory
 
 def delete_room_category(request, category_id):
     category = get_object_or_404(RoomCategory, id=category_id)
@@ -201,3 +231,17 @@ def room_category_detail(request, category_id):
 
 
 
+
+
+def testimonial_view(request):
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_panel')  # Redirect to the same page after saving
+
+    else:
+        form = TestimonialForm()
+
+    testimonials = Testimonial.objects.all()  # Retrieve all testimonials
+    return render(request, 'adminPannel.html', {'form': form, 'testimonials': testimonials})

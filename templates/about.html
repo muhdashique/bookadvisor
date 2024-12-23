@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <title>Travol - Explore the World</title>
+  <title>BOOK ADVISOR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -178,6 +178,176 @@
             margin: 0 0 4px 0;
         }
 
+
+        /* galery */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .mood-board {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .business-card {
+            background: #1a472a;
+            padding: 2rem;
+            color: white;
+        }
+
+        .landscape {
+            position: relative;
+            height: 200px;
+        }
+
+        .landscape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dots {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.8;
+        }
+
+        .typography {
+            padding: 2rem;
+        }
+
+        .font-sample {
+            margin-bottom: 2rem;
+           
+        }
+
+        .font-sample h2 {
+            margin-bottom: 1rem;
+        }
+
+        .brand-statement {
+            background: #1f2937;
+            color: white;
+            padding: 2rem;
+        }
+
+        .brand-name {
+            background: #f3e8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .brand-name h1 {
+            font-size: 3rem;
+            color: #581c87;
+        }
+
+        .social-grid {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+
+        .social-card {
+            position: relative;
+            height: 150px;
+        }
+
+        .social-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-dots {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            display: flex;
+            gap: 4px;
+        }
+
+        .social-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .mood-board {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-grid {
+                grid-column: span 1;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 400px;
+    margin: 0 auto;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+}
+
+.brand-statement img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* border-radius: 8px; */
+}
+.card.brand-name {
+        background-color: #ffffff; /* Background color */
+        color: white; /* Text color */
+        padding: 30px 50px; /* Padding inside the card */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        text-align: center; /* Center the text */
+        max-width: 400px; /* Limit card width */
+        margin: 30px auto; /* Center the card on the page */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+        text-decoration-color: #00bcd4;
+    }
+
+
    
   </style>
 </head>
@@ -191,7 +361,7 @@
       </div>
     </section>
 
-    <section class="about flex justify-center items-center gap-10 max-w-[1400px] mx-auto">
+    <section class="about flex justify-center items-center gap-10 max-w-[1400px] mx-auto mb-10">
         <div class="md:w-[50%] w-full">
           <h1 class="text-[50px] font-bold mb-3">ABOUT TRAVOL</h1>
           <p>Travol is the best travel agency that helps you discover the world with our expert guide. With over 20 years of experience and 150+ tour destinations, we are dedicated to providing you with unforgettable travel experiences Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus ipsam hic fugit obcaecati libero incidunt sunt, magnam nihil! Ipsa vitae temporibus maxime veniam neque. Quia soluta veritatis molestias nobis nulla!</p>
@@ -205,7 +375,7 @@
   <section class="mb-10">
     <div class="container">
       <div class="header">
-          <h1 class="title">Our Recommended Destinations</h1>
+          <h1 class="title"> Recommended Activities</h1>
           <a href="#" class="show-more">Show More</a>
       </div>
       
@@ -213,11 +383,11 @@
           <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/4434205/4434205-sd_360_640_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/8062895/8062895-uhd_1440_2560_24fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name">MMountain Trekking</h2>
           </div>
         </div>
           <!-- end -->
@@ -225,11 +395,11 @@
           <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/28755609/12468247_1080_1920_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/5667406/5667406-sd_506_960_30fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name">Natural Rivers</h2>
           </div>
         </div>
           <!-- end -->
@@ -237,44 +407,44 @@
           <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/8242987/8242987-sd_360_640_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/6775423/6775423-uhd_1440_2560_24fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name"> Beach</h2>
           </div>
         </div>
           <!-- end -->
          <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/8242987/8242987-sd_360_640_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/15953313/15953313-sd_360_640_30fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name">Wild Hiking</h2>
           </div>
         </div>
           <!-- end -->
         <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/8242987/8242987-sd_360_640_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/5345336/5345336-hd_1080_1920_30fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name">Waterfalls</h2>
           </div>
         </div>
           <!-- end -->
         <!-- video -->
         <div class="card">
           <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/8242987/8242987-sd_360_640_30fps.mp4" type="video/mp4">
+              <source src="https://videos.pexels.com/video-files/6190918/6190918-hd_1080_1920_30fps.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
           <div class="card-content">
-              <h2 class="destination-name">Pink Beach</h2>
+              <h2 class="destination-name">Night Camping Trip</h2>
           </div>
         </div>
           <!-- end -->
@@ -284,78 +454,57 @@
       
   <section class="mb-10">
     <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
-        <div class="h-full w-full absolute" >
+        <!-- <div class="h-full w-full absolute" >
             <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
-        </div>
+        </div> -->
         <!-- Slider -->
-        <div class=" flex justify-center items-center">
-            <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                <div class="flex justify-center items-center">
-                    <div class=" absolute flex items-end">
-                        <!-- Image -->
-                        <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                            <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_143" class="w-full h-full object-cover" alt="">
-                        </div>
-                        <!-- Rating -->
-                        <div class="flex justify-center items-center text-[#FCCD2A]">
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                        </div>
-                    </div>
-                </div>
-                <!-- Heading sdwcywchjwdjhcwjhecujwcwejcbjwebcjh-->
-                <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                <!-- Paragraph -->
-                <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-            </div>
-            <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                <div class="flex justify-center items-center">
-                    <div class=" absolute flex items-end">
-                        <!-- Image -->
-                        <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                            <img src="https://www.everypixel.com/preview_collections/20231129/people_of_the_world_vol.3_49" class="w-full h-full object-cover" alt="">
-                        </div>
-                        <!-- Rating -->
-                        <div class="flex justify-center items-center text-[#FCCD2A]">
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                        </div>
-                    </div>
-                </div>
-                <!-- Heading -->
-                <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                <!-- Paragraph -->
-                <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-            </div>
-            <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative">
-                <div class="flex justify-center items-center">
-                    <div class=" absolute flex items-end">
-                        <!-- Image -->
-                        <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                            <img src="https://imgcdn.stablediffusionweb.com/2024/4/16/88f40006-f2ef-4978-8e32-f0d781b77aea.jpg" class="w-full h-full object-cover" alt="">
-                        </div>
-                        <!-- Rating -->
-                        <div class="flex justify-center items-center text-[#FCCD2A]">
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                            <li><i class="fa-solid fa-star"></i></li>
-                        </div>
-                    </div>
-                </div>
-                <!-- Heading -->
-                <div class="text-center pt-20 mb-3 text-2xl font-bold">Lorem Ipsum</div>
-                <!-- Paragraph -->
-                <div class="text-center px-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus architecto, tempora eaque eum fugit ad nostrum necessitatibus quos facere dolorum tenetur numquam voluptates doloremque, vitae obcaecati dolorem fuga! Tempora.</div>
-            </div>
+        <div class="mood-board">
+          <!-- Business Card -->
+          <div class="card business-card">
+              <p>BOOK ADVISOR is a popular online travel platform that helps travelers plan their trips by offering reviews, ratings, and recommendations for hotels, restaurants, attractions, and activities worldwide. Users can browse millions of authentic reviews, photos, and videos shared by fellow travelers to make informed decisions.</p>
+          </div>
+  
+          <!-- Landscape Image -->
+          <div class="card landscape">
+              <img src="{% static 'image\IMG-20241218-WA0009.jpg' %}" alt="Landscape">
+              <div class="dots" id="colorDots"></div>
+          </div>
+  
+          <!-- Typography -->
+          <div class="card typography">
+              <div>
+                
+                <div class="font-sample">
+                 <h1>BOOK ADVISOR</h1>
+                <h2>Your Trusted Travel Partner </h2>
+                  <p>Kerala, South India</p>
+              </div>
+              <div class="font-sample">
+                  <h2>Fount New Destination</h2>
+                  <p>+91 96051 53757</p>
+                  <p>bookadvisor743@gmail.com</p>
+              </div>
+              </div>
+          </div>
+  
+          <!-- Brand Statement -->
+          <div class="card brand-statement">
+            <img src="{% static 'image\IMG-20241218-WA0009.jpg' %}" alt="Hospitality Industry" />
         </div>
+        
+          <!-- Brand Name -->
+          <div class="card brand-name">
+            <h1>BOOK ADVISOR</h1>
+        </div>
+  
+          <!-- Brand Visual -->
+          <div class="card">
+              <img src="{% static 'image\IMG-20241218-WA0005.jpg' %}" alt="Brand visual" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+  
+          <!-- Social Grid -->
+          <div class="social-grid" id="socialGrid"></div>
+      </div>
     </div>
 </section>
   <script>
@@ -380,6 +529,45 @@ document.querySelectorAll('.statistic').forEach(stat => {
         stat.style.transform = 'scale(1)';
     });
 });
+
+
+
+// galery
+ // Generate color dots
+ const colors = ['#10B981', '#EC4899', '#3B82F6', '#6366F1', '#A855F7', '#D1D5DB', '#F3F4F6'];
+        const dotsContainer = document.getElementById('colorDots');
+        
+        colors.forEach(color => {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.style.backgroundColor = color;
+            dotsContainer.appendChild(dot);
+        });
+
+        // Generate social grid
+        const socialGrid = document.getElementById('socialGrid');
+        
+        for (let i = 0; i < 4; i++) {
+            const card = document.createElement('div');
+            card.className = 'card social-card';
+            
+            const img = document.createElement('img');
+            img.src = `/api/placeholder/200/200`;
+            img.alt = `Social media ${i + 1}`;
+            
+            const dots = document.createElement('div');
+            dots.className = 'social-dots';
+            
+            for (let j = 0; j < 3; j++) {
+                const dot = document.createElement('div');
+                dot.className = 'social-dot';
+                dots.appendChild(dot);
+            }
+            
+            card.appendChild(img);
+            card.appendChild(dots);
+            socialGrid.appendChild(card);
+        }
   </script>
 </body>
 </html>

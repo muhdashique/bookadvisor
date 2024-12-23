@@ -10,9 +10,22 @@ class RoomCategory(models.Model):
 
 
 class Room(models.Model):
-    category = models.ForeignKey(RoomCategory, on_delete=models.CASCADE, related_name='rooms')
-    image = models.ImageField(upload_to='room_images/', blank=True, null=True)
+     # Make name field nullable
+    category = models.ForeignKey(RoomCategory, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='rooms/')
+    
+    def __str__(self):
+        return self.name
+
+
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='testimonials/images/')
+    background_image = models.ImageField(upload_to='testimonials/backgrounds/')
+    review = models.TextField()
+    rating = models.PositiveIntegerField(choices=[(i, i) for i in range(1, 6)], default=5)
 
     def __str__(self):
-        return f"{self.category.name} - Room Image"
-
+        return self.name
