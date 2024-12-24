@@ -166,6 +166,57 @@ button:hover {
     -ms-overflow-style: none; /* For Internet Explorer */
     scrollbar-width: none; /* For Firefox */
 }
+/* count */
+.stats-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .stats-container {
+            width: 100%;
+            height: auto;
+            padding: 2.5rem 0;
+            background-color: #47ad95;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: #fff;
+            flex-direction: column;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-number {
+            font-size: 1.875rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .border-sides {
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            padding: 0 5rem;
+        }
+
+        .border-right {
+            border-right: 1px solid white;
+            padding-right: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-container {
+                flex-direction: row;
+            }
+        }
 
     </style>
 </head>
@@ -223,23 +274,23 @@ button:hover {
             </div>
         </section>
 
-        <section class="mb-10">
-            <div class="w-full h-auto py-10 bg-[#47ad95] flex justify-evenly items-center text-[#fff] flex-col md:flex-row">
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
-                    1000 +
-                    <span class="text-sm font-semibold">Happy Client</span>
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <span class="stat-label">Happy Client</span>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-l border-r px-20">
-                    2000 +
-                    <span class="text-sm font-semibold">Rooms</span>
+                <div class="stat-item border-sides">
+                    <div class="stat-number" data-target="2000">0</div>
+                    <span class="stat-label">Rooms</span>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold border-r pr-10">
-                    100 +
-                    <span class="text-sm font-semibold">Type of Services</span>
+                <div class="stat-item border-right">
+                    <div class="stat-number" data-target="100">0</div>
+                    <span class="stat-label">Type of Services</span>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-1 text-3xl font-bold">
-                    10 +
-                    <span class="text-sm font-semibold">Type of Categories</span>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10">0</div>
+                    <span class="stat-label">Type of Categories</span>
                 </div>
             </div>
         </section>
@@ -283,20 +334,29 @@ button:hover {
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <!-- Swiper slides -->
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                            <div class="swiper-slide w-[350px] h-[300px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[300px] bg-black rounded-3xl overflow-hidden">
                                 <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
                             </div>
                             <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
                                 <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
                             </div>
                             <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
+                                <img class="w-full h-full object-cover" src="https://curlytales.com/wp-content/uploads/2023/03/Wayanad.jpg" alt="">
                             </div>
                             <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://www.keralatourism.org/assets/img/pack-up-for-kerala/ebrochure.webp" alt="">
+                                <img class="w-full h-full object-cover" src="https://www.keralatourpackages.com/wp-content/uploads/2024/03/lakkidi-view-point-wayanad.jpg" alt="">
                             </div>
                             <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://kuruvaislandresort.com/admin/uploads/blog/062022/aff30e781c7228caf2746d331d03fb3f.jpg" alt="">
+                                <img class="w-full h-full object-cover" src="https://www.justahotels.com/wp-content/uploads/2023/11/Munnar-Kerala-1.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://images.pexels.com/photos/29249281/pexels-photo-29249281/free-photo-of-heart-shaped-lake-in-wayanad-hills.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                            </div>
+                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://assets.traveltriangle.com/blog/wp-content/uploads/2014/11/tea-gardens-munnar-cover.jpg" alt="">
                             </div>
                         </div>
                         <!-- Navigation buttons -->
@@ -398,6 +458,40 @@ button:hover {
             },
         },
     });
+
+    // count
+    const numberElements = document.querySelectorAll('.stat-number');
+
+const animateValue = (element, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start) + '+';
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+};
+
+// Intersection Observer setup
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            animateValue(entry.target, 0, target, 2000);
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+// Observe all number elements
+numberElements.forEach(numberElement => {
+    observer.observe(numberElement);
+});
 </script>
 
     

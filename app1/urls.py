@@ -22,16 +22,19 @@ urlpatterns = [
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
 
-      path('rooms/', views.room_list, name='room_list'),
+    path('rooms/', views.room_list, name='room_list'),
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
-      path('room/<int:id>/', views.room_view, name='room_view'),
-      path('add-images-to-room/<int:room_id>/', views.add_images_to_room, name='add_images_to_room'),
-      path('room/<int:id>/', views.room_view, name='room_detail'),
-       path('property/view/<int:category_id>/', views.property_view, name='property_view'),
-           path('room/<int:room_id>/', views.room_view, name='room_view'),
-
-       path('testimonials/', views.testimonial_view, name='testimonial_view'),
+    path('room/<int:id>/', views.room_view, name='room_view'),
+    path('add-images-to-room/<int:room_id>/', views.add_images_to_room, name='add_images_to_room'),
+    path('room/<int:id>/', views.room_view, name='room_detail'),
+    path('property/view/<int:category_id>/', views.property_view, name='property_view'),
+    path('room/<int:room_id>/', views.room_view, name='room_view'),
+    path('testimonials/', views.testimonial_view, name='testimonial_view'),
+    path('add_testimonial/', views.testimonial_view, name='add_testimonial'),
+     path('edit-testimonial/<int:id>/', views.edit_testimonial, name='edit_testimonial'),
+    path('delete-testimonial/<int:id>/', views.delete_testimonial, name='delete_testimonial'),
+    path('testimonials/', views.testimonial_list, name='testimonials')
         
 ]
      

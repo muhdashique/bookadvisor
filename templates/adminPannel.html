@@ -176,9 +176,41 @@
     font-size: 18px; /* Adjust icon size */
 }
 
+.add-testimonial-btn-outlined {
+    background-color: transparent;
+    color: #3b82f6;
+    padding: 12px 24px;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;  /* Makes the button take full width if needed */
+    margin-left: 0;  /* Ensures it aligns left */
+}
+
+
+.add-testimonial-btn-outlined:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.add-testimonial-btn-outlined:active {
+    transform: translateY(1px);
+}
+
     </style>
 </head>
 <body>
+    <div class="my-4">
+        <a href="{% url 'add_testimonial' %}" class=" add-testimonial-btn-outlined"  bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block">
+            Add Testimonial
+        </a>
+    </div>
+    
+    
 
     
     </div>
@@ -223,17 +255,17 @@
             </div>
         </div>
     </div>
-    <h1>Submit Testimonial</h1>
+    <!-- <h1>Submit Testimonial</h1> -->
 
     <!-- Form to submit new testimonial -->
-    <div class="testimonial-form">
+    <!-- <div class="testimonial-form">
         <h2>Submit Your Testimonial</h2>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Submit</button>
         </form>
-    </div>
+    </div> -->
 
     <script>
         document.querySelectorAll('.btn').forEach(button => {

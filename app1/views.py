@@ -8,6 +8,9 @@ from .forms import RoomForm, RoomCategoryForm
 from django.shortcuts import render
 from .forms import TestimonialForm
 from .models import Testimonial, RoomCategory
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 
@@ -233,15 +236,49 @@ def room_category_detail(request, category_id):
 
 
 
+
 def testimonial_view(request):
     if request.method == 'POST':
         form = TestimonialForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('admin_panel')  # Redirect to the same page after saving
-
+            return redirect('testimonial_view')  # Redirect to the same page after saving
     else:
         form = TestimonialForm()
 
     testimonials = Testimonial.objects.all()  # Retrieve all testimonials
-    return render(request, 'adminPannel.html', {'form': form, 'testimonials': testimonials})
+    return render(request, 'add_testimonial.html', {'form': form, 'testimonials': testimonials})
+
+
+def add_testimonial(request):
+    return render(request,'add_testimonial.html')
+
+
+
+
+def edit_testimonial(request, id):
+    testimonial = get_object_or_404(Testimonial, id=id)
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, instance=testimonial)
+        if form.is_valid():
+            form.save()
+            return redirect('add_testimonial')  # Ensure 'testimonials' matches the name in urls.py
+    else:
+        form = TestimonialForm(instance=testimonial)
+    return render(request, 'edit_testimonial.html', {'form': form})
+
+def delete_testimonial(request, id):
+    if request.method == 'POST':
+        testimonial = get_object_or_404(Testimonial, id=id)
+        testimonial.delete()
+        return JsonResponse({'message': 'Testimonial deleted successfully!'})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
+# views.py
+from django.shortcuts import render
+from .models import Testimonial
+
+def testimonial_list(request):
+    testimonials = Testimonial.objects.all()
+    return render(request, 'testimonial_list.html', {'testimonials': testimonials})
