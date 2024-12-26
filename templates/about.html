@@ -347,7 +347,86 @@
         text-decoration-color: #00bcd4;
     }
 
-
+/* dest new */
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        h1 {
+            color: #1a365d;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .card {
+            flex: 0 0 280px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .card-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        
+        .nav-button {
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
    
   </style>
 </head>
@@ -372,86 +451,65 @@
     </section>
   </main>
 
-  <section class="mb-10">
-    <div class="container">
-      <div class="header">
-          <h1 class="title"> Recommended Activities</h1>
-          <a href="#" class="show-more">Show More</a>
+  <section>
+    <div class="container mb-20">
+      <h1>Discover your new favourite stay</h1>
+      <div style="position: relative;">
+          <div class="carousel">
+              <div class="card">
+                  <img src="https://nivaanholidays.com/wp-content/uploads/2023/06/ii0ows5abco.jpg.webp" alt="All inclusive resort with palm trees at sunset">
+                  <div class="card-label">All inclusive</div>
+              </div>
+              <div class="card">
+                  <img src="https://www.holidify.com/images/bgImages/MUNNAR.jpg" alt="Modern apartment hotel room">
+                  <div class="card-label">Apart hotel</div>
+              </div>
+              <div class="card">
+                  <img src="https://www.keralahydeltourism.com/images/news/banasura-sagar.jpg" alt="Farm stay with mountain view">
+                  <div class="card-label">Farm</div>
+              </div>
+              <div class="card">
+                  <img src="https://keralabee.com/wp-content/uploads/2023/06/IMG_20230613_191013-jpg.webp" alt="Indoor spa pool">
+                  <div class="card-label">Spa</div>
+              </div>
+              <div class="card">
+                  <img src="https://wayanadfort.com/images/muthanga-wildlife-sanctuary-wayanad.jpg" alt="Long outdoor pool">
+                  <div class="card-label">Pool</div>
+              </div>
+              <div class="card">
+                <img src="https://karnatakatourism.org/wp-content/uploads/2020/05/Mysore-Palace_0.jpg" alt="Long outdoor pool">
+                <div class="card-label">Pool</div>
+            </div>
+            <div class="card">
+              <img src="https://imgcld.yatra.com/ytimages/image/upload/v1517481987/AdvNation/ANN_DES67/ann_top_Goa_loQGrP.jpg" alt="Long outdoor pool">
+              <div class="card-label">Pool</div>
+          </div>
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4IUL8mLpo3LEQCES-PzjSbvTGwMK4xDRoEb98XcLiAJYHcYStaqA8O-Az7Tb3vOt2Hic&usqp=CAU" alt="Long outdoor pool">
+            <div class="card-label">Pool</div>
+        </div>
+        <div class="card">
+          <img src="https://wayanadfort.com/images/muthanga-wildlife-sanctuary-wayanad.jpg" alt="Long outdoor pool">
+          <div class="card-label">Pool</div>
       </div>
-      
-      <div class="destinations">
-          <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/8062895/8062895-uhd_1440_2560_24fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name">MMountain Trekking</h2>
           </div>
-        </div>
-          <!-- end -->
-
-          <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/5667406/5667406-sd_506_960_30fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name">Natural Rivers</h2>
+          <div class="navigation">
+              <button class="nav-button" onclick="scrollCarousel(-1)">←</button>
+              <button class="nav-button" onclick="scrollCarousel(1)">→</button>
           </div>
-        </div>
-          <!-- end -->
-
-          <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/6775423/6775423-uhd_1440_2560_24fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name"> Beach</h2>
-          </div>
-        </div>
-          <!-- end -->
-         <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/15953313/15953313-sd_360_640_30fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name">Wild Hiking</h2>
-          </div>
-        </div>
-          <!-- end -->
-        <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/5345336/5345336-hd_1080_1920_30fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name">Waterfalls</h2>
-          </div>
-        </div>
-          <!-- end -->
-        <!-- video -->
-        <div class="card">
-          <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src="https://videos.pexels.com/video-files/6190918/6190918-hd_1080_1920_30fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="card-content">
-              <h2 class="destination-name">Night Camping Trip</h2>
-          </div>
-        </div>
-          <!-- end -->
-    </div>
-    </div>
+      </div>
+  </div>
   </section>
-      
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+
   <section class="mb-10">
     <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
         <!-- <div class="h-full w-full absolute" >
@@ -507,6 +565,14 @@
       </div>
     </div>
 </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
   <script>
     document.querySelector('.search-form').addEventListener('submit', (event) => {
       event.preventDefault();
@@ -567,6 +633,16 @@ document.querySelectorAll('.statistic').forEach(stat => {
             card.appendChild(img);
             card.appendChild(dots);
             socialGrid.appendChild(card);
+        }
+
+        // dest
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const cardWidth = carousel.querySelector('.card').offsetWidth + 20; // including gap
+            carousel.scrollBy({
+                left: cardWidth * direction,
+                behavior: 'smooth'
+            });
         }
   </script>
 </body>

@@ -256,29 +256,37 @@ def add_testimonial(request):
 
 
 
-def edit_testimonial(request, id):
-    testimonial = get_object_or_404(Testimonial, id=id)
-    if request.method == 'POST':
-        form = TestimonialForm(request.POST, instance=testimonial)
-        if form.is_valid():
-            form.save()
-            return redirect('add_testimonial')  # Ensure 'testimonials' matches the name in urls.py
-    else:
-        form = TestimonialForm(instance=testimonial)
-    return render(request, 'edit_testimonial.html', {'form': form})
-
-def delete_testimonial(request, id):
-    if request.method == 'POST':
-        testimonial = get_object_or_404(Testimonial, id=id)
-        testimonial.delete()
-        return JsonResponse({'message': 'Testimonial deleted successfully!'})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 
-# views.py
-from django.shortcuts import render
+
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Testimonial
+from .forms import TestimonialForm
 
+# View to list all testimonials
 def testimonial_list(request):
     testimonials = Testimonial.objects.all()
-    return render(request, 'testimonial_list.html', {'testimonials': testimonials})
+    return render(request, 'testimonials/testimonial_list.html', {'testimonials': testimonials})
+
+# View to add/edit a testimonial
+def add_edit_testimonial(request, pk=None):
+    if pk:
+        testimonial = get_object_or_404(Testimonial, pk=pk)
+    else:
+        testimonial = None
+
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST, request.FILES, instance=testimonial)
+        if form.is_valid():
+            form.save()
+            return redirect('testimonial_list')  # Redirect to testimonials list after saving
+    else:
+        form = TestimonialForm(instance=testimonial)
+
+    return render(request, 'testimonials/add_edit_testimonial.html', {'form': form, 'testimonial': testimonial})
+
+# View to delete a testimonial
+def delete_testimonial(request, pk):
+    testimonial = get_object_or_404(Testimonial, pk=pk)
+    testimonial.delete()
+    return redirect('testimonial_list')

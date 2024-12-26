@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Management</title>
+    <title>BOOK ADVISOR</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -151,34 +151,16 @@
             }
         }
         /*logout  */
-        .logout-btn {
-    position: absolute; /* Allows you to position the button in the desired location */
-    top: 10px; /* Distance from the top edge */
-    left: 10px; /* Distance from the left edge */
-    background-color: #f44336; /* Red background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for better click area */
-    font-size: 16px; /* Font size for better readability */
-    cursor: pointer; /* Pointer cursor on hover */
-    display: flex; /* Flex layout for icon and text alignment */
-    align-items: center; /* Center align icon and text */
-    gap: 10px; /* Space between icon and text */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-}
+    
 
-.logout-btn:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-}
 
 .logout-btn i {
     font-size: 18px; /* Adjust icon size */
 }
 
 .add-testimonial-btn-outlined {
-    background-color: transparent;
-    color: #3b82f6;
+    background-color: #2ecc71;
+    color: #ffffff;
     padding: 12px 24px;
     border: 2px solid #3b82f6;
     border-radius: 8px;
@@ -193,7 +175,7 @@
 
 .add-testimonial-btn-outlined:hover {
     background-color: #3b82f6;
-    color: white;
+    color: rgb(29, 201, 84);
     transform: translateY(-1px);
 }
 
@@ -201,15 +183,27 @@
     transform: translateY(1px);
 }
 
+.align-left {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: left; /* Optional: vertically align items */
+    text-align: left !important;
+}
+
+
     </style>
 </head>
 <body>
-    <div class="my-4">
-        <a href="{% url 'add_testimonial' %}" class=" add-testimonial-btn-outlined"  bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block">
-            Add Testimonial
-        </a>
+    <div style="position: fixed; top: 20px; left: 20px;">
+        <a href="{% url 'logout' %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to logout?');">Logout</a>
     </div>
     
+    
+    <div style="position: fixed; top: 20px; right: 20px;">
+        <a href="{% url 'testimonials' %}" class="add-testimonial-btn-outlined bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block">
+            <i class="fa-solid fa-plus"></i>  Testimonials
+        </a>
+    </div>
     
 
     

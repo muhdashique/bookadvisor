@@ -89,6 +89,152 @@ h1 {
     margin-top: 30px;
 }
 
+/* new */
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            color: #1a1a1a;
+        }
+
+        .gallery-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .image-item {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .image-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 608px;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .room-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+        }
+
+        .room-details h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .room-details p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .image-count {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 16px;
+            left: 31px;
+            display: flex;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .back-button, .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            background: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .no-rooms-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-item:first-child {
+                grid-column: auto;
+                grid-row: auto;
+                height: 300px;
+            }
+
+            .navigation {
+                left: 15px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+                margin: 1.5rem 0;
+            }
+        }
+
 
     </style>
 
@@ -106,27 +252,54 @@ h1 {
                 </div>
             </div>
         </section>
-    <h1 class="text-center font-bold"> {{ category.name }}</h1>
-    {% if rooms %}
-        <div class="room-container">
-            {% for room in rooms %}
-                <div class="room-box">
-                    <a href="{% url 'room_view' room.id %}">
-                        {% if room.image %}
-                            <img src="{{ room.image.url }}" alt="{{ room.name }}" class="room-image">
-                        {% endif %}
-                        <div class="room-details">
-                            <h3>{{ room.name }}</h3>
-                           
-                            <!-- <p class="room-price">Price: &#8377;{{ room.price }}</p> -->
-                        </div>
-                    </a>
+       
+
+        <h1 class="page-title">{{ category.name }}</h1>
+
+        {% if rooms %}
+        <div class="gallery-container">
+            <div class="navigation">
+                <a href="{% url 'property_view' category.id %}" class="btn">
+                    <span class="btn-icon">←</span>
+                </a>
+                
+                
+                <div class="action-buttons">
+                    <!-- <button class="btn">
+                        Share
+                    </button>
+                    <button class="btn">
+                        Save
+                    </button> -->
                 </div>
-            {% endfor %}
+            </div>
+    
+            <div class="image-grid">
+                {% for room in rooms %}
+                    <div class="image-item">
+                        <a href="{% url 'room_view' room.id %}">
+                            {% if room.image %}
+                                <img src="{{ room.image.url }}" alt="{{ room.name }}">
+                            {% else %}
+                                <img src="{% static 'images/placeholder.jpg' %}" alt="{{ room.name }}">
+                            {% endif %}
+                            <div class="room-details">
+                                <h3>{{ room.name }}</h3>
+                                {% if room.description %}
+                                    <p>{{ room.description|truncatechars:100 }}</p>
+                                {% endif %}
+                            </div>
+                            {% if forloop.last and rooms.count > 5 %}
+                                <div class="image-count">{{ rooms.count|add:"-5" }}+</div>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% else %}
-        <p class="no-rooms-message">No rooms available in this category.</p>
-    {% endif %}
+        {% else %}
+            <p class="no-rooms-message">No rooms available in this category.</p>
+        {% endif %}
 </body>
 </html>
 {% endblock %}

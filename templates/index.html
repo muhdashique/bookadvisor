@@ -217,6 +217,234 @@ button:hover {
                 flex-direction: row;
             }
         }
+        /* new cound */
+        .stats-section {
+    background: linear-gradient(135deg, #5CB6A1 0%, #5CB6A1 100%);
+    padding: 80px 20px;
+    color: rgb(0, 0, 0);
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.stat-item:hover::before {
+    opacity: 1;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.stat-number::after {
+    content: '+';
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    /* background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.9);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.stat-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #5CB6A1 0%, #5CB6A1 100%);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        flex: 1 1 40%;
+        min-width: 150px;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.stat-item:nth-child(1) { animation: float 6s ease-in-out infinite; }
+.stat-item:nth-child(2) { animation: float 6s ease-in-out infinite 1s; }
+.stat-item:nth-child(3) { animation: float 6s ease-in-out infinite 2s; }
+.stat-item:nth-child(4) { animation: float 6s ease-in-out infinite 3s; }
+
+
+/* destination */
+.trending-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.trending-header {
+    margin-bottom: 30px;
+}
+
+.trending-header h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.trending-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.destinations-grid .destination-card:nth-child(1),
+.destinations-grid .destination-card:nth-child(2) {
+    height: 300px;
+}
+
+.destinations-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.destinations-bottom .destination-card {
+    height: 250px;
+}
+
+.destination-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destination-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destination-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.flag {
+    width: 24px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0));
+}
+
+@media (max-width: 768px) {
+    .destinations-grid,
+    .destinations-bottom {
+        grid-template-columns: 1fr;
+    }
+    
+    .destination-card {
+        height: 200px !important;
+    }
+}
 
     </style>
 </head>
@@ -280,11 +508,11 @@ button:hover {
                     <div class="stat-number" data-target="1000">0</div>
                     <span class="stat-label">Happy Client</span>
                 </div>
-                <div class="stat-item border-sides">
+                <div class="stat-item">
                     <div class="stat-number" data-target="2000">0</div>
                     <span class="stat-label">Rooms</span>
                 </div>
-                <div class="stat-item border-right">
+                <div class="stat-item">
                     <div class="stat-number" data-target="100">0</div>
                     <span class="stat-label">Type of Services</span>
                 </div>
@@ -294,6 +522,9 @@ button:hover {
                 </div>
             </div>
         </section>
+        <header class="pt-32 mb-10">
+            <h1 class="text-center text-3xl font-bold">Our Properties</h1>
+        </header>
         <section class="mb-20">
             <div class="category-container">
                 {% if categories %}
@@ -304,7 +535,7 @@ button:hover {
                                     <h3>{{ category.name }}</h3>
                                     <!-- Display category description (if available) -->
                                     {% if category.description %}
-                                        <p>{{ category.description }}</p>
+                                        <!-- <p>{{ category.description }}</p> -->
                                     {% else %}
                                         <p>No description available.</p>
                                     {% endif %}
@@ -321,47 +552,57 @@ button:hover {
 
 
 
-        <section class="max-w-[1200px] w-full mx-auto">
-            <div class="flex flex-col gap-10 overflow-hidden">
-                <div class="flex flex-col gap-5">
-                    <div class="text-[50px] font-bold">MOST POPULAR</div>
-                    <div class="max-w-[900px]">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus modi ea eius, ratione nihil vel eos ducimus obcaecati consequuntur natus doloribus ipsam, sed inventore reprehenderit quaerat saepe itaque tenetur harum.
+        <section class="trending-section">
+            <div class="trending-header">
+                <h2>Trending destinations</h2>
+                <p>Most popular choices for travellers from India</p>
+            </div>
+            
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="overlay"></div>
+                    <img src="https://www.fabhotels.com/blog/wp-content/uploads/2021/04/Banasura_Sagar_Dam_1000x650.jpg" alt="Bangalore">
+                    <div class="destination-info">
+                        <span class="destination-name"> Wayanad</span>
+                        <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="India flag"> -->
                     </div>
                 </div>
-                <div class="relative">
-                    <!-- Swiper container -->
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <!-- Swiper slides -->
-                            <div class="swiper-slide w-[350px] h-[300px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[300px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/10/28143956/Munnar.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://curlytales.com/wp-content/uploads/2023/03/Wayanad.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://www.keralatourpackages.com/wp-content/uploads/2024/03/lakkidi-view-point-wayanad.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://www.justahotels.com/wp-content/uploads/2023/11/Munnar-Kerala-1.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://images.pexels.com/photos/29249281/pexels-photo-29249281/free-photo-of-heart-shaped-lake-in-wayanad-hills.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
-                            </div>
-                            <div class="swiper-slide w-[350px] h-[500px] bg-black rounded-3xl overflow-hidden">
-                                <img class="w-full h-full object-cover" src="https://assets.traveltriangle.com/blog/wp-content/uploads/2014/11/tea-gardens-munnar-cover.jpg" alt="">
-                            </div>
-                        </div>
-                        <!-- Navigation buttons -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                
+                <div class="destination-card">
+                    <div class="overlay"></div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="Bangalore">
+                    <div class="destination-info">
+                        <span class="destination-name"> Munnar</span>
+                        <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="India flag"> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="destinations-bottom">
+                <div class="destination-card">
+                    <div class="overlay"></div>
+                    <img src="https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2FVagamon%20cover%20image%20final.jpg%2FVagamon%20cover%20image%20final-1720182118134.jpg&w=2048&q=75" alt="Mumbai">
+                    <div class="destination-info">
+                        <span class="destination-name">Vagamon</span>
+                        <!-- <img class="flag" src="https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2FVagamon%20cover%20image%20final.jpg%2FVagamon%20cover%20image%20final-1720182118134.jpg&w=2048&q=75" alt="India flag"> -->
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="overlay"></div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzyfRwTLLXly2Dmc7IGUl7Pha6IriQoFxkfA&s" alt="Chennai">
+                    <div class="destination-info">
+                        <span class="destination-name">Goa</span>
+                        <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzyfRwTLLXly2Dmc7IGUl7Pha6IriQoFxkfA&s" alt="India flag"> -->
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="overlay"></div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4_DEkyS67VZ15skn0x7JJL9Atm-SV32jr7A&s" alt="Hyderabad">
+                    <div class="destination-info">
+                        <span class="destination-name"> Mysore</span>
+                        <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShohTavltsM6zznKDTQ7JKLN5lggqqu0Ex3w&s" alt="India flag"> -->
                     </div>
                 </div>
             </div>
@@ -381,22 +622,29 @@ button:hover {
                     <div class="swiper-wrapper">
                         {% for testimonial in testimonials %}
                         <div class="swiper-slide flex justify-center">
-                            <div class="w-[400px] h-[250px] bg-[#5E713D] reviewCard relative p-5 rounded-lg">
+                            <div class="w-[300px] h-[300px] bg-[#5E713D] reviewCard relative p-5 rounded-lg">
                                 <div class="flex flex-col items-center gap-5">
                                     <!-- Image -->
-                                    <div class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border">
-                                        <img src="{{ testimonial.image.url }}" class="w-full h-full object-cover" alt="Testimonial Image">
+                                    <div class="position-relative">
+                                        <img src="{{ testimonial.image.url }}" class="h-[110px] w-[110px] rounded-full overflow-hidden border-[5px] border" 
+                                             style="width: 80px; height: 80px; object-fit: cover; bottom: -40px; left: 20px; border: 3px solid white;" 
+                                             alt="{{ testimonial.name }}">
                                     </div>
                                     <!-- Rating -->
-                                    <div class="flex">
-                                        {% for star in testimonial.stars %}
-                                        <span class="text-yellow-500 text-xl">★</span>
-                                        {% endfor %}
+                                    <div class="card-body pt-5">
+                                        <h5 class="card-title">{{ testimonial.name }}</h5>
+                                        <div class="mb-2">
+                                            {% for i in "12345"|make_list %}
+                                            {% if forloop.counter <= testimonial.rating %}
+                                            <i class="fas fa-star text-yellow-500"></i> <!-- Solid golden star -->
+                                            {% else %}
+                                            <i class="far fa-star text-yellow-500"></i> <!-- Outline golden star -->
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        
+                                        <p class="card-text">{{ testimonial.review }}</p>
                                     </div>
-                                    <!-- Name -->
-                                    <div class="text-center text-2xl font-bold">{{ testimonial.name }}</div>
-                                    <!-- Review -->
-                                    <div class="text-center px-5 font-medium text-white">{{ testimonial.review }}</div>
                                 </div>
                             </div>
                         </div>
@@ -492,6 +740,77 @@ const observer = new IntersectionObserver((entries) => {
 numberElements.forEach(numberElement => {
     observer.observe(numberElement);
 });
+
+
+// newswipe
+document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.swiper-container2', {
+            slidesPerView: 3, // Show 3 slides at a time
+            spaceBetween: 30, // Space between slides
+            loop: true, // Enable looping
+            autoplay: {
+                delay: 3000, // Auto-swipe every 3 seconds
+                disableOnInteraction: false, // Continue autoplay after interaction
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // Responsive settings
+                640: {
+                    slidesPerView: 1, // 1 slide for small screens
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2, // 2 slides for medium screens
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3, // 3 slides for larger screens
+                    spaceBetween: 30,
+                },
+            },
+        });
+    });
+
+
+    // new count
+    const statsSection = document.querySelector('.stats-section');
+const numbers = document.querySelectorAll('.stat-number');
+let animated = false;
+
+function animateNumbers() {
+    numbers.forEach(number => {
+        const target = parseInt(number.getAttribute('data-target'));
+        const increment = target / 100;
+        let current = 0;
+
+        const updateNumber = () => {
+            if (current < target) {
+                current += increment;
+                number.textContent = Math.floor(current);
+                requestAnimationFrame(updateNumber);
+            } else {
+                number.textContent = target;
+            }
+        };
+
+        updateNumber();
+    });
+}
+
+// // Intersection Observer to trigger animation when in view
+//     const observer = new IntersectionObserver((entries) => {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting && !animated) {
+//             animated = true;
+//             animateNumbers();
+//         }
+//     });
+// }, { threshold: 0.5 });
+
+// observer.observe(statsSection);
 </script>
 
     
