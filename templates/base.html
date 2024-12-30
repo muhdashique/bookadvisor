@@ -206,25 +206,86 @@
         <!-- Navbar -->
         <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-sm shadow-md">
             <div class="w-full">
-                <div class="flex justify-center items-center py-4 max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center py-4 max-w-7xl mx-auto px-4">
+                    <!-- Logo -->
                     <div class="w-[150px] h-auto">
                         <img src="{% static 'image/BOOKADVISOR.in.png' %}" class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]" alt="BookAdvisor Logo">
                     </div>
-                    
-                    <div class="flex justify-center items-center gap-10 ml-auto mr-10">
+        
+                    <!-- Hamburger Icon -->
+                    <div class="md:hidden flex items-center">
+                        <button id="hamburger" class="focus:outline-none">
+                            <svg class="w-8 h-8 text-[#47ad95]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+        
+                    <!-- Navigation Links -->
+                    <div id="menu" class="hidden md:flex justify-center items-center gap-10 ml-auto">
                         <a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
                         <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
                         <a href="{% url 'properties' %}" class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
                         <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
                     </div>
-                    
         
-                    <div>
-                        <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
+                    <!-- Login Button -->
+                    <div class="hidden md:block">
+                        <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition" style="margin-left: 80%;">Login</a>
                     </div>
+                </div>
+        
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="hidden flex flex-col gap-4 mt-4 md:hidden bg-white shadow-lg rounded-lg p-4">
+                    <a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
+                    <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
+                    <a href="{% url 'properties' %}" class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
+                    <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
+                    <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition" >Login</a>
                 </div>
             </div>
         </header>
+        
+        <script>
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+        
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>
+        <style>
+            /* Hamburger Menu Button */
+#hamburger svg {
+    cursor: pointer;
+}
+
+/* Mobile Menu Styling */
+#mobileMenu {
+    animation: slide-down 0.3s ease-out;
+}
+
+/* Slide Down Animation */
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    #mobileMenu {
+        display: none !important;
+    }
+}
+
+        </style>
+        
          <!-- whatapp message -->
          <a href="https://wa.me/917034422377?text=Hello, I am interested in booking a room. Could you please provide details about availability, pricing, and amenities?" 
          target="_blank" 

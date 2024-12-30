@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         :root {
             --primary-color: #3498db;
@@ -37,6 +39,7 @@
             max-width: 1000px;
             background-color: white;
             padding: 30px;
+            margin: auto;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -110,6 +113,22 @@
             margin-bottom: 15px;
             font-size: 14px;
         }
+
+        @media screen and (max-width:768px) {
+    .login-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        padding:0 ;
+        
+    }
+    .login-image{
+        width: 100%;
+    }
+}
 
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
