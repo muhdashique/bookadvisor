@@ -19,10 +19,10 @@
     }
 
     .hero {
-      background-image: url('https://www.ekeralatourism.net/wp-content/uploads/2018/03/Alleppey.jpg');
+      background-image: url('https://www.peakadventuretour.com/assets/imgs/kerala-tourism-04.webp');
       background-size: cover;
       background-position: center;
-      height: 500px;
+      height: 90vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,7 +30,7 @@
 
     .hero-content {
       text-align: center;
-      color: #fff;
+      color: #ffffff;
     }
 
     .hero-content h1 {
@@ -180,172 +180,72 @@
 
 
         /* galery */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
-            padding: 2rem;
-        }
-
-        .mood-board {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .business-card {
-            background: #1a472a;
-            padding: 2rem;
-            color: white;
-        }
-
-        .landscape {
-            position: relative;
-            height: 200px;
-        }
-
-        .landscape img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .dots {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: white;
-            opacity: 0.8;
-        }
-
-        .typography {
-            padding: 2rem;
-        }
-
-        .font-sample {
-            margin-bottom: 2rem;
-           
-        }
-
-        .font-sample h2 {
-            margin-bottom: 1rem;
-        }
-
-        .brand-statement {
-            background: #1f2937;
-            color: white;
-            padding: 2rem;
-        }
-
-        .brand-name {
-            background: #f3e8ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-        }
-
-        .brand-name h1 {
-            font-size: 3rem;
-            color: #000000;
-        }
-
-        .social-grid {
-            grid-column: span 2;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.5rem;
-        }
-
-        .social-card {
-            position: relative;
-            height: 150px;
-        }
-
-        .social-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-dots {
-            position: absolute;
-            bottom: 0.5rem;
-            right: 0.5rem;
-            display: flex;
-            gap: 4px;
-        }
-
-        .social-dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: white;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .mood-board {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-grid {
-                grid-column: span 1;
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 400px;
+        .camping-planner {
+    max-width: 1200px;
     margin: 0 auto;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-    text-align: center;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
 }
 
-.brand-statement img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* border-radius: 8px; */
+.camping-planner h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
 }
-.card.brand-name {
-        background-color: #ffffff; /* Background color */
-        color: white; /* Text color */
-        padding: 30px 50px; /* Padding inside the card */
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        text-align: center; /* Center the text */
-        max-width: 400px; /* Limit card width */
-        margin: 30px auto; /* Center the card on the page */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
-        text-decoration-color: #00bcd4;
+
+.camping-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.camping-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.camping-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.camping-content {
+    flex: 1;
+}
+
+.camping-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.camping-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.image-credit {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .camping-grid {
+        grid-template-columns: 1fr;
     }
+    
+    .camping-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 /* dest new */
 .container {
@@ -434,19 +334,22 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <h1>EXPLORE THE WORLD WITH TRAVOL</h1>
-        <p>Let's travel the world with us</p>
+        <h1 style="color: #ffffff;">EXPLORE THE WORLD WITH BOOKADVISOR</h1>
+
+        <p class="text-lg md:text-2xl lg:text-[20px] font-semibold mb-10">Welcome to BookAdvisor, your trusted companion in discovering the finest resorts and rooms across South India. We believe every journey deserves a memorable stay, and that's why we bring you an extensive selection of accommodations tailored to your comfort, style, and budget.</p>
        
       </div>
     </section>
 
     <section class="about flex justify-center items-center gap-10 max-w-[1400px] mx-auto mb-10">
         <div class="md:w-[50%] w-full">
-          <h1 class="text-[50px] font-bold mb-3">ABOUT TRAVOL</h1>
-          <p>Travol is the best travel agency that helps you discover the world with our expert guide. With over 20 years of experience and 150+ tour destinations, we are dedicated to providing you with unforgettable travel experiences Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus ipsam hic fugit obcaecati libero incidunt sunt, magnam nihil! Ipsa vitae temporibus maxime veniam neque. Quia soluta veritatis molestias nobis nulla!</p>
+          <h1 class="text-[50px] font-bold mb-3">ABOUT BOOKADVISOR</h1>
+          <p>BookAdvisor is an intuitive website designed to simplify the process of booking rooms for your travel and accommodation needs. Whether you're planning a vacation, a business trip, or a quick getaway, BookAdvisor provides a seamless platform to find and reserve the perfect room.
+
+            With detailed listings, customer reviews, and competitive pricing, it helps you make informed decisions based on your preferences and budget. From luxury stays to budget-friendly options, BookAdvisor ensures your booking experience is convenient, reliable, and tailored to your needs.</p>
         </div>
       <div class="md:w-[50%] h-[400px] overflow-hidden rounded-3xl">
-        <img src="https://static.vecteezy.com/system/resources/previews/028/802/576/large_2x/beautiful-sunset-in-maldives-with-palm-trees-and-water-bungalows-sunset-picturesque-summer-sunset-in-maldives-luxury-resort-villas-seascape-with-soft-led-lights-under-colorful-sky-ai-generated-free-photo.jpg" class="h-full w-full object-cover" alt="About Image">
+        <img src="https://media.assettype.com/outlooktraveller%2F2024-02%2Fe5b97dae-71f6-40ec-a208-b407aba860b5%2Fwayanad.jpg" class="h-full w-full object-cover" alt="About Image">
       </div>
     </section>
   </main>
@@ -458,39 +361,39 @@
           <div class="carousel">
               <div class="card">
                   <img src="https://nivaanholidays.com/wp-content/uploads/2023/06/ii0ows5abco.jpg.webp" alt="All inclusive resort with palm trees at sunset">
-                  <div class="card-label">All inclusive</div>
+                  <div class="card-label">Alappuza</div>
               </div>
               <div class="card">
                   <img src="https://www.holidify.com/images/bgImages/MUNNAR.jpg" alt="Modern apartment hotel room">
-                  <div class="card-label">Apart hotel</div>
+                  <div class="card-label">Munnar</div>
               </div>
               <div class="card">
                   <img src="https://www.keralahydeltourism.com/images/news/banasura-sagar.jpg" alt="Farm stay with mountain view">
-                  <div class="card-label">Farm</div>
+                  <div class="card-label">Wayanad</div>
               </div>
               <div class="card">
                   <img src="https://keralabee.com/wp-content/uploads/2023/06/IMG_20230613_191013-jpg.webp" alt="Indoor spa pool">
-                  <div class="card-label">Spa</div>
+                  <div class="card-label">Athirapally</div>
               </div>
               <div class="card">
                   <img src="https://wayanadfort.com/images/muthanga-wildlife-sanctuary-wayanad.jpg" alt="Long outdoor pool">
-                  <div class="card-label">Pool</div>
+                  <div class="card-label">Muthanga</div>
               </div>
               <div class="card">
                 <img src="https://karnatakatourism.org/wp-content/uploads/2020/05/Mysore-Palace_0.jpg" alt="Long outdoor pool">
-                <div class="card-label">Pool</div>
+                <div class="card-label">Mysore</div>
             </div>
             <div class="card">
               <img src="https://imgcld.yatra.com/ytimages/image/upload/v1517481987/AdvNation/ANN_DES67/ann_top_Goa_loQGrP.jpg" alt="Long outdoor pool">
-              <div class="card-label">Pool</div>
+              <div class="card-label">Kovalam</div>
           </div>
           <div class="card">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4IUL8mLpo3LEQCES-PzjSbvTGwMK4xDRoEb98XcLiAJYHcYStaqA8O-Az7Tb3vOt2Hic&usqp=CAU" alt="Long outdoor pool">
-            <div class="card-label">Pool</div>
+            <div class="card-label">Ooty</div>
         </div>
         <div class="card">
-          <img src="https://wayanadfort.com/images/muthanga-wildlife-sanctuary-wayanad.jpg" alt="Long outdoor pool">
-          <div class="card-label">Pool</div>
+          <img src="https://images.deccanherald.com/deccanherald%2Fimport%2Fsites%2Fdh%2Ffiles%2Farticleimages%2F2023%2F04%2F08%2Ftiger-bandipur-dh-photo-1207743-1680963660.jpg?auto=format%2Ccompress&fmt=webp&fit=max&format=webp&q=70&w=400&dpr=2" alt="Long outdoor pool">
+          <div class="card-label">Bandipur Tiger Reserve</div>
       </div>
           </div>
           <div class="navigation">
@@ -502,69 +405,47 @@
   </section>
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      
 
-
-
-  <section class="mb-10">
-    <div class="relative h-[600px] w-full BlurBg backdrop-blur flex justify-center items-center" >
-        <!-- <div class="h-full w-full absolute" >
-            <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" class="w-full h-full object-cover" alt="">
-        </div> -->
-        <!-- Slider -->
-        <div class="mood-board">
-          <!-- Business Card -->
-          <div class="card business-card">
-              <p>BOOK ADVISOR is a popular online travel platform that helps travelers plan their trips by offering reviews, ratings, and recommendations for hotels, restaurants, attractions, and activities worldwide. Users can browse millions of authentic reviews, photos, and videos shared by fellow travelers to make informed decisions.</p>
-          </div>
-  
-          <!-- Landscape Image -->
-          <div class="card landscape">
-              <img src="{% static 'image\budget9.jpg' %}" alt="Landscape">
-              <div class="dots" id="colorDots"></div>
-          </div>
-  
-          <!-- Typography -->
-          <div class="card typography">
-              <div>
-                
-                <div class="font-sample">
-                 <h1>BOOK ADVISOR</h1>
-                <h2>Your Trusted Travel Partner </h2>
-                  <p>Kerala, South India</p>
-              </div>
-              <div class="font-sample">
-                  <h2>Fount New Destination</h2>
-                  <p>+91 96051 53757</p>
-                  <p>bookadvisor743@gmail.com</p>
-              </div>
-              </div>
-          </div>
-  
-          <!-- Brand Statement -->
-          <div class="card brand-statement">
-            <img src="{% static 'image\dome8.jpg' %}" alt="Hospitality Industry" />
+   
+      <section class="camping-planner">
+        <h1>How to plan a trip</h1>
+        
+        <div class="camping-grid">
+            <div class="camping-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLie69Ghp_fVnAXUd52gvLUS5ZggUV0b2flg&s" alt="Know Your Limits">
+                <div class="camping-content">
+                    <h2>Know Your Limits</h2>
+                    <p>Understand your physical capabilities and camping experience level before planning your trip. Choose a suitable location and duration that matches your skill level.</p>
+                </div>
+            </div>
+            
+            <div class="camping-item">
+                <img src="https://www.mistay.in/travel-blog/content/images/2022/10/Places-to-Visit-in-India.jpg" alt="Prepare - Gear Up">
+                <div class="camping-content">
+                    <h2>Prepare - Gear Up!</h2>
+                    <p>Pack essential camping gear including tent, sleeping bags, cooking equipment, and appropriate clothing. Don't forget safety items and first-aid supplies.</p>
+                </div>
+            </div>
+            
+            <div class="camping-item">
+                <img src="https://www.skymetweather.com/themes/skymet/images/gallery/toplists/9-Spectacular-Spots-For-Travelling-In-India/4.jpg" alt="Plan Your Trip">
+                <div class="camping-content">
+                    <h2>Plan Your Trip</h2>
+                    <p>Research your camping destination, check weather forecasts, and make necessary reservations. Create a detailed itinerary and share it with someone you trust.</p>
+                </div>
+            </div>
+            
+            <div class="camping-item">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/c2/34/bf/meenmutty-falls-aralam.jpg?w=1400&h=1400&s=1" alt="In Case of Emergency">
+                <div class="camping-content">
+                    <h2>In Case of Emergency</h2>
+                    <p>Prepare for unexpected situations by bringing emergency supplies, knowing basic first aid, and having important contact numbers readily available.</p>
+                </div>
+            </div>
         </div>
         
-          <!-- Brand Name -->
-          <div class="card brand-name">
-            <h1>BOOK ADVISOR</h1>
-        </div>
-  
-          <!-- Brand Visual -->
-          <div class="card">
-              <img src="{% static 'image\dome12.jpg' %}" alt="Brand visual" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-  
-          <!-- Social Grid -->
-          <div class="social-grid" id="socialGrid"></div>
-      </div>
-    </div>
-</section>
+    </section>
 <br>
 <br>
 <br>

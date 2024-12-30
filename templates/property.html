@@ -186,13 +186,13 @@
                 margin-top: 15px;
             }
         }
+
     </style>
 </head>
 <body>
-    <header class="pt-32 mb-10">
-        <h1 class="text-center text-3xl font-bold">Our Properties</h1>
+    <header class="pt-32 mb-10 bg-gradient-to-r from--50 to-indigo-50">
+        <h1 class="text-center text-3xl font-bold text-gray-800 tracking-tight md:text-4xl lg:text-5xl">Find Your Ideal Escape with BookAdvisor</h1>
     </header>
-    
     <div class="category-container">
         {% if categories %}
             {% for category in categories %}
@@ -254,6 +254,7 @@
             <p>No properties available.</p>
         {% endif %}
     </div>
+   
 </body>
 </html>
 {% endblock %}

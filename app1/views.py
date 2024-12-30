@@ -268,22 +268,29 @@ def testimonial_list(request):
     testimonials = Testimonial.objects.all()
     return render(request, 'testimonials/testimonial_list.html', {'testimonials': testimonials})
 
+
+
 # View to add/edit a testimonial
 def add_edit_testimonial(request, pk=None):
+    testimonial = None
     if pk:
         testimonial = get_object_or_404(Testimonial, pk=pk)
-    else:
-        testimonial = None
-
+    
     if request.method == 'POST':
         form = TestimonialForm(request.POST, request.FILES, instance=testimonial)
         if form.is_valid():
             form.save()
-            return redirect('testimonial_list')  # Redirect to testimonials list after saving
+            return redirect('testimonial_list')
     else:
         form = TestimonialForm(instance=testimonial)
+    
+    return render(request, 'add_testimonial.html', {
+        'form': form,
+        'testimonial': testimonial
+    })
 
-    return render(request, 'testimonials/add_edit_testimonial.html', {'form': form, 'testimonial': testimonial})
+
+
 
 # View to delete a testimonial
 def delete_testimonial(request, pk):

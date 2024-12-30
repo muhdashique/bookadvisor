@@ -1,5 +1,5 @@
 from django import forms
-from .models import RoomCategory, Room
+from .models import RoomCategory, Room, Testimonial
 
 
 class RoomCategoryForm(forms.ModelForm):
@@ -15,17 +15,15 @@ class RoomForm(forms.ModelForm):
 
 
 
-from django import forms
-from .models import Testimonial
-
 class TestimonialForm(forms.ModelForm):
     class Meta:
         model = Testimonial
-        fields = ['name', 'image', 'background_image', 'review', 'rating']
+        fields = ['name', 'image', 'review', 'rating']
         widgets = {
             'review': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Write your review here...'}),
             'rating': forms.Select(),
         }
+
 
 
 

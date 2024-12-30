@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>{% block title %}BookAdvisor{% endblock %}</title>
-        <link rel="icon" type="image/png" href="{% static 'favicon-96x96.png' %}" sizes="96x96" />
+        <link rel="icon" type="image/png" href="{% static 'image\bookadvisorfevicon.png' %}" sizes="96x96" />
     </head>
     
     </title>
@@ -52,12 +52,159 @@
 .white-icon {
         filter: brightness(0) invert(1);
     }
+
+    /* active */
+    .active {
+    font-weight: bold; /* Example styling */
+    color: #47ad95;    /* Active link color */
+    border-bottom: 2px solid #47ad95; /* Underline or highlight */
+}
+
+/* new footer */
+.footer {
+            background-color: #1a1a1a;
+            color: #9ca3af;
+            padding: 64px 24px 32px;
+            
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .logo-circle {
+            width: 32px;
+            height: 32px;
+            background-color: #fbbf24;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .brand-name-dark {
+            color: rgb(182, 172, 172);
+        }
+
+        .brand-name-yellow {
+            color: #56B29C;
+        }
+
+        .footer-title {
+            color: #56B29C;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-content {
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: rgb(57, 158, 154);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 64px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* whatsapp message */
+        .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+  }
+
+  .whatsapp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  /* Optional pulse animation */
+  .whatsapp-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25D366;
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
     </style>
 </head>
 <body class="bg-white">
     <div class="min-h-screen flex flex-col">
         <!-- Navbar -->
-        <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-sm shadow-md">
+        <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-sm shadow-md">
             <div class="w-full">
                 <div class="flex justify-center items-center py-4 max-w-7xl mx-auto px-4">
                     <div class="w-[150px] h-auto">
@@ -70,6 +217,7 @@
                         <a href="{% url 'properties' %}" class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
                         <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
                     </div>
+                    
         
                     <div>
                         <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
@@ -77,6 +225,20 @@
                 </div>
             </div>
         </header>
+         <!-- whatapp message -->
+         <a href="https://wa.me/917034422377?text=Hello, I am interested in booking a room. Could you please provide details about availability, pricing, and amenities?" 
+         target="_blank" 
+         class="whatsapp-button">
+         <div class="whatsapp-icon">
+             <svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF">
+                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+             </svg>
+         </div>
+     </a>
+     
+
+ <!-- whatapp message -->
+
 
         <!-- Main Content -->
         <main class="flex-grow">
@@ -85,97 +247,63 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-[#47ad95] text-white relative">
-            <div class="re h-[600px] w-full BlurBg backdrop-blur flex flex-col justify-center items-center">
-                <div class="background-image absolute -z-10 top-0 bottom-0 left-0 right-0">
-                    <img src="https://miro.medium.com/v2/resize:fit:1400/1*HRcVRb4AmLrt5E0gANvWcA.jpeg" class="w-full h-full object-cover" alt="">
-                </div>
-                   
+        <footer class="footer">
+            <div class="footer-container">
                 
-                    <div class="contact-section">
-                        <div class="contact-item">
-                            <img src="{% static 'image/phone-call.png' %}" alt="Call us" class="white-icon">
-                            <div>
-                                <h3>Call us</h3>
-                                <p><a href="tel:+919098979695">+91 96051 53757</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <img src="{% static 'image/email.png' %}" alt="Write to us" class="white-icon">
-                            <div>
-                                <h3>Write to us</h3>
-                                <p><a href="mailto:bookadvisor743@gmail.com">bookadvisor743@gmail.com</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <img src="{% static 'image\navigation.png' %}" alt="Address"  class="white-icon">
-                            <div>
-                                <h3>Address</h3>
-                                <p>Kerala, South India</p>
-                            </div>
+                <!-- Logo and Description -->
+                <div>
+                    <div class="logo-section">
+                        <link rel="icon" type="image/x-icon" href="{% static 'image/BOOKADVISOR.in.png' %}">
+                        <div class="brand-name">
+                            <span class="brand-name-dark">Book</span><span class="brand-name-yellow">advisor</span>
                         </div>
                     </div>
-                
-                <div class="w-full max-w-[1200px] px-4 lg:px-0">
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 place-items-start mb-10" style="margin-top: 10%;">
-                        <!-- Logo Section -->
-                        <div class="text-center md:text-left col-span-1">
-                            <img src="{% static 'image/BOOKADVISOR.in.png' %}" alt="BookAdvisor Logo" class="h-16 mx-auto md:mx-0 mb-4">
-                            <div>
-                                BookAdvisor: Your ultimate platform for hassle-free hotel booking, offering the best deals, seamless reservations, and unforgettable stays tailored to your needs. 🌟
-                            </div>
-                        </div>
-        
-                        <!-- Navigation Column 1 -->
-                        <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Quick Links<br><br></h4>
-                            <ul class="flex flex-col gap-2">
-                                <li><a href="{% url 'index' %}" class="hover:text-gray-300">Home</a><br><br></li>
-                                <li><a href="{% url 'about' %}" class="hover:text-gray-300">About</a><br><br></li>
-                                <li><a href="{% url 'properties' %}" class="hover:text-gray-300">Properties</a><br><br></li>
-                                <li><a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a></li>
-                            </ul>
-                        </div>
-        
-                        <!-- Additional Links Column -->
-                        <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Additional Links<br><br></h4>
-                            <ul class="flex flex-col gap-2">
-                                <li><a href="#" class="hover:text-blue-300">Privacy Policy</a><br><br></li>
-                                <li><a href="#" class="hover:text-blue-300">Terms of Service</a><br><br></li>
-                                <li><a href="#" class="hover:text-blue-300">FAQ</a><br><br></li>
-                                <li><a href="#" class="hover:text-blue-300">Support</a></li>
-                            </ul>
-                        </div>
-        
-                        <!-- Social Media Column -->
-                        <div class="text-center md:text-left">
-                            <h4 class="font-bold mb-4">Follow Us<br><br></h4>
-                            <div class="flex gap-4 justify-center md:justify-start">
-                               <ul>
-                                <li><a href="https://www.facebook.com/share/1AA5PFj71C/" target="_blank" class="hover:text-blue-300">
-                                    <i class="fa-brands fa-facebook"></i>&nbsp;&nbsp; facebook  </a><br><br></li>
-                                  
-                                    <li><a href="https://www.instagram.com/bookadvisor.in/profilecard/?igsh=aGkwcHpzbnZ1bWRy" target="_blank" class="hover:text-blue-300">
-                                    <i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;instagram</a><br><br></li>
-                                  
-                                    <li> <a href="https://twitter.com/yourusername" target="_blank" class="hover:text-blue-300">
-                                    <i class="fab fa-twitter"></i>&nbsp;&nbsp;twitter </a><br><br></li>
-                                  
-                                    <li><a href="https://wa.me/11234567890" target="_blank" class="hover:text-green-300">
-                                    <i class="fa-brands fa-whatsapp"></i>&nbsp;&nbsp;whatsapp </a></li>
-                               </ul>
-                                  
-                            </div>
-                        </div>
+                    <p class="footer-content">
+                       
+                        BookAdvisor is an intuitive website designed to simplify the process of booking rooms for your travel and accommodation needs. Whether you're planning a vacation, a business trip, or a quick getaway.
+                    </p>
+                </div>
+    
+                <!-- Company Info -->
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <div class="footer-content">
+                        <p>Bookadvisor</p>
+                        <p>Kerala, South India</p>
+                        <p>+917034422377</p>
+                        <p>+917034422477</p>
+                        <p>+917034422677</p>
+                        <p>bookadvisor743@gmail.com</p>
                     </div>
                 </div>
-                
-                <div class="mt-6 text-sm text-gray-200 text-center w-full">
-                    © 2024 BookAdvisor. All Rights Reserved.
+    
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
                 </div>
+    
+                <!-- Social Media -->
+                <div>
+                    <h3 class="footer-title">Social Media</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.facebook.com/share/1AA5PFj71C/">Facebook</a></li>
+                        <li><a href="https://wa.me/917034422377" target="_blank">WhatsApp</a></li>
+                        <li><a href="https://www.instagram.com/bookadvisor.in/profilecard/?igsh=aGkwcHpzbnZ1bWRy">Instagram</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="copyright">
+                Copyright © 2023 Bookadvisor. All Rights Reserved
             </div>
         </footer>
           

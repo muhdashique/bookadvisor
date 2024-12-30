@@ -19,13 +19,12 @@ class Room(models.Model):
 
 
 
-
 class Testimonial(models.Model):
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='testimonials/images/')
-    background_image = models.ImageField(upload_to='testimonials/backgrounds/')
     review = models.TextField()
     rating = models.PositiveIntegerField(choices=[(i, i) for i in range(1, 6)], default=5)
 
     def __str__(self):
         return self.name
+
