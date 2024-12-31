@@ -2,11 +2,12 @@ from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView 
 
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.About, name='about'),
     path('properties/', views.property_list, name='properties'),
-    path('contact/', views.contact, name='contact'),
+    path('contact/', views.contact, name='contactpage'),
     path('login/', views.login_view, name='login'),
     path('admin-panel/', views.admin_pannel, name='admin_pannel'),
     path('categories/', views.room_category_list, name='room_category_list'),
@@ -39,6 +40,8 @@ urlpatterns = [
     path('testimonials/add/', views.add_edit_testimonial, name='add_testimonial'),
     path('testimonials/edit/<int:pk>/', views.add_edit_testimonial, name='edit_testimonial'),
     path('testimonials/delete/<int:pk>/', views.delete_testimonial, name='delete_testimonial'),
+      
+    
 
 
 

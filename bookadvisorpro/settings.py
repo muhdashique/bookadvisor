@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookadviser',  # Replace with your database name
         'USER': 'postgres',  # Replace with your database username
-        'PASSWORD': 'sajith@2003',  # Replace with your database password
+        'PASSWORD': '1234',  # Replace with your database password
         'HOST': 'localhost',  # For local development, use 'localhost' or '127.0.0.1'
         'PORT': '5432',  # Default PostgreSQL port is 5432
     }
@@ -136,3 +136,16 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'muhammedashique8281@gmail.com'
+EMAIL_HOST_PASSWORD = 'honvhznhilgghwhn'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

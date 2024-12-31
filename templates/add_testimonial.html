@@ -24,7 +24,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+           
         }
 
         .container {
@@ -36,11 +36,7 @@
             max-width: 600px;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        
 
         p {
             margin: 0;
@@ -163,47 +159,54 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="form-header">
-            <h1>Share Your Experience</h1>
-            <p>We value your feedback!</p>
+    <div style="display: flex; flex-direction: column;">
+        <div class="container">
+            <div class="form-header">
+                <h1>Share Your Experience</h1>
+                <p>We value your feedback!</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                Testimonial submitted successfully!
+            </div>
+    
+            <form method="POST" enctype="multipart/form-data" id="testimonialForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">{% if testimonial %}Update{% else %}Add{% endif %} Testimonial</button>
+            </form>
+    
+            <a href="{% url 'testimonials' %}" class="back-link">← Back to Testimonials</a>
         </div>
-        
-        <div class="success-message" id="successMessage">
-            Testimonial submitted successfully!
-        </div>
+        <br>
+        <br>
 
-        <form method="POST" enctype="multipart/form-data" id="testimonialForm">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">{% if testimonial %}Update{% else %}Add{% endif %} Testimonial</button>
-        </form>
+        <br>
 
-        <a href="{% url 'testimonials' %}" class="back-link">← Back to Testimonials</a>
+    
+    
+        <div class="container" style="">
+          <h1>All Testimonials</h1>
+          {% if testimonials %}
+              <ul class="space-y-4">
+                  {% for testimonial in testimonials %}
+                      <li class="flex items-center gap-4">
+                          <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" width="100" height="100" class="rounded-full">
+                          <div>
+                              <h3 class="font-semibold">{{ testimonial.name }}</h3>
+                              <p>{{ testimonial.review }}</p>
+                              <p>Rating: {{ testimonial.rating }}</p>
+                              <a href="{% url 'edit_testimonial' testimonial.pk %}" class="text-blue-600">Edit</a> | 
+                              <a href="{% url 'delete_testimonial' testimonial.pk %}" class="text-red-600" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</a>
+                          </div>
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              <p>No testimonials available.</p>
+          {% endif %}
+      </div>
     </div>
-
-
-    <div class="container">
-      <h1>All Testimonials</h1>
-      {% if testimonials %}
-          <ul class="space-y-4">
-              {% for testimonial in testimonials %}
-                  <li class="flex items-center gap-4">
-                      <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" width="100" height="100" class="rounded-full">
-                      <div>
-                          <h3 class="font-semibold">{{ testimonial.name }}</h3>
-                          <p>{{ testimonial.review }}</p>
-                          <p>Rating: {{ testimonial.rating }}</p>
-                          <a href="{% url 'edit_testimonial' testimonial.pk %}" class="text-blue-600">Edit</a> | 
-                          <a href="{% url 'delete_testimonial' testimonial.pk %}" class="text-red-600" onclick="return confirm('Are you sure you want to delete this testimonial?')">Delete</a>
-                      </div>
-                  </li>
-              {% endfor %}
-          </ul>
-      {% else %}
-          <p>No testimonials available.</p>
-      {% endif %}
-  </div>
 
 
     <script>

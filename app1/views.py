@@ -6,11 +6,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Room, RoomCategory
 from .forms import RoomForm, RoomCategoryForm
 from django.shortcuts import render
-from .forms import TestimonialForm
+from .forms import TestimonialForm,ContactForm
 from .models import Testimonial, RoomCategory
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core.mail import send_mail
+from .utils import send_contact_email
 
 
 
@@ -297,3 +298,120 @@ def delete_testimonial(request, pk):
     testimonial = get_object_or_404(Testimonial, pk=pk)
     testimonial.delete()
     return redirect('testimonial_list')
+
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save the form
+            contact = form.save()
+            
+            # Send email
+            email_sent = send_contact_email(form.cleaned_data)
+            
+            if email_sent:
+                messages.success(request, 'Your message has been sent successfully!')
+            else:
+                messages.warning(request, 'Your message was saved but there was an error sending the email notification.')
+            
+            return redirect('contact')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})
+
+
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+def contact_form_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')  # Get phone number
+        message = request.POST.get('message')
+
+        if not all([name, email, phone, message]):
+            messages.error(request, "All fields are required.")
+            return redirect('contactus')
+
+        try:
+            send_mail(
+                subject=f"New Contact Form Submission from {name}",
+                message=(
+                    f"Name: {name}\n"
+                    f"Email: {email}\n"
+                    f"Phone: {phone}\n\n"
+                    f"Message:\n{message}"
+                ),
+                from_email='your_email@gmail.com',  # Replace with your email
+                recipient_list=['muhammedashique8281@gmail.com'],  # Replace with recipient email
+                fail_silently=False,
+            )
+            
+            # Add a success message
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('contactus')
+        
+        except Exception as e:
+            messages.error(request, f"An error occurred: {str(e)}")
+            return redirect('contact')
+
+    return render(request, 'contactus.html')
+from django.core.mail import send_mail
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+
+def send_contact_email(data):
+    # Compose the email body manually instead of using a template
+    subject = f"New Contact Form Submission from {data['name']}"
+    message = (
+        f"New Contact Form Submission\n\n"
+        f"Name: {data['name']}\n"
+        f"Email: {data['email']}\n"
+        
+        f"Message:\n{data['message']}\n\n"
+        f"This email was sent from your website's contact form."
+    )
+    
+    try:
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=data['email'],  # Or use a fixed email like 'your_email@gmail.com'
+            recipient_list=['muhammedashique8281@gmail.com'],  # Replace with your email
+            fail_silently=False,
+        )
+        return True
+    except Exception as e:
+        return False
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save the form data (if needed)
+            contact = form.save()
+            
+            # Send email
+            email_sent = send_contact_email(form.cleaned_data)
+            
+            if email_sent:
+                messages.success(request, 'Your message has been sent successfully!')
+            else:
+                messages.warning(request, 'Your message was saved but there was an error sending the email notification.')
+            
+            return redirect('contactpage')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})
