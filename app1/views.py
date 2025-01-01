@@ -84,7 +84,7 @@ def admin_pannel(request):
             form.save()
             return redirect('admin_pannel')  # This should match the URL pattern name
 
-    return render(request, 'adminpannel.html', {'form': form, 'testimonials': testimonials, 'categories': categories})
+    return render(request, 'app1/adminpannel.html', {'form': form, 'testimonials': testimonials, 'categories': categories})
 
 
 
