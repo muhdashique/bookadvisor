@@ -239,7 +239,7 @@
                     </div>
 
                     <!-- Navigation Links -->
-                    <div id="menu" class="hidden md:flex justify-center items-center gap-10">
+                    <div id="menu" class="hidden md:flex justify-center items-center gap-20">
                        <div class="flex items-center gap-10">
                         <a href="{% url 'index' %}"
                         class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
@@ -250,29 +250,30 @@
                     <a href="{% url 'contactpage' %}"
                         class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
                        </div>
-                        <!-- Login Button -->
-                        <div class="hidden md:block">
-                            <a href="{% url 'login' %}"
-                                class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition"
-                                style="">Login</a>
-                        </div>
-                    </div>
-
-                   
-                    <div class="flex flex-col gap-2">
+                       <div class="md:flex hidden flex-col gap-2">
                         <div>
                             <p>+917034422377</p>
-                        <p>bookadvisor743@gmail.com</p>
+                            <p>bookadvisor743@gmail.com</p>
                         </div>
-                        <div class="">
+                        <!-- <div class="">
                             <a href="https://www.facebook.com/share/1AA5PFj71C/"><i
                                     class="fa-brands fa-facebook "></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="https://wa.me/917034422377" target="_blank"><i
                                     class="fa-brands fa-whatsapp "></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="https://www.instagram.com/bookadvisor.in/profilecard/?igsh=aGkwcHpzbnZ1bWRy"><i
                                     class="fa-brands fa-instagram "></i></a>
-                        </div>
+                        </div> -->
                     </div>
+                        
+                    </div>
+
+                   <!-- Login Button -->
+                   <div class="hidden md:block">
+                    <a href="{% url 'login' %}"
+                        class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition"
+                        style="">Login</a>
+                </div>
+                    
 
 
                     <!-- Mobile Menu -->
