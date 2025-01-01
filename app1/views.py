@@ -74,17 +74,22 @@ def login_view(request):
 # Admin panel view with property form
 
 def admin_pannel(request):
-    categories = RoomCategory.objects.all()  # Fetch all categories
-    testimonials = Testimonial.objects.all()  # Fetch all testimonials
+    categories = RoomCategory.objects.all()
+    testimonials = Testimonial.objects.all()
     form = TestimonialForm()
 
     if request.method == 'POST':
         form = TestimonialForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('admin_pannel')  # This should match the URL pattern name
+            return redirect('admin_pannel')
 
-    return render(request, 'app1/adminpannel.html', {'form': form, 'testimonials': testimonials, 'categories': categories})
+    # Try using this template path instead
+    return render(request, 'adminpannel.html', {
+        'form': form, 
+        'testimonials': testimonials, 
+        'categories': categories
+    })
 
 
 
