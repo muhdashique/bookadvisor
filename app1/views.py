@@ -198,16 +198,11 @@ def edit_room(request, room_id):
     })
 # delete room details 
 def delete_room(request, room_id):
-    # Retrieve the room or show 404 if not found
-    room = get_object_or_404(Room, id=room_id)
-    
-    
-    
-    # Delete the room
-    room.delete()
-    messages.success(request, f'Room "{room.name}" has been deleted.')
-    return redirect('room_list')
-
+    room = get_object_or_404(Room, id=room_id)  # Fetch the Room object
+    room_name = getattr(room, 'name', 'Room')  # Use 'name' or fallback to 'Room'
+    room.delete()  # Delete the room
+    messages.success(request, f'Room "{room_name}" has been deleted.')  # Display success message
+    return redirect('room_list')  # Redirect to the room list page
 
 def room_view(request, id):
     # Get the current room
