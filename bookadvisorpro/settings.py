@@ -73,7 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',  # Required for admin sidebar
                 'django.contrib.auth.context_processors.auth',  # Required for auth functionality
-                'django.contrib.messages.context_processors.messages',  # Required for messages
+                'django.contrib.messages.context_processors.messages',  # Required for messageshasjasjasj
             ],
         },
     },
