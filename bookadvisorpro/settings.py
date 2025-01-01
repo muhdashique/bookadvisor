@@ -32,7 +32,10 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.bookadvisor.in',
     
 ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> d3f5a00c6597a73bd59736a7f59a22aa562d947d
 
 
 # Application definition
@@ -91,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookadviser',  # Replace with your database name
         'USER': 'postgres',  # Replace with your database username
-        'PASSWORD': '1234',  # Replace with your database password
+        'PASSWORD': 'sajith@2003',  # Replace with your database password
         'HOST': 'localhost',  # For local development, use 'localhost' or '127.0.0.1'
         'PORT': '5432',  # Default PostgreSQL port is 5432
     }
