@@ -32,10 +32,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.bookadvisor.in',
     
 ]
-<<<<<<< HEAD
-
-=======
->>>>>>> d3f5a00c6597a73bd59736a7f59a22aa562d947d
 
 
 # Application definition
