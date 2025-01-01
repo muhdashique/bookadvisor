@@ -717,9 +717,11 @@ button:hover {
                                 The Book Advisor 
                             </h1>
                         </div>
-                        Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget.At Book Advisor, we bring together a curated selection of premium resorts, each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
-
-                    </div>
+                        <p style="font-size: 1.125rem; line-height: 1.8; color: #000000; font-family: 'Arial', sans-serif; text-align: justify; margin-top: 20px; padding: 0 15px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                            Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget. At Book Advisor, we bring together a curated selection of premium resorts, each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
+                        </p>
+                        
+                 </div>
                 </div>
                 <div class="md:w-[45%] w-full flex justify-center items-center">
                     <div class="relative flex justify-center items-center w-full  md:w-[50%] h-[450px]">
@@ -770,13 +772,18 @@ button:hover {
             </div>
         </section>
 
-        
+<!--         
         <header class=" mb-10">
-            <h1 class="text-center text-3xl font-bold mb-5">Discover The Ideal Destination</h1>
+            <h1 class="text-left text-3xl font-bold mb-5">Discover The Ideal Destination</h1>
             <h2 style="" class="text-center">Choose the Perfect Stay for Every Journey</h2>
 
-        </header>
+        </header> -->
         <section class="md:mb-20 mb-10">
+            <div class="trending-header" style="margin-left: 10%">
+                <h2 style="font-weight: bold;">Discover The Ideal Destination</h2>
+                <p style="font-weight: bold;">Choose the Perfect Stay for Every Journey</p>
+            </div>
+            
             <div class="category-container mx-3">
                 {% if categories %}
                     {% for category in categories %}
@@ -804,10 +811,11 @@ button:hover {
 
 
         <section class="trending-section">
-            <div class="trending-header">
-                <h2>Trending Destinations</h2>
-                <p>Most popular choices for travellers from India</p>
+            <div class="trending-header" style="margin-left: 3%">
+                <h2 style="font-weight: bold;">Trending Destinations</h2>
+                <p style="font-weight: bold;">Most popular choices for travellers from India</p>
             </div>
+            
             
             <div class="destinations-grid">
                 <div class="destination-card">
@@ -863,14 +871,14 @@ button:hover {
         <br>
         <br>
         <section class="testimonial-section mb-10">
-            <!-- Header -->
-            <div class="text-center py-6 relative z-[100]">
-                <h2 class="text-3xl font-bold text-[#56B29C]">What Our Guests Say</h2>
-                <p class="text-lg text-gray-600 mt-2">Discover the experiences shared by our valued guests.</p>
-            </div>
-            <div class="relative w-full backdrop-blur-lg flex justify-center items-center">
+            <header class=" mb-10">
+                <h1 class="text-center text-3xl font-bold mb-5">What Our Guests Say</h1>
+                <p class="text-lg text-black mt-2" style="margin-left: 33%;">Hear from those who have experienced the magic of our resorts.</p>
+    
+            </header>
+            <div class="relative h-[600px] w-full backdrop-blur-lg flex justify-center items-center">
                 <!-- Background Image -->
-                <div class="absolute h-[600px] w-full">
+                <div class="absolute inset-0">
                     <img src="https://www.mountainshadows.in/wp-content/uploads/2023/04/Woman-enjoying-a-swim-at-a-Wayanad-resort-with-pool.jpg" 
                         class="w-full h-full object-cover" alt="Background">
                 </div>
@@ -911,11 +919,8 @@ button:hover {
                 </div>
             </div>
         </section>
-        <br>
-        <br>
-        <br>
-        <br>
-    
+        
+        
 
         
 

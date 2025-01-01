@@ -85,7 +85,7 @@ def admin_pannel(request):
             return redirect('admin_pannel')
 
     # Try using this template path instead
-    return render(request, 'adminpannel.html', {
+    return render(request, 'adminPannel.html', {
         'form': form, 
         'testimonials': testimonials, 
         'categories': categories
