@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-f)02f34n62wv7s&yz$(7r0u-1d$dj5%)v!cw1g8u(50u&%#nq*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bookadvisor.in','www.bookadvisor.in']
+ALLOWED_HOSTS = ['bookadvisor.in','www.bookadvisor.in','127.0.0.1']
+
 CSRF_TRUSTED_ORIGINS = [
     'https://bookadvisor.in',
     'https://www.bookadvisor.in',
-    
 ]
+
 
 
 # Application definition
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookadviser',  # Replace with your database name
         'USER': 'postgres',  # Replace with your database username
-        'PASSWORD': 'sajith@2003',  # Replace with your database password
+        'PASSWORD': '1234',  # Replace with your database password
         'HOST': 'localhost',  # For local development, use 'localhost' or '127.0.0.1'
         'PORT': '5432',  # Default PostgreSQL port is 5432
     }
