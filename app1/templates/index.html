@@ -18,6 +18,35 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
     <style>
+         @font-face{
+            src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+            font-family: 'Nexa';
+        }
+        @font-face {
+            font-family: 'Nexa1';
+            src: url("{% static 'fonts/Nexa-Heavy.ttf' %}") format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sui';
+            src: url("{% static 'fonts/Sui Generis Rg.otf' %}") format('truetype');
+        }
+        @font-face {
+            font-family: 'AeroBold';
+            src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
+        }
+
+        .bannerTitle{
+            font-family: 'Sui';
+        }
+        .buttonText{
+            font-family: 'Nexa';
+            font-weight: 800;
+        }
+        .buttonText1{
+            font-family: 'Nexa1';
+            font-weight: 800;
+        }
         *{
             margin: 0;
             padding: 0;
@@ -109,7 +138,7 @@
         }
         .category-box {
             position: relative;
-            width: 80vh;
+            width: 100%;
             height: 40vh;
             background-size: cover;
             background-position: center;
@@ -130,7 +159,6 @@
             color: #fff;
             padding: 10px;
             text-shadow: 1px 1px 2px black;
-            font-family: Arial, sans-serif;
         }
         .category-details h3 {
             margin: 0;
@@ -173,14 +201,15 @@ button:hover {
 
         .stats-container {
             width: 100%;
-            height: 50vh;
+            height: auto;
+            /* height: 30vh; */
             padding: 2.5rem 0;
             /* background-color: #47ad95; */
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            /* display: flex; */
+            /* justify-content: space-evenly; */
+            /* align-items: center; */
             color: #fff;
-            flex-direction: column;
+            /* flex-direction: column; */
         }
 
         .stat-item {
@@ -227,14 +256,14 @@ button:hover {
 .stats-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     gap: 40px;
 }
 
 .stat-item {
-    flex: 1;
+    /* flex: 1; */
     min-width: 200px;
     padding: 30px;
     text-align: center;
@@ -243,7 +272,7 @@ button:hover {
     /* backdrop-filter: blur(10px); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .stat-item::before {
@@ -344,9 +373,7 @@ button:hover {
 
 /* destination */
 .trending-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    
 }
 
 .trending-header {
@@ -496,7 +523,7 @@ button:hover {
 }
 /* cound new */
 .stats-section {
-    background-image: url('https://www.myboatlife.com/wp-content/uploads/2021/01/boating-laws.png');
+    background-image: url('https://sbnri.com/blog/wp-content/uploads/2022/08/Kerala_Tourism_rep_image_Facebook_08082021_1200-compressed.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -575,7 +602,7 @@ button:hover {
     }
 
     .stat-number {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: bold;
         color: #ffffff;
     }
@@ -688,15 +715,18 @@ button:hover {
     <div class="overflow-hidden">
         <section>
             <div class="w-full h-[100vh] relative">
-                <video class="h-full w-full object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/videobanner1.mp4' %}">
+                <video class="h-full w-full object-cover" type="video/mp4" autoplay muted loop src="{% static 'image/bannervideo.mp4' %}">
                 </video>
+                <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-60">
+                    <img src="{% static 'image/blackshade.png' %}" class="w-full h-full object-cover" alt="">
+                </div>
                 <div class="absolute inset-0 flex items-center justify-center text-white">
                     <div class="banner-text">
-                        <h1 class=" text-2xl md:text-[45px] lg:text-[100px] leading-tight font-bold">EXPLORE THE WORLD</h1>
-                        <p class="text-lg md:text-2xl lg:text-[20px] font-semibold mb-10">Welcome to BookAdvisor, your trusted companion in discovering the finest resorts and rooms across South India. We believe every journey deserves a memorable stay, and that's why we bring you an extensive selection of accommodations tailored to your comfort, style, and budget.</p>
-                        <div class="flex gap-10 w-full justify-center items-center">
-                            <button class="px-10 py-3 rounded-3xl bg-[#ffff] text-[#000]">Discover More</button>
-                            <button class="rounded-3xl border border-[#ffff] px-10 py-3">Know More</button>
+                        <h1 class=" text-2xl md:text-[45px] lg:text-[100px] leading-tight font-bold bannerTitle text-nowrap mb-5">EXPLORE THE WORLD</h1>
+                        <p class="text-lg md:text-2xl text-sm lg:text-[20px] font-semibold mb-10 buttonText">Welcome to BookAdvisor, your trusted companion in discovering the finest resorts and rooms across South India. We believe every journey deserves a memorable stay, and that's why we bring you an extensive selection of accommodations tailored to your comfort, style, and budget.</p>
+                        <div class="flex md:gap-10 gap-2 w-full justify-center items-center">
+                            <button class="px-10 py-3 rounded-3xl bg-[#ffff] text-[#000] buttonText text-sm text-nowrap">Discover More</button>
+                            <button class="rounded-3xl border border-[#ffff] px-10 py-3 buttonText text-nowrap text-sm">Know More</button>
                         </div>
                     </div>
                 </div>
@@ -708,22 +738,23 @@ button:hover {
                 <div class="md:w-[55%] w-full">
                     <div class="text-lg md:text-xl">
                         <div>
-                            <h1 class="leading-tight mb-5" style="
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-size: 36px;
-          font-weight: bold;
-          color: #333333;
-        ">
-                                The Book Advisor 
-                            </h1>
+                            <div class="leading-tight mb-5 bannerTitle md:text-[40px] text-[35px] font-bold leading-tight aboutTitle">
+                                Get In To Know
+                            </div>
                         </div>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #000000; font-family: 'Arial', sans-serif; text-align: justify; margin-top: 20px; padding: 0 15px; max-width: 900px; margin-left: auto; margin-right: auto;">
-                            Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget. At Book Advisor, we bring together a curated selection of premium resorts, each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
+                        <p class="buttonText md:text-base text-sm aboutPara" style=" color: #000000; text-align: justify; margin-top: 20px;  max-width: 900px;">
+                            Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. 
+                        </p>
+                        <p class="buttonText text-base md:text-base text-sm aboutPara" style=" color: #000000;text-align: justify; margin-top: 15px;">
+                            Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget. At Book Advisor, we bring together a curated selection of premium resorts, 
+                        </p>
+                        <p class="buttonText text-base md:text-base text-sm aboutPara" style=" color: #000000;  text-align: justify; margin-top: 15px">
+                             each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
                         </p>
                         
                  </div>
                 </div>
-                <div class="md:w-[45%] w-full flex justify-center items-center">
+                <div class="md:w-[45%] w-full flex justify-center items-center aboutImage">
                     <div class="relative flex justify-center items-center w-full  md:w-[50%] h-[450px]">
                         <div
                             class="absolute  md:h-[250px] md:w-[250px] rounded-3xl z-20 bottom-0  top-0 md:top-auto overflow-hidden border border-[10px]">
@@ -740,34 +771,34 @@ button:hover {
         </section>
 
         <section class="stats-section">
-            <div class="stats-container">
+            <div class="stats-container grid grid-cols-2 place-items-center md:flex">
                 <div class="stat-item">
                     <div class="stat-icon">
                         <img src="{% static 'image\review (1).png' %}" alt="Happy Client"> <!-- Replace with your PNG image -->
                     </div>
-                    <div class="stat-number" data-target="1000">0</div>
-                    <span class="stat-label">Happy Client</span>
+                    <div class="stat-number buttonText1" data-target="1000">0</div>
+                    <span class="stat-label buttonText">Happy Client</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">
                         <img src="{% static 'image\hotel.png' %}" alt="Rooms"> <!-- Replace with your PNG image -->
                     </div>
-                    <div class="stat-number" data-target="2000">0</div>
-                    <span class="stat-label">Rooms</span>
+                    <div class="stat-number buttonText1" data-target="2000">0</div>
+                    <span class="stat-label buttonText">Rooms</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">
                         <img src="{% static 'image\customer-service.png' %}" alt="Type of Services"> <!-- Replace with your PNG image -->
                     </div>
-                    <div class="stat-number" data-target="100">0</div>
-                    <span class="stat-label">Type of Services</span>
+                    <div class="stat-number buttonText1" data-target="100">0</div>
+                    <span class="stat-label buttonText">Type of Services</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-icon">
                         <img src="{% static 'image\category.png' %}" alt="Type of Categories"> <!-- Replace with your PNG image -->
                     </div>
-                    <div class="stat-number" data-target="10">0</div>
-                    <span class="stat-label">Type of Categories</span>
+                    <div class="stat-number buttonText1 text-[30px]" data-target="10">0</div>
+                    <span class="stat-label buttonText">Type of Categories</span>
                 </div>
             </div>
         </section>
@@ -779,18 +810,18 @@ button:hover {
 
         </header> -->
         <section class="md:mb-20 mb-10">
-            <div class="trending-header" style="margin-left: 10%">
-                <h2 style="font-weight: bold;">Discover The Ideal Destination</h2>
-                <p style="font-weight: bold;">Choose the Perfect Stay for Every Journey</p>
+            <div class="trending-header px-2">
+                <h2 class="bannerTitle md:text-[40px] text-[35px] leading-tight font-bold rooms" style="font-weight: bold;">Discover The Ideal Destination</h2>
+                <p style="font-weight: bold;" class="buttonText text-sm roomPara">Choose the Perfect Stay for Every Journey</p>
             </div>
             
-            <div class="category-container mx-3">
+            <div class="grid grid-cols-1 placeitems-center gap-5 px-2 items-center md:grid-cols-2 max-w-[1400px] mx-auto">
                 {% if categories %}
                     {% for category in categories %}
                         <a href="{% url 'property_view' category.id %}" class="category-link">
-                            <div class="category-box" style="background-image: url('{{ category.image.url }}');">
+                            <div class="category-box Categories" style="background-image: url('{{ category.image.url }}');">
                                 <div class="category-details">
-                                    <h3>{{ category.name }}</h3>
+                                    <h3 class="buttonText1">{{ category.name }}</h3>
                                     <!-- Display category description (if available) -->
                                     {% if category.description %}
                                         <!-- <p>{{ category.description }}</p> -->
@@ -810,57 +841,57 @@ button:hover {
 
 
 
-        <section class="trending-section">
-            <div class="trending-header" style="margin-left: 3%">
-                <h2 style="font-weight: bold;">Trending Destinations</h2>
-                <p style="font-weight: bold;">Most popular choices for travellers from India</p>
+        <section class="trending-section max-w-[1400px] mx-auto px-2 md:px-0">
+            <div class="trending-header">
+                <h2 style="font-weight: bold;" class="bannerTitle text-[35px] md:text-[40px] leading-tight Destinations">Trending Destinations</h2>
+                <p style="font-weight: bold;" class="buttonText text-sm DestinationsPara">Most popular choices for travellers from India</p>
             </div>
             
             
             <div class="destinations-grid">
-                <div class="destination-card">
+                <div class="destination-card card1">
                     <div class="overlay"></div>
                     <img src="https://www.fabhotels.com/blog/wp-content/uploads/2021/04/Banasura_Sagar_Dam_1000x650.jpg" alt="Bangalore">
                     <div class="destination-info">
-                        <span class="destination-name"> Wayanad</span>
+                        <span class="destination-name buttonText1"> Wayanad</span>
                         <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="India flag"> -->
                     </div>
                 </div>
                 
-                <div class="destination-card">
+                <div class="destination-card card2">
                     <div class="overlay"></div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="Bangalore">
                     <div class="destination-info">
-                        <span class="destination-name"> Munnar</span>
+                        <span class="destination-name buttonText1"> Munnar</span>
                         <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawaRTrqaiCP6Dwiqy0-fv-DbynHFbwXMKXQ&s" alt="India flag"> -->
                     </div>
                 </div>
             </div>
             
             <div class="destinations-bottom">
-                <div class="destination-card">
+                <div class="destination-card card3">
                     <div class="overlay"></div>
                     <img src="https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2FVagamon%20cover%20image%20final.jpg%2FVagamon%20cover%20image%20final-1720182118134.jpg&w=2048&q=75" alt="Mumbai">
                     <div class="destination-info">
-                        <span class="destination-name">Vagamon</span>
+                        <span class="destination-name buttonText1">Vagamon</span>
                         <!-- <img class="flag" src="https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2FVagamon%20cover%20image%20final.jpg%2FVagamon%20cover%20image%20final-1720182118134.jpg&w=2048&q=75" alt="India flag"> -->
                     </div>
                 </div>
                 
-                <div class="destination-card">
+                <div class="destination-card card4">
                     <div class="overlay"></div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzyfRwTLLXly2Dmc7IGUl7Pha6IriQoFxkfA&s" alt="Chennai">
                     <div class="destination-info">
-                        <span class="destination-name">Goa</span>
+                        <span class="destination-name buttonText1">Goa</span>
                         <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzyfRwTLLXly2Dmc7IGUl7Pha6IriQoFxkfA&s" alt="India flag"> -->
                     </div>
                 </div>
                 
-                <div class="destination-card">
+                <div class="destination-card card5">
                     <div class="overlay"></div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4_DEkyS67VZ15skn0x7JJL9Atm-SV32jr7A&s" alt="Hyderabad">
                     <div class="destination-info">
-                        <span class="destination-name"> Mysore</span>
+                        <span class="destination-name buttonText1"> Mysore</span>
                         <!-- <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShohTavltsM6zznKDTQ7JKLN5lggqqu0Ex3w&s" alt="India flag"> -->
                     </div>
                 </div>
@@ -872,8 +903,8 @@ button:hover {
         <br>
         <section class="testimonial-section mb-10">
             <header class=" mb-10">
-                <h1 class="text-center text-3xl font-bold mb-5">What Our Guests Say</h1>
-                <p class="text-lg text-black mt-2" style="margin-left: 33%;">Hear from those who have experienced the magic of our resorts.</p>
+                <h1 class="text-center md:text-[40px] leading-tight font-bold mb-2 bannerTitle text-[35px]">What Our Guests Say</h1>
+                <p class="text-lg text-center buttonText px-4 text-sm">Hear from those who have experienced the magic of our resorts.</p>
     
             </header>
             <div class="relative h-[600px] w-full backdrop-blur-lg flex justify-center items-center">
@@ -896,7 +927,7 @@ button:hover {
                                 </div>
                                 <!-- Name & Rating -->
                                 <div class="text-center mt-5">
-                                    <h5 class="text-lg font-semibold">{{ testimonial.name }}</h5>
+                                    <h5 class="text-lg font-semibold buttonText1">{{ testimonial.name }}</h5>
                                     <div class="rating mt-2">
                                         {% for i in "12345"|make_list %}
                                         {% if forloop.counter <= testimonial.rating %}
@@ -908,7 +939,7 @@ button:hover {
                                     </div>
                                 </div>
                                 <!-- Review -->
-                                <p class="text-sm mt-3 text-gray-100">{{ testimonial.review }}</p>
+                                <p class="text-sm mt-3 text-gray-100 buttonText">{{ testimonial.review }}</p>
                             </div>
                         </div>
                         {% endfor %}
@@ -932,6 +963,25 @@ button:hover {
 
     </div>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        /=============== SCROLL REVEAL ANIMATION ===============/
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+            // reset: true
+        })
+
+        sr.reveal('.home__data')
+        sr.reveal('.home__img', { delay: 500 })
+        sr.reveal('.home__social', { delay: 600 })
+        sr.reveal('.about_img, .aboutTitle, .aboutPara, .rooms, .roomPara, .Destinations, .DestinationsPara, .card1, .card3', { origin: 'left' })
+        sr.reveal('.about_data, .contact_form,.aboutImage, .card2, .card5', { origin: 'right' })
+        sr.reveal('.steps_card, .productcard, .questions_group, .footer, .Categories, .card4', { interval: 100 })
+    </script>
     
     <script>
         const swiper = new Swiper('.swiper-container', {
@@ -1084,6 +1134,8 @@ function animateNumbers() {
 
 // observer.observe(statsSection);
 </script>
+
+
 
     
 </body>

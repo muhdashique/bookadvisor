@@ -15,6 +15,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        @font-face {
+            font-family: 'Nexa2';
+            src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+        }
+        .textTitle3{
+            font-family: 'Nexa2';
+        }
         .contact-section {
             display: flex;
             justify-content: center;
@@ -193,6 +200,11 @@
             opacity: 0.4;
             animation: pulse 2s infinite;
         }
+        .header-scroll {
+            background-color: white; /* White background for scroll */
+            transition: background-color 0.6s ease-in-out;
+        }
+
 
         @keyframes pulse {
             0% {
@@ -217,18 +229,16 @@
 <body class="bg-white">
     <div class="min-h-screen flex flex-col">
         <!-- Navbar -->
-        <header class="fixed top-0 left-0 w-full z-50 bg-white/100 backdrop-sm shadow-md">
+        <header class="fixed top-0 left-0 w-full z-50 textTitle3 font-bold header-scroll">
             <div class="w-full">
-                <div class="flex justify-between items-center py-4 mx-auto px-4">
+                <div class="flex justify-between items-center py-4 px-3 mx-auto md:px-10 w-full">
                     <!-- Logo -->
                     <div class="w-[150px] h-auto">
-                        <img src="{% static 'image/BOOKADVISOR.in.png' %}"
-                            class="w-full h-full object-contain drop-shadow-[0_6px_6px_rgba(255,255,255,1)]"
-                            alt="BookAdvisor Logo">
+                        <img src="{% static 'image/whitelogo.png' %}" class="w-full h-full object-contain" alt="BookAdvisor Logo">
                     </div>
-
+        
                     <!-- Hamburger Icon -->
-                    <div class="md:hidden flex items-center">
+                    <div class="md:hidden w-full flex justify-end">
                         <button id="hamburger" class="focus:outline-none">
                             <svg class="w-8 h-8 text-[#47ad95]" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -237,61 +247,39 @@
                             </svg>
                         </button>
                     </div>
-
+        
                     <!-- Navigation Links -->
                     <div id="menu" class="hidden md:flex justify-center items-center gap-20">
-                       <div class="flex items-center gap-10">
-                        <a href="{% url 'index' %}"
-                        class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
-                    <a href="{% url 'about' %}"
-                        class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
-                    <a href="{% url 'properties' %}"
-                        class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
-                    <a href="{% url 'contactpage' %}"
-                        class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
-                       </div>
-                       <div class="md:flex hidden flex-col gap-2">
-                        <div>
-                            <p>+917034422377</p>
-                            <p>bookadvisor743@gmail.com</p>
-                        </div>
-                        <!-- <div class="">
-                            <a href="https://www.facebook.com/share/1AA5PFj71C/"><i
-                                    class="fa-brands fa-facebook "></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="https://wa.me/917034422377" target="_blank"><i
-                                    class="fa-brands fa-whatsapp "></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="https://www.instagram.com/bookadvisor.in/profilecard/?igsh=aGkwcHpzbnZ1bWRy"><i
-                                    class="fa-brands fa-instagram "></i></a>
-                        </div> -->
-                    </div>
-                        
-                    </div>
-
-                   <!-- Login Button -->
-                   <div class="hidden md:block">
-                    <a href="{% url 'login' %}"
-                        class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition"
-                        style="">Login</a>
-                </div>
-                    
-
-
-                    <!-- Mobile Menu -->
-                    <div id="mobileMenu"
-                        class="hidden flex flex-col gap-4 mt-4 md:hidden bg-white shadow-lg rounded-lg p-4">
-                        <a href="{% url 'index' %}"
+                        <div class="flex items-center gap-10">
+                            <a href="{% url 'index' %}"
                             class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
-                        <a href="{% url 'about' %}"
+                            <a href="{% url 'about' %}"
                             class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
-                        <a href="{% url 'properties' %}"
+                            <a href="{% url 'properties' %}"
                             class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
-                        <a href="{% url 'contactpage' %}"
+                            <a href="{% url 'contactpage' %}"
                             class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
-                        <a href="{% url 'login' %}"
-                            class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
+                        </div>
+                    </div>
+        
+                    <div class="flex gap-20 items-center" id="menu">
+                        <div class="md:flex hidden flex-col gap-2">
+                            <div class="text-white">
+                                <p><a href="https://wa.me/917034422377" target="_blank" class="flex gap-2">
+                                        <span><i class="fa-solid fa-phone"></i></span> +917034422377</a></p>
+                                <p><a href="mailto:bookadvisor743@gmail.com" class="flex gap-2">
+                                        <span><i class="fa-solid fa-envelope"></i></span> bookadvisor743@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <!-- Login Button -->
+                        <div class="hidden md:block">
+                            <a href="{% url 'login' %}" class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
+                        </div>
                     </div>
                 </div>
+            </div>
         </header>
+        
 
         <script>
             const hamburger = document.getElementById('hamburger');
@@ -433,6 +421,38 @@
             });
         });
     </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector("header");
+        const logo = header.querySelector("img");
+        const navLinks = header.querySelectorAll("#menu a");
+
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                header.classList.add("header-scroll");
+                logo.src = "{% static 'image/BOOKADVISOR.in.png' %}"; // Change logo to black version
+                navLinks.forEach(link => {
+                    link.classList.remove("text-white");
+                    link.classList.add("text-black");
+                });
+            } else {
+                header.classList.remove("header-scroll");
+                logo.src = "{% static 'image/whitelogo.png' %}"; // Revert to white version
+                navLinks.forEach(link => {
+                    link.classList.remove("text-black");
+                    link.classList.add("text-white");
+                });
+            }
+        }
+
+        // Run on page load and on scroll
+        handleScroll(); 
+        window.addEventListener("scroll", handleScroll);
+    });
+</script>
+
+
+
 
     {% block extra_scripts %}{% endblock %}
 </body>

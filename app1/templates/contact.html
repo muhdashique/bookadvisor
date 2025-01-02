@@ -5,8 +5,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <style>
+        @font-face{
+        src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+        font-family: 'Nexa';
+    }
+    @font-face {
+        font-family: 'Nexa1';
+        src: url("{% static 'fonts/Nexa-Heavy.ttf' %}") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Sui';
+        src: url("{% static 'fonts/Sui Generis Rg.otf' %}") format('truetype');
+    }
+    @font-face {
+        font-family: 'AeroBold';
+        src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
+    }
+    .bannerTitle{
+            font-family: 'Sui';
+        }
+        .buttonText{
+            font-family: 'Nexa';
+            font-weight: 800;
+        }
+        .buttonText1{
+            font-family: 'Nexa1';
+            font-weight: 800;
+        }
+        .hero {
+      background-image: url('https://www.tourmyindia.com/blog//wp-content/uploads/2018/02/Poovar-Island-Resort.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .search-form {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .search-form .form-group {
+      margin-right: 20px;
+    }
+
+    .search-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .search-form select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn {
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',  'Roboto', sans-serif;
             margin: 0;
@@ -205,7 +285,7 @@
         /* Hero Section */
         .hero {
             position: relative;
-            height: 30vh;
+            height: 80vh;
             width: 100%; /* Added width property */
             display: flex;
             align-items: center;
@@ -303,23 +383,9 @@
         body {
             background-color: #ffffff;
         }
-
-
-        /* .whatsapp-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #25D366;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-} */
-
-/* .whatsapp-button:hover {
-    background-color: #128C7E; 
-} */
-
+        .contactCard{
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
 
 #popup-message {
     position: fixed;
@@ -337,47 +403,63 @@
 </head>
 <body>
 
-
-    <section class="hero" id="home" style="position:relative ; ">
-        <div style="position: absolute;width: 100%;height: 100%;overflow: hidden;">
-            <video src="{% static 'images\careervideo.mp4' %}"type="video/mp4" autoplay loop muted playsinline style="width: 100%;height: 100%;object-fit: cover;">
-    
-            </video>
+    <section class="hero mb-10 relative">
+        <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-80">
+          <img src="{% static 'image/blackshade.png' %}" class="w-full h-full object-cover" alt="">
         </div>
-            <div class="hero-content">
-                <h1 style="margin-top: 15%; color: black;">Connect with us</h1>
-               <!-- <p>Unlock your potential and shape your future with us. Explore opportunities that inspire growth and success.</p> -->
-                <!-- <a href="#about" class="btn">REQUEST A QUOTE</a>  -->
-            </div>
-    </section>
+        <div class="hero-content relative z-30">
+          <div style="color: #ffffff;" class=" font-bold leading-tight bannerTitle text-2xl md:text-[45px] lg:text-[70px]">We’d Love to Hear from You!</div>
+  
+          <div class="text-lg mb-10 max-w-[900px] mx-auto buttonText1">Have questions about our services, need support, or want to share feedback? We're just a message away! Our team is dedicated to assisting you and making your experience with us seamless and enjoyable. Whether it's a query, suggestion, or anything else, don’t hesitate to connect—we’re here to help!</div>
+         
+        </div>
+      </section>
 </head>
 <br>
 
+<section class="max-w-[1400px] mx-auto mb-10">
+    <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="w-full h-[150px] bg-[#40A290] rounded-3xl contactCard flex flex-col justify-center items-center gap-2 text-white">
+                <div class="buttonText1 flex items-center gap-2 md:text-2xl text-xl"><span><i class="fa-solid fa-envelope"></i></span>Email</div>
+                <div class="buttonText font-bold md:text-lg">bookadvisor743@gmail.com</div>
+            </div>
+            <div class="w-full h-[150px] bg-[#40A290] rounded-3xl contactCard flex flex-col justify-center items-center gap-2 text-white">
+                <div class="buttonText1 flex items-center gap-2 md:text-2xl text-xl"><span><i class="fa-solid fa-phone"></i></span>Phone</div>
+                <div class="buttonText font-bold md:text-lg">+917034422377</div>
+            </div>
+            <div class="w-full h-[150px] bg-[#40A290] rounded-3xl contactCard flex flex-col justify-center items-center gap-2 text-white">
+                <div class="buttonText1 flex items-center gap-2 md:text-2xl text-xl"><span><i class="fa-solid fa-location-dot"></i></span>Location</div>
+                <div class="buttonText font-bold md:text-lg">Kerala, South India</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section>
     <div style="display: flex; justify-content: center; align-items: center; gap: 10px; padding: 20px; width: 100%; height: auto; flex-wrap: wrap;">
 
         <!-- Image Section -->
-        <div style="flex: 1; min-width: 300px; height: 100%; max-width: 50%;">
-            <img src="https://img.freepik.com/premium-photo/customer-service-representative-professional-customer-support-aftersales-service-phone_71956-31509.jpg?size=626&ext=jpg&ga=GA1.1.1630694325.1728393201&semt=ais_hybrid" 
+        <div style="flex: 1; min-width: 300px; height: 80vh; max-width: 50%;" class="contactImage">
+            <img src="https://www.mountainshadows.in/wp-content/uploads/2022/12/facilities-cover.jpg" 
                  alt="Contact Us Image" 
                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
         </div>
     
         <!-- Contact Form Section -->
         <div class="contact-form" style="flex: 1; min-width: 300px; height: 100%; max-width: 50%; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-            <h1 style="font-weight: 700;">Connect With Us</h1>
+            <h1 style="font-weight: 700;">Get in Touch with Us</h1>
     
             
     
-            {% if messages %}
+            <!-- {% if messages %}
                 {% for message in messages %}
                     <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" 
                          style="padding: 10px; margin-bottom: 20px; border-radius: 4px; background-color: #d4edda; color: #155724;">
                         {{ message }}
                     </div>
                 {% endfor %}
-            {% endif %}
+            {% endif %} -->
     
             <form method="POST">
                 {% csrf_token %}
@@ -398,6 +480,25 @@
     <br>
     
    
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        /=============== SCROLL REVEAL ANIMATION ===============/
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+            // reset: true
+        })
+
+        sr.reveal('.home__data')
+        sr.reveal('.home__img', { delay: 500 })
+        sr.reveal('.home__social', { delay: 600 })
+        sr.reveal('.contactImage, .aboutTitle, .aboutPara, .rooms, .roomPara, .Destinations, .DestinationsPara, .card1, .card3', { origin: 'left' })
+        sr.reveal('.contact-form, .contact_form,.aboutImage, .card2, .card5', { origin: 'right' })
+        sr.reveal('.steps_card, .productcard, .questions_group, .footer, .Categories, .contactCard', { interval: 100 })
+    </script>
        
 
     <script>

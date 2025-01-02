@@ -165,6 +165,32 @@
                 padding: 1rem;
             }
         }
+        .category-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-actions a,
+.category-actions button {
+    margin-left: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.category-actions a:hover,
+.category-actions button:hover {
+    color: #47ad95;  /* Add a hover effect */
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
@@ -175,7 +201,9 @@
             {{ form.as_p }}
             <button type="submit" class="btn">Add Category</button>
         </form> {% endcomment %}
-        <a href="{% url 'room_category_list' %}" class="btn btn-secondary">show category</a>
+       <!-- Back button to admin_pannel -->
+<a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
+
     </div> 
 
     <h1>Room Categories</h1>
@@ -191,10 +219,12 @@
                 </div>
                 <div class="category-actions">
                     <!-- Edit link -->
-                    <a href="{% url 'edit_room_category' category.id %}" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a href="{% url 'edit_room_category' category.id %}" title="Edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
     
-                    <!-- Delete form -->
-                    <form action="{% url 'delete_room_category' category.id %}" method="POST" style="display:inline;">
+                    <!-- Delete form with confirmation -->
+                    <form action="{% url 'delete_room_category' category.id %}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this category?');">
                         {% csrf_token %}
                         <button type="submit" title="Delete" style="background: none; border: none; color: inherit;">
                             <i class="fas fa-trash-alt"></i>
@@ -204,6 +234,7 @@
             </li>
         {% endfor %}
     </ul>
+    
     
     
 

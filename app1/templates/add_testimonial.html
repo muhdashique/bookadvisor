@@ -162,6 +162,7 @@
     <div style="display: flex; flex-direction: column;">
         <div class="container">
             <div class="form-header">
+                <a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
                 <h1>Share Your Experience</h1>
                 <p>We value your feedback!</p>
             </div>
@@ -186,6 +187,8 @@
     
     
         <div class="container" style="">
+            <a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
+
           <h1>All Testimonials</h1>
           {% if testimonials %}
               <ul class="space-y-4">

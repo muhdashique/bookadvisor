@@ -12,6 +12,35 @@
   <title>BOOK ADVISOR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+
+    @font-face{
+        src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+        font-family: 'Nexa';
+    }
+    @font-face {
+        font-family: 'Nexa1';
+        src: url("{% static 'fonts/Nexa-Heavy.ttf' %}") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Sui';
+        src: url("{% static 'fonts/Sui Generis Rg.otf' %}") format('truetype');
+    }
+    @font-face {
+        font-family: 'AeroBold';
+        src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
+    }
+    .bannerTitle{
+            font-family: 'Sui';
+        }
+        .buttonText{
+            font-family: 'Nexa';
+            font-weight: 800;
+        }
+        .buttonText1{
+            font-family: 'Nexa1';
+            font-weight: 800;
+        }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -249,10 +278,7 @@
 
 /* dest new */
 .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
         }
         
         h1 {
@@ -332,34 +358,44 @@
 </head>
 <body>
   <main>
-    <section class="hero mb-10">
-      <div class="hero-content">
-        <h1 style="color: #ffffff;" class=" font-bold leading-tight">EXPLORE THE WORLD WITH BOOKADVISOR</h1>
+    <section class="hero mb-10 relative">
+      <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-80">
+        <img src="{% static 'image/blackshade.png' %}" class="w-full h-full object-cover" alt="">
+      </div>
+      <div class="hero-content relative z-30">
+        <div style="color: #ffffff;" class=" font-bold leading-tight bannerTitle text-2xl md:text-[45px] lg:text-[70px] mb-5">EXPLORE THE WORLD WITH BOOKADVISOR</div>
 
-        <p class="text-sm md:text-2xl lg:text-[20px] font-semibold mb-10">Welcome to BookAdvisor, your trusted companion in discovering the finest resorts and rooms across South India. We believe every journey deserves a memorable stay, and that's why we bring you an extensive selection of accommodations tailored to your comfort, style, and budget.</p>
+        <div class="md:text-lg text-sm px-2
+         mb-10 max-w-[900px] mx-auto buttonText1">Welcome to BookAdvisor, your trusted companion in discovering the finest resorts and rooms across South India. We believe every journey deserves a memorable stay, and that's why we bring you an extensive selection of accommodations tailored to your comfort, style, and budget.</div>
        
       </div>
     </section>
 
     <section class=" px-2 grid grid-cols-1 w-full place-items-center md:flex justify-center items-center gap-10 max-w-[1400px] mx-auto mb-10">
         <div class="md:w-[50%] w-full">
-          <h1 class=" md:text-[50px] text-3xl leading-tight font-bold mb-3">ABOUT BOOKADVISOR</h1>
-          <p>Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget,At Book Advisor, we bring together a curated selection of premium resorts, each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
-            .
-
-            .</p>
+          <div class=" md:text-[50px] text-3xl leading-tight font-bold mb-3 bannerTitle aboutTitle">Heart of Our Mission</div>
+          <p style="color: #000000; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
+            Book Advisor, your trusted platform for discovering and booking the finest resorts in Wayanad. Nestled in the lush greenery of the Western Ghats, Wayanad is a haven for nature lovers, adventure seekers, and those looking to unwind in serene surroundings. 
+        </p>
+        <p style=" color: #000000; margin-top: 20px;  max-width: 900px;" class="buttonText aboutPara">
+          Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget. At Book Advisor, we bring together a curated selection of premium resorts, 
+      </p>
+      <p style="color: #000000; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
+        each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate.
+   </p>
+   
         </div>
-      <div class="md:w-[50%] w-full h-[400px] overflow-hidden rounded-3xl">
+      <div class="md:w-[50%] w-full h-[400px] overflow-hidden rounded-3xl aboutImages">
         <img src="https://media.assettype.com/outlooktraveller%2F2024-02%2Fe5b97dae-71f6-40ec-a208-b407aba860b5%2Fwayanad.jpg" class="h-full w-full object-cover" alt="About Image">
       </div>
     </section>
   </main>
 
   <section>
-    <div class="container mb-10">
-      <h1 class="text-3xl font-bold leading-tight">Discover your new favourite stay</h1>
+    <div class="max-w-[1400px] mx-auto mb-10">
+      <h1 class="text-3xl font-bold leading-tight bannerTitle md:text-[50px] text-[35px] Discover">Discover your new favourite stay</h1>
       <div style="position: relative;">
-          <div class="carousel">
+          <div class="carousel buttonText1">
               <div class="card">
                   <img src="https://nivaanholidays.com/wp-content/uploads/2023/06/ii0ows5abco.jpg.webp" alt="All inclusive resort with palm trees at sunset">
                   <div class="card-label">Alappuza</div>
@@ -404,56 +440,69 @@
       </div>
   </div>
   </section>
-      <br>
-      <br>
-      
 
    
       <section class="camping-planner">
-        <h1 class="text-3xl font-bold leading-tight">How to plan a trip</h1>
+        <div class="font-bold leading-tight bannerTitle text-[35px] md:text-[50px] text-center mb-10 Plan">How to plan a trip</div>
         
         <div class="camping-grid">
             <div class="camping-item">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLie69Ghp_fVnAXUd52gvLUS5ZggUV0b2flg&s" alt="Know Your Limits">
                 <div class="camping-content">
-                    <h2>Know Your Limits</h2>
-                    <p>Understand your physical capabilities and camping experience level before planning your trip. Choose a suitable location and duration that matches your skill level.</p>
+                    <h2 class="buttonText1">Know Your Limits</h2>
+                    <p class="buttonText font-semibold">Understand your physical capabilities and camping experience level before planning your trip. Choose a suitable location and duration that matches your skill level.</p>
                 </div>
             </div>
             
             <div class="camping-item">
                 <img src="https://www.mistay.in/travel-blog/content/images/2022/10/Places-to-Visit-in-India.jpg" alt="Prepare - Gear Up">
                 <div class="camping-content">
-                    <h2>Prepare - Gear Up!</h2>
-                    <p>Pack essential camping gear including tent, sleeping bags, cooking equipment, and appropriate clothing. Don't forget safety items and first-aid supplies.</p>
+                    <h2 class="buttonText1">Prepare - Gear Up!</h2>
+                    <p class="buttonText font-semibold">Pack essential camping gear including tent, sleeping bags, cooking equipment, and appropriate clothing. Don't forget safety items and first-aid supplies.</p>
                 </div>
             </div>
             
             <div class="camping-item">
                 <img src="https://www.skymetweather.com/themes/skymet/images/gallery/toplists/9-Spectacular-Spots-For-Travelling-In-India/4.jpg" alt="Plan Your Trip">
                 <div class="camping-content">
-                    <h2>Plan Your Trip</h2>
-                    <p>Research your camping destination, check weather forecasts, and make necessary reservations. Create a detailed itinerary and share it with someone you trust.</p>
+                    <h2 class="buttonText1">Plan Your Trip</h2>
+                    <p class="buttonText font-semibold">Research your camping destination, check weather forecasts, and make necessary reservations. Create a detailed itinerary and share it with someone you trust.</p>
                 </div>
             </div>
             
             <div class="camping-item">
                 <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/c2/34/bf/meenmutty-falls-aralam.jpg?w=1400&h=1400&s=1" alt="In Case of Emergency">
                 <div class="camping-content">
-                    <h2>In Case of Emergency</h2>
-                    <p>Prepare for unexpected situations by bringing emergency supplies, knowing basic first aid, and having important contact numbers readily available.</p>
+                    <h2 class="buttonText1">In Case of Emergency</h2>
+                    <p class="buttonText font-semibold">Prepare for unexpected situations by bringing emergency supplies, knowing basic first aid, and having important contact numbers readily available.</p>
                 </div>
             </div>
         </div>
         
     </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
 
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        /=============== SCROLL REVEAL ANIMATION ===============/
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+            // reset: true
+        })
+
+        sr.reveal('.home__data')
+        sr.reveal('.home__img', { delay: 500 })
+        sr.reveal('.home__social', { delay: 600 })
+        sr.reveal('.about_img, .aboutTitle, .aboutTitle, .aboutPara, .Discover, .Plan', { origin: 'left' })
+        sr.reveal('.about_data, .contact_form,.aboutImage, .card2, .aboutImages', { origin: 'right' })
+        sr.reveal('.steps_card, .productcard, .camping-item', { interval: 100 })
+    </script>
+    
 
   <script>
     document.querySelector('.search-form').addEventListener('submit', (event) => {

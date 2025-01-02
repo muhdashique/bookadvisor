@@ -132,6 +132,8 @@
 </head>
 <body>
     <div class="container">
+        <a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
+
         <h1><i class="fas fa-image"></i> Add  Image</h1>
         <form method="post" enctype="multipart/form-data" id="roomForm">
             {% csrf_token %}

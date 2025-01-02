@@ -156,6 +156,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
         <h1>Edit Room: {{ room.name }}</h1>
         
         <form method="post" enctype="multipart/form-data" id="editRoomForm">

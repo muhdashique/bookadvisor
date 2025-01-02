@@ -194,9 +194,12 @@
     </style>
 </head>
 <body>
-    <div style="position: fixed; top: 20px; left: 20px;">
-        <a href="{% url 'logout' %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to logout?');">Logout</a>
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+        <a href="{% url 'logout' %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to logout?');">
+            Logout
+        </a>
     </div>
+    
     
     
     <div style="position: fixed; top: 20px; right: 20px;">

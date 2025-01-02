@@ -168,7 +168,12 @@
     </style>
 </head>
 <body>
+    
     <form method="POST" enctype="multipart/form-data">
+        <a href="{% url 'admin_pannel' %}" class="btn btn-primary">Back to Admin Panel</a>
+
+        
+
         {% csrf_token %}
         
         <label for="id_name">{{ form.name.label }}</label>

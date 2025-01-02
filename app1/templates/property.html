@@ -10,6 +10,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Property Listings</title>
     <style>
+         @font-face{
+        src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+        font-family: 'Nexa';
+    }
+    @font-face {
+        font-family: 'Nexa1';
+        src: url("{% static 'fonts/Nexa-Heavy.ttf' %}") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Sui';
+        src: url("{% static 'fonts/Sui Generis Rg.otf' %}") format('truetype');
+    }
+    @font-face {
+        font-family: 'AeroBold';
+        src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
+    }
+    .bannerTitle{
+            font-family: 'Sui';
+        }
+        .buttonText{
+            font-family: 'Nexa';
+            font-weight: 800;
+        }
+        .buttonText1{
+            font-family: 'Nexa1';
+            font-weight: 800;
+        }
         /* Base Styles */
         body {
             font-family: Arial, sans-serif;
@@ -166,6 +194,56 @@
             font-size: 0.9rem;
             margin-bottom: 8px;
         }
+        .hero {
+      background-image: url('https://media2.thrillophilia.com/images/photos/000/146/057/original/1550649124_niraamaya-retreats-backwaters.jpg?w=753&h=450&dpr=1.5');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .search-form {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .search-form .form-group {
+      margin-right: 20px;
+    }
+
+    .search-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .search-form select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn {
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -190,10 +268,20 @@
     </style>
 </head>
 <body>
-    <header class="pt-32 mb-10 bg-gradient-to-r from--50 to-indigo-50">
-        <h1 class="text-center text-3xl font-bold text-gray-800 tracking-tight md:text-4xl lg:text-5xl">Find Your Ideal Escape with BookAdvisor</h1>
-    </header>
+    <section class="hero mb-10 relative">
+        <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-80">
+          <img src="{% static 'image/blackshade.png' %}" class="w-full h-full object-cover" alt="">
+        </div>
+        <div class="hero-content relative z-30">
+          <div style="color: #ffffff;" class=" font-bold leading-tight bannerTitle text-2xl md:text-[45px] lg:text-[70px]">Find Your Ideal Escape with BookAdvisor</div>
+  
+          <div class="text-lg mb-10 max-w-[900px] mx-auto buttonText1">Escape to the perfect property that suits your style and needs. From serene retreats to luxurious getaways, BookAdvisor offers a curated collection of properties designed to provide you with the ultimate experience. Whether it's a peaceful getaway or an adventure-filled stay, we help you find the perfect escape for your next trip..</div>
+         
+        </div>
+      </section>
+    
     <div class="category-container">
+        <div class="mb-10 bannerTitle text-center md:text-[50px] text-[35px] underline underline-offset-[15px]">Find Your <span class="text-[#44A08C]">Ideal Property Today</span></div>
         {% if categories %}
             {% for category in categories %}
                 <a href="{% url 'property_view' category.id %}" class="category-link">
@@ -208,9 +296,9 @@
                         
                         <div class="category-details">
                             <div class="hotel-info">
-                                <h3 class="hotel-name">{{ category.name }}</h3>
+                                <h3 class="hotel-name buttonText1">{{ category.name }}</h3>
                                 <p class="hotel-location">{{ category.location }}</p>
-                                <p class="hotel-description">
+                                <p class="hotel-description buttonText">
                                     {% if category.description %}
                                         {{ category.description }}
                                     {% else %}
@@ -255,6 +343,27 @@
         {% endif %}
     </div>
    
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        /=============== SCROLL REVEAL ANIMATION ===============/
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+            // reset: true
+        })
+
+        sr.reveal('.home__data')
+        sr.reveal('.home__img', { delay: 500 })
+        sr.reveal('.home__social', { delay: 600 })
+        sr.reveal('.about_img, .aboutTitle, .aboutPara, .rooms, .roomPara, .Destinations, .DestinationsPara, .card1, .card3', { origin: 'left' })
+        sr.reveal('.about_data, .contact_form,.aboutImage, .card2, .card5', { origin: 'right' })
+        sr.reveal('.steps_card, .productcard, .questions_group, .footer, .Categories, .category-box', { interval: 100 })
+    </script>
+
 </body>
 </html>
 {% endblock %}
