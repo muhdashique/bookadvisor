@@ -10,6 +10,34 @@
     <title>Properties</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+         @font-face{
+        src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
+        font-family: 'Nexa';
+    }
+    @font-face {
+        font-family: 'Nexa1';
+        src: url("{% static 'fonts/Nexa-Heavy.ttf' %}") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Sui';
+        src: url("{% static 'fonts/Sui Generis Rg.otf' %}") format('truetype');
+    }
+    @font-face {
+        font-family: 'AeroBold';
+        src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
+    }
+    .bannerTitle{
+            font-family: 'Sui';
+        }
+        .buttonText{
+            font-family: 'Nexa';
+            font-weight: 800;
+        }
+        .buttonText1{
+            font-family: 'Nexa1';
+            font-weight: 800;
+        }
    /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -213,6 +241,26 @@ h1 {
             font-size: 1.2rem;
             color: #666;
         }
+        .hero {
+      background-image: url('https://media2.thrillophilia.com/images/photos/000/146/057/original/1550649124_niraamaya-retreats-backwaters.jpg?w=753&h=450&dpr=1.5');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
 
         @media (max-width: 768px) {
             .image-grid {
@@ -241,20 +289,21 @@ h1 {
     
 </head>
 <body>
-        <section class="w-full mt-28 relative h-[500px] mb-10">
-            <div class="flex flex-col justify-center items-center h-[500px]">
-                <div class="w-full h-[500px] absolute object-cover -z-1">
-                    <img src="https://www.japjitravel.com/blog/wp-content/uploads/2016/11/munnar-kerala.jpg" class="w-full h-full object-cover" alt="">
-                </div>
-                <div class="relative z-20 max-w-[900px] mx-auto text-center text-[#ffff]">
-                    <div class="text-[50px]  font-bold text-white">Unlock Your Perfect Getaway with BookAdvisor</div>
-                    <div class="text-center">Discover a world of handpicked resorts and rooms designed to match your unique needs. Whether you’re seeking a peaceful retreat in the hills, a luxurious beachfront escape, or a cozy stay in the heart of the city, BookAdvisor brings you closer to your dream destination</div>
-                </div>
-            </div>
-        </section>
+    <section class="hero mb-10 relative">
+        <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-80">
+          <img src="{% static 'image/blackshade.png' %}" class="w-full h-full object-cover" alt="">
+        </div>
+        <div class="hero-content relative z-30">
+          <div style="color: #ffffff;" class="px-2 mb-5 font-bold leading-tight bannerTitle text-2xl md:text-[45px] lg:text-[70px]">Find Your Ideal Escape with BookAdvisor</div>
+  
+          <div class="md:text-lg text-sm mb-10 max-w-[900px] mx-auto px-2 buttonText1">Escape to the perfect property that suits your style and needs. From serene retreats to luxurious getaways, BookAdvisor offers a curated collection of properties designed to provide you with the ultimate experience. Whether it's a peaceful getaway or an adventure-filled stay, we help you find the perfect escape for your next trip..</div>
+         
+        </div>
+      </section>
        
 
-        <h1 class="page-title">{{ category.name }}</h1>
+        <h1 class="page-title bannerTitle mb-5">{{ category.name }}</h1>
+        <a href="{% url 'properties' %}" class="flex justify-center items-center mb-10"><div class="buttonText1 text-center px-10 py-2 bg-[#A7D477] rounded-3xl shadow-sm">Back to Property</div></a>
 
         {% if rooms %}
         <div class="gallery-container">

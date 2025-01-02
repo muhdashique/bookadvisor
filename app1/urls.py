@@ -22,7 +22,6 @@ urlpatterns = [
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
-    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('rooms/', views.room_list, name='room_list'),
     path('rooms/edit/<int:room_id>/', views.edit_room, name='edit_room'),
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
@@ -36,8 +35,8 @@ urlpatterns = [
     path('testimonials/', views.testimonial_list, name='testimonials'),
     path('add_testimonial/', views.add_testimonial, name='add_testimonial'),
     path('rooms/delete/<int:room_id>/', views.delete_room, name='delete_room'),
-
-     path('testimonials/', views.testimonial_list, name='testimonial_list'),
+    path('logout/', views.user_logout, name='logout'),
+    path('testimonials/', views.testimonial_list, name='testimonial_list'),
     path('testimonials/add/', views.add_edit_testimonial, name='add_testimonial'),
     path('testimonials/edit/<int:pk>/', views.add_edit_testimonial, name='edit_testimonial'),
     path('testimonials/delete/<int:pk>/', views.delete_testimonial, name='delete_testimonial'),
