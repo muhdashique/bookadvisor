@@ -277,6 +277,21 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu"
+                class="hidden flex flex-col gap-4 mt-4 md:hidden bg-white shadow-lg rounded-lg p-4">
+                <a href="{% url 'index' %}"
+                    class="{% if request.path == '/' %}active{% endif %} hover:text-[#47ad95] transition">Home</a>
+                <a href="{% url 'about' %}"
+                    class="{% if request.path == '/about/' %}active{% endif %} hover:text-[#47ad95] transition">About</a>
+                <a href="{% url 'properties' %}"
+                    class="{% if request.path == '/properties/' %}active{% endif %} hover:text-[#47ad95] transition">Properties</a>
+                <a href="{% url 'contactpage' %}"
+                    class="{% if request.path == '/contact/' %}active{% endif %} hover:text-[#47ad95] transition">Contact</a>
+                <a href="{% url 'login' %}"
+                    class="px-4 py-2 bg-[#47ad95] text-white rounded-md hover:bg-opacity-90 transition">Login</a>
+            </div>
             </div>
         </header>
         
