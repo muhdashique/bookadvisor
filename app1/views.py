@@ -356,7 +356,7 @@ def contact_form_view(request):
                     f"Message:\n{message}"
                 ),
                 from_email='your_email@gmail.com',  # Replace with your email
-                recipient_list=['muhammedashique8281@gmail.com'],  # Replace with recipient email
+                recipient_list=['bookadvisor743@gmail.com'],  # Replace with recipient email
                 fail_silently=False,
             )
             
@@ -391,7 +391,7 @@ def send_contact_email(data):
             subject=subject,
             message=message,
             from_email=data['email'],  # Or use a fixed email like 'your_email@gmail.com'
-            recipient_list=['muhammedashique8281@gmail.com'],  # Replace with your email
+            recipient_list=['bookadvisor743@gmail.com'],  # Replace with your email
             fail_silently=False,
         )
         return True

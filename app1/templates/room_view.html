@@ -234,28 +234,34 @@
         <!-- Back button -->
        
 
-        <h1>{{ room.name }}</h1>
-        <div class="w-full h-sreen">
-            {% if room.image %}
-                <img src="{{ room.image.url }}" alt="{{ room.name }}" class="room-image-detail h-full w-full object-content">
-            {% endif %}
+        <!-- <h1>{{ room.name }}</h1> -->
+        <div class="w-full h-sreen flex justify-center items-center flex-col relative">
+            <div class="w-full h-screen flex justify-center items-center">
+                {% if room.image %}
+                    <img src="{{ room.image.url }}" alt="{{ room.name }}" class="room-image-detail h-full w-full object-contain">
+                {% endif %}
+            </div>
+
+            <div class="relative flex justify-center items-center w-full">
+                <div class="room-navigation absolute bottom-10 flex gap-5">
+                    {% if previous_room %}
+                        <a href="{% url 'room_detail' previous_room.id %}" class="btn"><i class="fa-solid fa-arrow-left"></i> </a>
+                    {% endif %}
+                    
+                    
+                <a href="{% url 'properties' %}" class="flex justify-center items-center"><div class="px-10 py-2 rounded-3xl bg-[#A7D477]">Back to Property</div></a>
+        
+                    {% if next_room %}
+                        <a href="{% url 'room_detail' next_room.id %}" class="btn"><i class="fa-solid fa-arrow-right"></i></a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
         <!-- <div class="room-detail-info">
             <p>{{ room.description }}</p>
         </div> -->
         
-        <div class="room-navigation">
-            {% if previous_room %}
-                <a href="{% url 'room_detail' previous_room.id %}" class="btn"><i class="fa-solid fa-arrow-left"></i> </a>
-            {% endif %}
-            
-            
-        <a href="{% url 'properties' %}" class="flex justify-center items-center"><div class="px-10 py-2 rounded-3xl bg-[#A7D477]">Back to Property</div></a>
-
-            {% if next_room %}
-                <a href="{% url 'room_detail' next_room.id %}" class="btn"><i class="fa-solid fa-arrow-right"></i></a>
-            {% endif %}
-        </div>
+        
     </div>
      <!-- whatapp message -->
      <a href="https://wa.me/917034422377?text=Hello, I am interested in booking a room. Could you please provide details about availability, pricing, and amenities?" 
