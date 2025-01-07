@@ -12,10 +12,12 @@
   <title>BOOK ADVISOR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
     @font-face{
         src: url("{% static 'fonts/Nexa-ExtraLight.ttf' %}") format('truetype');
         font-family: 'Nexa';
+
     }
     @font-face {
         font-family: 'Nexa1';
@@ -30,19 +32,23 @@
         font-family: 'AeroBold';
         src: url("{% static 'fonts/Aero Matics Display Bold.ttf' %}") format('truetype');
     }
+    @font-face {
+        font-family: 'Poppins';
+        src: url("{% static 'fonts/Poppins/Poppins-Black.ttf' %}") format('truetype');
+    }
     .bannerTitle{
-            font-family: 'Sui';
+        font-family: "Barlow", serif;
         }
         .buttonText{
-            font-family: 'Nexa';
-            font-weight: 800;
+            font-family: "Barlow", serif;
+            font-weight: 400;
         }
         .buttonText1{
-            font-family: 'Nexa1';
-            font-weight: 800;
+            font-family: "Barlow", serif;
+            font-weight: 400;
         }
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Barlow", serif;
       margin: 0;
       padding: 0;
     }
@@ -375,19 +381,19 @@
 
     <section class=" px-2 grid grid-cols-1 w-full place-items-center md:flex justify-center items-center gap-10 max-w-[1400px] mx-auto mb-10">
         <div class="md:w-[50%] w-full">
-          <div class=" md:text-[50px] text-3xl leading-tight font-bold mb-3 bannerTitle aboutTitle">Heart of Our Mission</div>
-          <p style="color: #000000; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
+          <div class=" md:text-[50px] text-3xl leading-tight  mb-3 bannerTitle aboutTitle">Heart of Our Mission</div>
+          <p style="color: #4a4848; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
             Welcome to BookAdvisor, The South India’s premier online resort booking platform. Designed to make your travel planning seamless, we specialize in connecting you with the finest resorts across South India’s most captivating destinations.
  
         </p>
-        <p style=" color: #000000; margin-top: 20px;  max-width: 900px;" class="buttonText aboutPara">
+        <p style=" color: #4a4848; margin-top: 20px;  max-width: 900px;" class="buttonText aboutPara">
             From the misty hills and Natural Beauty of Wayanad and Lovely Hill stations of Munnar and Vagamon , the serene backwaters of Kerala and precious destinations of Tamilnadu nd Karnataka. BookAdvisor is your gateway to discovering the beauty and charm of South India like never before. 
       </p>
-      <p style="color: #000000; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
+      <p style="color: #4a4848; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
         Our mission is to make your getaway seamless and memorable by connecting you with the best resorts that cater to your preferences and budget. We are offering a wide range of selection to our customers to choose their dream facilities with their expectational budget. At Book Advisor, we bring together a curated selection of premium resorts,
 
    </p>
-   <p style="color: #000000; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
+   <p style="color: #4a4848; margin-top: 20px; max-width: 900px;" class="buttonText aboutPara">
     each offering unique experiences, from tranquil forest retreats to luxurious hillside escapes. Whether you're planning a romantic getaway, a family vacation, or a solo adventure, we ensure you find the perfect place to relax and rejuvenate
 
 </p>
